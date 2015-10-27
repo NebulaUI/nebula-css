@@ -1,0 +1,106 @@
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Width classes typically used on the grid, but can be used anywhere
+ * where a fractional width is needed.
+ * The classnames contain fractions that describe by how width the component
+ * should be.
+ *
+ * You can also assign what breakpoint this will begin at.
+ * `one-half@sm-up` for example will set the component with a width of 50%
+ * for screens larger than then `$screen-sm` breakpoint.
+ */
+
+
+@mixin fractions($breakpoint: null) {
+    $fractions: (
+        (one-whole,         1,          $use-width-one-whole),
+
+        (one-half,          1/2,        $use-width-one-half),
+
+        (one-third,         1/3,        $use-width-one-third),
+        (two-thirds,        2/3,        $use-width-two-thirds),
+
+        (one-quarter,       1/4,        $use-width-one-quarter),
+        (two-quarters,      2/4,        $use-width-one-quarter),
+        (three-quarters,    3/4,        $use-width-one-quarter),
+
+        (one-fifth,         1/5,        $use-width-one-fifth),
+        (two-fifths,        2/5,        $use-width-two-fifths),
+        (three-fifths,      3/5,        $use-width-three-fifths),
+        (four-fifths,       4/5,        $use-width-four-fifths),
+
+        (one-sixth,         1/6,        $use-width-one-sixth),
+        (two-sixths,        2/6,        $use-width-two-sixths),
+        (three-sixths,      3/6,        $use-width-three-sixths),
+        (four-sixths,       4/6,        $use-width-four-sixths),
+        (five-sixths,       5/6,        $use-width-five-sixths),
+
+        (one-eighth,        1/8,        $use-width-one-eighth),
+        (two-eighths,       2/8,        $use-width-two-eighths),
+        (three-eighths,     3/8,        $use-width-three-eighths),
+        (four-eighths,      4/8,        $use-width-four-eighths),
+        (five-eighths,      5/8,        $use-width-five-eighths),
+        (six-eighths,       6/8,        $use-width-six-eighths),
+        (seven-eighths,     7/8,        $use-width-seven-eighths),
+
+        (one-tenth,         1/10,       $use-width-one-tenth),
+        (two-tenths,        2/10,       $use-width-two-tenths),
+        (three-tenths,      3/10,       $use-width-three-tenths),
+        (four-tenths,       4/10,       $use-width-four-tenths),
+        (five-tenths,       5/10,       $use-width-five-tenths),
+        (six-tenths,        6/10,       $use-width-six-tenths),
+        (seven-tenths,      7/10,       $use-width-seven-tenths),
+        (eight-tenths,      8/10,       $use-width-eight-tenths),
+        (nine-tenths,       9/10,       $use-width-nine-tenths),
+
+        (one-twelfth,       1/12,       $use-width-one-twelfth),
+        (two-twelfths,      2/12,       $use-width-two-twelfths),
+        (three-twelfths,    3/12,       $use-width-three-twelfths),
+        (four-twelfths,     4/12,       $use-width-four-twelfths),
+        (five-twelfths,     5/12,       $use-width-five-twelfths),
+        (six-twelfths,      6/12,       $use-width-six-twelfths),
+        (seven-twelfths,    7/12,       $use-width-seven-twelfths),
+        (eight-twelfths,    8/12,       $use-width-eight-twelfths),
+        (nine-twelfths,     9/12,       $use-width-nine-twelfths),
+        (ten-twelfths,      10/12,      $use-width-ten-twelfths),
+        (eleven-twelfths,   11/12,      $use-width-eleven-twelfths),
+    );
+    
+    @each $fraction in $fractions {
+        @if(nth($fraction,3)) {
+            .baz {
+                width: 100%;
+            }
+            @if($breakpoint) {
+                .#{nth($fraction,1)}#{nth($breakpoint,2)} {
+                    width: nth($fraction,2)*100%;
+                }
+            } @else {
+                .#{nth($fraction,1)} {
+                    width: nth($fraction,2)*100%;
+                }
+            }
+        }
+    }
+}
+
+@mixin makeWidths() {
+    $breakpoints: (
+        ($screen-xxs,  \@xxs-up),
+        ($screen-xs,   \@xs-up),
+        ($screen-sm,   \@sm-up),
+        ($screen-md,   \@md-up),
+        ($screen-lg,   \@lg-up)
+    );
+    
+    @include fractions();
+    @each $breakpoint in $breakpoints {
+        @media (min-width: (nth($breakpoint,1)+1)) {
+            @include fractions($breakpoint);
+        }
+    }
+}
+
+@include makeWidths();

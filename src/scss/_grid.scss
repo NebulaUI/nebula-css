@@ -1,0 +1,186 @@
+/*------------------------------------*\
+    $GRID
+\*------------------------------------*/
+
+/**
+ * This grid system is designed to be as minimal as possible, using only with,
+ * push and pull classes that you actually intend to use via the options 
+ * file under Settings.
+ * Further documentation regarding widths, push and pull classes is located
+ * within the corresponding files.
+ *
+ * Any grid should be placed within a `site-wrap` component with the
+ * `--padding` modifier e.g.
+ *
+ <div class="site-wrap site-wrap--padding">
+    <div class="grid">
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+    </div>
+ </div>
+
+
+ *
+ * Grid with equal height items
+ *
+<div class="site-wrap site-wrap--padding">
+    <div class="grid grid--equal-height">
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+    </div>
+</div>
+
+ *
+ * Grid with centered items
+ *
+<div class="site-wrap site-wrap--padding">
+    <div class="grid grid--centered">
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+    </div>
+</div>
+
+ *
+ * Grid with smaller gutter
+ *
+<div class="site-wrap site-wrap--padding">
+    <div class="grid grid--gutter-sm">
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+    </div>
+</div>
+
+ *
+ * Grid with no gutter
+ *
+<div class="site-wrap site-wrap--padding">
+    <div class="grid grid--no-gutter">
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+        <div class="grid__item one-half@sm-up">
+            [content]
+        </div>
+    </div>
+</div>
+ 
+ *
+ * The grids are infinitely nestable.
+ *
+ * DEMO
+ * http://codepen.io/anon/pen/vNWvyM/
+ */
+
+
+/**
+ * 1. Reset any margins and paddings.
+ * 2. Ensure grid spans full width of parent.
+ * 3. Set a negative margin-left & right to create space for `grid__item`s gutter.
+ * 4. Set a zero font-size to remove spacing on the `grid__item` children
+ *    caused by them having their display set to `inline-block`.
+ * 5. Remove any possible list styling.
+ * 6. Optional small gutters. requires modifier class on `grid__item`'s also.
+ * 7. remove the guttering from the grid
+ * 8. Set up a grid with for equal height items using flexbox.  
+ *    Works for ie10+  IE9 will fallback to the default grid.
+ * 9. Fix for IE10 which requires children of flexbox-items to have a
+ *    maximum width of 100%.
+ * 10. Vertically center grid items
+ * 11. Vertically align grid items to the bottom.
+ */
+.grid,
+.bare-list.grid {
+    margin: 0; /* [1] */
+    min-width: 100%; /* [2] */
+    margin-left: -$grid-gutter-width; /* [3] */
+    margin-bottom: -$grid-gutter-width; /* [3] */
+    font-size: 0; /* [4] */
+    list-style: none; /* [5] */
+    @if $grid-gutter-sm { /* [6] */
+        &--gutter-sm {
+            margin-left: -$gutter-sm-width;            
+        }
+        &--gutter-sm .grid__item {
+            padding-left: $gutter-sm-width;
+            margin-bottom: $gutter-sm-width;
+        }
+    }
+    @if $grid-no-gutter { /* [7] */
+        &--no-gutter {
+            margin-left: 0;            
+        }
+        &--no-gutter .grid__item {
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+    }
+    @if $grid-equal-height { /* [8] */
+        &--equal-height {
+            display: flex;
+            display: -ms-flexbox;
+            flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+        }
+        &--equal-height .grid__item {
+            display: flex;
+            display: -ms-flexbox;
+            >* { /** [9] */
+                max-width: 100%;
+            }
+        }
+    }
+    @if ($grid-centered) {
+        &--centered .grid__item {
+            vertical-align: middle; /* [10] */
+        }
+    }
+    @if ($grid-bottom) {
+        &--bottom .grid__item {
+            vertical-align: bottom; /* [11] */
+        }
+    }
+}
+
+/**
+ * 1. Inject the base font-size.  The grid items cannot inherit font-size
+ *    As the font-size on the parent `grid` component is set to zero to
+ *    avoid spacing issues when using inline-block.
+ * 2. Set display to relative to allow the push/pull classes to work
+ *    using left/right positioning values.
+ * 3. Set display property to inline-block.  Rather than floating blocks
+ *    inline-blocks do not have any issues with clearfixing, which is
+ *    especially troublesome when dealing with dynamic content resulting
+ *    in unequal heights.
+ * 4. Set default width of 100%.
+ * 5. Prevent item from collapsing when empty.
+ * 6. Create the gutter.
+ * 7. When grid items are differing heights, align them to the top
+ */
+.grid__item {
+    font-size: $base-font-size; /* [1] */
+    
+    position: relative; /* [2] */
+    display: inline-block; /* [3] */
+    width: 100%; /* [4] */
+    min-height: 1px; /* [5] */
+    padding-left: $grid-gutter-width; /* [6] */
+    margin-bottom: $grid-gutter-width; /* [6] */
+    vertical-align: top; /* [7] */
+    text-align: left;
+}

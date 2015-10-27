@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    $SITE-WRAP
+\*------------------------------------*/
+/**
+ * 1. Centers the main content with a maximum-width set in vars file.
+ * 2. Adds padding, required if there's to be objects or components such
+ *    as the grid system that contains negative margin equal to 
+ *    `$half-spacing-unit`.
+ */    
+
+.site-wrap { /* [1] */
+    max-width: $site-wrap-width;
+    margin: 0 auto;
+    &--padding { /* [2] */
+        max-width: $site-wrap-width + $spacing-unit;
+        padding: 0 $spacing-unit/2; 
+    }
+}
