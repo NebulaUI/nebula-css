@@ -86,8 +86,8 @@ $gutter-width:      1rem !default;
  *
   <div class="grid grid--gutter-sm">
  */
-$gutter-lg-width:   $gutter-width*2 !default;
-$gutter-sm-width:   $gutter-width/2 !default;
+$gutter-lg-width:   $gutter-width * 2 !default;
+$gutter-sm-width:   $gutter-width / 2 !default;
 
 /**
  * In order to remove whitespace between grid items due to inline-blocks the
