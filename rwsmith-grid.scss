@@ -511,8 +511,8 @@ $use-push-eleven-twelfths:  true !default;
     );
     
     @each $fraction in $fractions {
-        @if(nth($fraction,3)) {
-            @if($breakpoint) {
+        @if nth($fraction,3) {
+            @if $breakpoint {
                 .#{nth($fraction,1)}#{nth($breakpoint,2)} {
                     width: nth($fraction,2)*100%;
                 }
@@ -611,8 +611,8 @@ $use-push-eleven-twelfths:  true !default;
     );
     
     @each $fraction in $fractions {
-        @if(nth($fraction,3)) {
-            @if($breakpoint) {
+        @if nth($fraction,3) {
+            @if $breakpoint {
                 .push-#{nth($fraction,1)}#{nth($breakpoint,2)} {
                     left: nth($fraction,2)*100%;
                 }
@@ -711,8 +711,8 @@ $use-push-eleven-twelfths:  true !default;
     );
     
     @each $fraction in $fractions {
-        @if(nth($fraction,3)) {
-            @if($breakpoint) {
+        @if nth($fraction,3) {
+            @if $breakpoint {
                 .pull-#{nth($fraction,1)}#{nth($breakpoint,2)} {
                     right: nth($fraction,2)*100%;
                 }
