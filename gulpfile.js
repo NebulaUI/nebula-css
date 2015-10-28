@@ -16,14 +16,14 @@ var gulp = require('gulp'),
       ''].join('\n');
 
 gulp.task('style', function() {
-    return gulp.src('src/scss/rwsmith-grids.scss')
+    return gulp.src('src/scss/rwsmith-grid.scss')
         .pipe(sourcemaps.init())
             .pipe(sass().on('error', sass.logError))
             .pipe(autoprefixer({
                 browsers: ['last 4 versions'],
                 cascade: false
             }))
-            .pipe(minifyCSS())
+            //.pipe(minifyCSS())
             .pipe(rename({suffix: '.min'}))
             .pipe(header(banner, { pkg : pkg } ))
         .pipe(sourcemaps.write('.'))
