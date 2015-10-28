@@ -326,8 +326,7 @@ $use-push-eleven-twelfths:  true !default;
  * 13. Reverse the order of the grid items.
  * 14. Matrix spaces out grid items vertically equal to their horizontal spacing.
  */
-.grid,
-.bare-list.grid {
+.grid {
     min-width: 100%; /* [1] */
     margin: 0; /* [2] */
     padding: 0; /* [2] */
