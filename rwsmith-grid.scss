@@ -1,11 +1,12 @@
 /*------------------------------------*\
-    $RWSMITH-GRID
+    $RWSMITH GRID
 \*------------------------------------*/
 /**
  * CONTENTS
  * INTRO................How the system works with examples
  * VARS.................Default settings, change as necessary
  * FEATURE-TOGGLE.......Toggle specific grid features
+ * MIXINS...............Used for generating width, push & pull classes.
  * GRID-INITIALISE......Build the grid architecture
  * WIDTHS...............Width classes
  * PUSH.................Push classes
@@ -14,20 +15,20 @@
 
 
 /*------------------------------------*\
-    $INTRO
+    $INRO
 \*------------------------------------*/
 /**
  * This grid system is designed to be as minimal as possible, using only width,
- * push and pull classes that you actually intend to use via the
- * FEATURE-TOGGLE section below.
- * The grid settings are located in the VARS section below.
+ * push and pull classes that you actually intend to use via the feature-toggle 
+ * section below.
+ * The grid settings are located in the $VARS section below.
  *
- * NOTE: This grid system uses responsive suffices on top of a modified 
+ * NOTE: This grid system uses responsive suffices on top of the modified 
  * version of the BEM naming convention.
- * Further reading on this version of BEM
+ * Further reading on BEM
  * http://bit.ly/1dM4LGz
  *
- * Further reading on responsive suffixes:
+ * Responsive suffixes:
  * http://bit.ly/1kT29fI
  *
  * 
@@ -52,7 +53,6 @@
  *
  * Using responsive suffixes widths, push and pull can be applied for specific
  * breakpoints.
- *
   `class="grid__item one-half@sm-up one-third@md-up"`
  *
  * Push and pull classes can be used to shift the grid item's positioning along
@@ -82,7 +82,7 @@
 $gutter-width:      1rem !default;
 
 /**
- * Large and small gutters, must be toggled to true under $FEATURE-TOGGLE.
+ * Large and small gutters, must be toggled to false under `FEATURE-TOGGLE`.
  * Can be activated on a grid with the modifier flag
  *
   <div class="grid grid--gutter-sm">
@@ -91,24 +91,34 @@ $gutter-lg-width:   $gutter-width * 2 !default;
 $gutter-sm-width:   $gutter-width / 2 !default;
 
 /**
- * In order to remove whitespace between grid items due to inline-blocks the
- * font-size of the grid is set to zero, then on the grid items themselves
+ * In order to remove unwanted whitespace between grid items due to inline-blocks 
+ * the font-size of the grid is set to zero, then on the grid items themselves
  * the font-size will be given the value below - which should be equal to your
  * projects default font size.
- * Any headlines will inherit their set font-sizes.
+ * Any headlines that are descendants of the `grid__item` will inherit their 
+ * respective set font-sizes.
  */
 $base-font-size:    1rem !default;
 
 /**
  * Media query breakpoints.
+ * You can choose how many, the namespace and breakpoint value.
+ * Example width class with default values: Note the `@`symbol prepends
+ * the namespace.
+ * 1. Namespace for the breakpoint.
+ * 2. Value for the breakpoint.
+ * You can comment out or remove breakpoints from the list to reduce
+ * bloat from the stylesheet, or add additional breakpoints.
+ *
+ `one-half@sm-up two-fifths@lg-up`
  */
-$screen-lg:         1200px !default;
-$screen-md:         980px !default;
-$screen-sm:         768px !default;
-$screen-xs:         480px !default;
-$screen-xxs:        400px !default;
-
-
+$breakpoints: (
+    /* [1]       [2] */
+    ( lg-up,    1200px ),
+    ( md-up,    980px ),
+    ( sm-up,    768px ),
+    ( xs-up,    480px ),
+) !default;
 
 
 
@@ -116,50 +126,21 @@ $screen-xxs:        400px !default;
 /*------------------------------------*\
     $FEATURE-TOGGLE
 \*------------------------------------*/
-/**
- * Small gutters
- */
-$use-grid-gutter-sm:         true !default;
 
-/**
- * Large gutters
- */
-$use-grid-gutter-lg:         true !default;
-
-/**
- * No gutter
- */
-$use-grid-no-gutter:         true !default;
-
-/**
- * Vertical gutters.
- */
-$use-grid-matrix:            true !default;
-
-/**
- * Make all grid items in a row equal height
- */
+/** GRID FLAGS */
 $use-grid-equal-height:      true !default;
-
-/**
- * Vertically center grid items
- */
 $use-grid-centered:          true !default;
-
-/**
- * Vertically position grid items to the bottom.
- */
 $use-grid-bottom:            true !default;
 
-/**
- * Reverse the horizontal order of the grid items.
- */
+$use-grid-gutter-sm:         true !default;
+$use-grid-gutter-lg:         true !default;
+$use-grid-matrix:            true !default;
+
+$use-grid-no-gutter:         true !default;
 $use-grid-rev:               true !default;
 
 
-/** 
- * WIDTHS 
- */
+/** WIDTHS */
 $use-width-one-whole:        true !default;
 $use-width-one-half:         true !default;
 $use-width-one-third:        true !default;
@@ -204,9 +185,7 @@ $use-width-nine-twelfths:    true !default;
 $use-width-ten-twelfths:     true !default;
 $use-width-eleven-twelfths:  true !default;
 
-/** 
- * Pull 
- */
+/** Pull */
 $use-pull-one-whole:        true !default;
 $use-pull-one-half:         true !default;
 $use-pull-one-third:        true !default;
@@ -251,9 +230,7 @@ $use-pull-nine-twelfths:    true !default;
 $use-pull-ten-twelfths:     true !default;
 $use-pull-eleven-twelfths:  true !default;
 
-/** 
- * Push 
- */
+/** Push */
 $use-push-one-whole:        true !default;
 $use-push-one-half:         true !default;
 $use-push-one-third:        true !default;
@@ -301,6 +278,49 @@ $use-push-eleven-twelfths:  true !default;
 
 
 
+/**
+ * NOTICE..............
+ *
+ * You should refrain from modifying anything beyond this point,
+ * Doing so will likely break the grid system.
+ *
+ */
+
+
+
+
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+@mixin set-fractions($property, $fractions, $breakpoint, $namespace: null) {    
+    @each $fraction in $fractions {
+        @if(nth($fraction,3)) {
+            @if $breakpoint {
+                .#{$namespace}#{nth($fraction,1)}\@#{nth($breakpoint,1)} {
+                    #{$property}: nth($fraction,2)*100%;
+                }
+            } @else {
+                .#{$namespace}#{nth($fraction,1)} {
+                    #{$property}: nth($fraction,2)*100%;
+                }
+            }
+        }
+    }
+}
+
+@mixin make-offsets($property, $fractions, $namespace: null) {
+    @include set-fractions($property, $fractions, null, $namespace);
+        @if $breakpoints {
+            @each $breakpoint in $breakpoints {
+            @media (min-width: (nth($breakpoint,2)+1)) {
+                @include set-fractions($property, $fractions, $breakpoint, $namespace);
+            }
+        }
+    }
+}
+
+
+
 
 
 /*------------------------------------*\
@@ -320,7 +340,7 @@ $use-push-eleven-twelfths:  true !default;
  * 9. Set up a grid with for equal height items using flexbox.  
  *    Works for ie10+  IE9 will fallback to the default grid.
  * 10. Fix for IE10 which requires children of flexbox-items to have a
- *     maximum width of 100%.
+ *    maximum width of 100%.
  * 11. Vertically center grid items
  * 12. Vertically align grid items to the bottom.
  * 13. Reverse the order of the grid items.
@@ -358,18 +378,24 @@ $use-push-eleven-twelfths:  true !default;
         }
     }
     @if $use-grid-equal-height { /* 9 */
-        &--equal-height {
-            display: flex;
-            display: -ms-flexbox;
-            flex-wrap: wrap;
-            -ms-flex-wrap: wrap;
-        }
-        &--equal-height >.grid__item {
+        &--equal-height,
+        &--equal-height>.grid__item,
+        &--equal-height--center-content>.grid__item >* {
             display: flex;
             display: -ms-flexbox;
             >* { /** [10] */
                 width: 100%;
             }
+        }
+        &--equal-height {
+            flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+        }
+        &--equal-height--center-content>.grid__item >* {
+            /** vertically center content */
+            align-items: center;
+            justify-content: center;
+            -ms-flex-pack: center;
         }
     }
     @if $use-grid-centered {
@@ -419,31 +445,31 @@ $use-push-eleven-twelfths:  true !default;
 }
 
 /**
- * 1. Set display to relative to allow the push/pull classes to work
+ * 1. Inject the base font-size.  The grid items cannot inherit font-size
+ *    As the font-size on the parent `grid` component is set to zero to
+ *    avoid spacing issues when using inline-block.
+ * 2. Set display to relative to allow the push/pull classes to work
  *    using left/right positioning values.
- * 2. Set display property to inline-block.  Rather than floating blocks
+ * 3. Set display property to inline-block.  Rather than floating blocks
  *    inline-blocks do not have any issues with clearfixing, which is
  *    especially troublesome when dealing with dynamic content resulting
  *    in unequal heights.
- * 3. Set default width of 100%.
- * 4. Prevent item from collapsing when empty.
- * 5. Create the gutter.
- * 6. When grid items are differing heights, align them to the top
- * 7. Inject the base font-size.  The grid items cannot inherit font-size
- *    As the font-size on the parent `grid` component is set to zero to
- *    avoid spacing issues when using inline-block.
+ * 4. Set default width of 100%.
+ * 5. Prevent item from collapsing when empty.
+ * 6. Create the gutter.
+ * 7. When grid items are differing heights, align them to the top
  */
 .grid__item {
-    position: relative; /* [1] */
-    display: inline-block; /* [2] */
-    width: 100%; /* [3] */
-    min-height: 1px; /* [4] */
-    padding-left: $gutter-width; /* [5] */
-    vertical-align: top; /* [6] */
+    font-size: $base-font-size; /* [1] */
+    
+    position: relative; /* [2] */
+    display: inline-block; /* [3] */
+    width: 100%; /* [4] */
+    min-height: 1px; /* [5] */
+    padding-left: $gutter-width; /* [6] */
+    vertical-align: top; /* [7] */
     text-align: left;
-    font-size: $base-font-size; /* [7] */
 }
-
 
 
 
@@ -452,99 +478,61 @@ $use-push-eleven-twelfths:  true !default;
 /*------------------------------------*\
     $WIDTHS
 \*------------------------------------*/
-/**
- * Create the width classes.
- */
-@mixin fractions($breakpoint: null) {
-    $fractions: (
-        (one-whole,         1,          $use-width-one-whole),
+$width-fractions: (
+    (one-whole,         1,          $use-width-one-whole),
 
-        (one-half,          1/2,        $use-width-one-half),
+    (one-half,          1/2,        $use-width-one-half),
 
-        (one-third,         1/3,        $use-width-one-third),
-        (two-thirds,        2/3,        $use-width-two-thirds),
+    (one-third,         1/3,        $use-width-one-third),
+    (two-thirds,        2/3,        $use-width-two-thirds),
 
-        (one-quarter,       1/4,        $use-width-one-quarter),
-        (two-quarters,      2/4,        $use-width-one-quarter),
-        (three-quarters,    3/4,        $use-width-one-quarter),
+    (one-quarter,       1/4,        $use-width-one-quarter),
+    (two-quarters,      2/4,        $use-width-one-quarter),
+    (three-quarters,    3/4,        $use-width-one-quarter),
 
-        (one-fifth,         1/5,        $use-width-one-fifth),
-        (two-fifths,        2/5,        $use-width-two-fifths),
-        (three-fifths,      3/5,        $use-width-three-fifths),
-        (four-fifths,       4/5,        $use-width-four-fifths),
+    (one-fifth,         1/5,        $use-width-one-fifth),
+    (two-fifths,        2/5,        $use-width-two-fifths),
+    (three-fifths,      3/5,        $use-width-three-fifths),
+    (four-fifths,       4/5,        $use-width-four-fifths),
 
-        (one-sixth,         1/6,        $use-width-one-sixth),
-        (two-sixths,        2/6,        $use-width-two-sixths),
-        (three-sixths,      3/6,        $use-width-three-sixths),
-        (four-sixths,       4/6,        $use-width-four-sixths),
-        (five-sixths,       5/6,        $use-width-five-sixths),
+    (one-sixth,         1/6,        $use-width-one-sixth),
+    (two-sixths,        2/6,        $use-width-two-sixths),
+    (three-sixths,      3/6,        $use-width-three-sixths),
+    (four-sixths,       4/6,        $use-width-four-sixths),
+    (five-sixths,       5/6,        $use-width-five-sixths),
 
-        (one-eighth,        1/8,        $use-width-one-eighth),
-        (two-eighths,       2/8,        $use-width-two-eighths),
-        (three-eighths,     3/8,        $use-width-three-eighths),
-        (four-eighths,      4/8,        $use-width-four-eighths),
-        (five-eighths,      5/8,        $use-width-five-eighths),
-        (six-eighths,       6/8,        $use-width-six-eighths),
-        (seven-eighths,     7/8,        $use-width-seven-eighths),
+    (one-eighth,        1/8,        $use-width-one-eighth),
+    (two-eighths,       2/8,        $use-width-two-eighths),
+    (three-eighths,     3/8,        $use-width-three-eighths),
+    (four-eighths,      4/8,        $use-width-four-eighths),
+    (five-eighths,      5/8,        $use-width-five-eighths),
+    (six-eighths,       6/8,        $use-width-six-eighths),
+    (seven-eighths,     7/8,        $use-width-seven-eighths),
 
-        (one-tenth,         1/10,       $use-width-one-tenth),
-        (two-tenths,        2/10,       $use-width-two-tenths),
-        (three-tenths,      3/10,       $use-width-three-tenths),
-        (four-tenths,       4/10,       $use-width-four-tenths),
-        (five-tenths,       5/10,       $use-width-five-tenths),
-        (six-tenths,        6/10,       $use-width-six-tenths),
-        (seven-tenths,      7/10,       $use-width-seven-tenths),
-        (eight-tenths,      8/10,       $use-width-eight-tenths),
-        (nine-tenths,       9/10,       $use-width-nine-tenths),
+    (one-tenth,         1/10,       $use-width-one-tenth),
+    (two-tenths,        2/10,       $use-width-two-tenths),
+    (three-tenths,      3/10,       $use-width-three-tenths),
+    (four-tenths,       4/10,       $use-width-four-tenths),
+    (five-tenths,       5/10,       $use-width-five-tenths),
+    (six-tenths,        6/10,       $use-width-six-tenths),
+    (seven-tenths,      7/10,       $use-width-seven-tenths),
+    (eight-tenths,      8/10,       $use-width-eight-tenths),
+    (nine-tenths,       9/10,       $use-width-nine-tenths),
 
-        (one-twelfth,       1/12,       $use-width-one-twelfth),
-        (two-twelfths,      2/12,       $use-width-two-twelfths),
-        (three-twelfths,    3/12,       $use-width-three-twelfths),
-        (four-twelfths,     4/12,       $use-width-four-twelfths),
-        (five-twelfths,     5/12,       $use-width-five-twelfths),
-        (six-twelfths,      6/12,       $use-width-six-twelfths),
-        (seven-twelfths,    7/12,       $use-width-seven-twelfths),
-        (eight-twelfths,    8/12,       $use-width-eight-twelfths),
-        (nine-twelfths,     9/12,       $use-width-nine-twelfths),
-        (ten-twelfths,      10/12,      $use-width-ten-twelfths),
-        (eleven-twelfths,   11/12,      $use-width-eleven-twelfths),
-    );
-    
-    @each $fraction in $fractions {
-        @if nth($fraction,3) {
-            @if $breakpoint {
-                .#{nth($fraction,1)}#{nth($breakpoint,2)} {
-                    width: nth($fraction,2)*100%;
-                }
-            } @else {
-                .#{nth($fraction,1)} {
-                    width: nth($fraction,2)*100%;
-                }
-            }
-        }
-    }
-}
+    (one-twelfth,       1/12,       $use-width-one-twelfth),
+    (two-twelfths,      2/12,       $use-width-two-twelfths),
+    (three-twelfths,    3/12,       $use-width-three-twelfths),
+    (four-twelfths,     4/12,       $use-width-four-twelfths),
+    (five-twelfths,     5/12,       $use-width-five-twelfths),
+    (six-twelfths,      6/12,       $use-width-six-twelfths),
+    (seven-twelfths,    7/12,       $use-width-seven-twelfths),
+    (eight-twelfths,    8/12,       $use-width-eight-twelfths),
+    (nine-twelfths,     9/12,       $use-width-nine-twelfths),
+    (ten-twelfths,      10/12,      $use-width-ten-twelfths),
+    (eleven-twelfths,   11/12,      $use-width-eleven-twelfths),
+);
 
-@mixin makeWidths() {
-    $breakpoints: (
-        ($screen-xxs,  \@xxs-up),
-        ($screen-xs,   \@xs-up),
-        ($screen-sm,   \@sm-up),
-        ($screen-md,   \@md-up),
-        ($screen-lg,   \@lg-up)
-    );
-    
-    @include fractions();
-    @each $breakpoint in $breakpoints {
-        @media (min-width: (nth($breakpoint,1)+1)) {
-            @include fractions($breakpoint);
-        }
-    }
-}
-
-@include makeWidths();
-
-
+@include make-offsets(width, $width-fractions);
 
 
 
@@ -552,98 +540,61 @@ $use-push-eleven-twelfths:  true !default;
 /*------------------------------------*\
     $PUSH
 \*------------------------------------*/
-/**
- * Create the push classes.
- */
-@mixin fractions($breakpoint: null) {
-    $fractions: (
-        (one-whole,         1,          $use-push-one-whole),
+$push-fractions: (
+    (one-whole,         1,          $use-push-one-whole),
 
-        (one-half,          1/2,        $use-push-one-half),
+    (one-half,          1/2,        $use-push-one-half),
 
-        (one-third,         1/3,        $use-push-one-third),
-        (two-thirds,        2/3,        $use-push-two-thirds),
+    (one-third,         1/3,        $use-push-one-third),
+    (two-thirds,        2/3,        $use-push-two-thirds),
 
-        (one-quarter,       1/4,        $use-push-one-quarter),
-        (two-quarters,      2/4,        $use-push-one-quarter),
-        (three-quarters,    3/4,        $use-push-one-quarter),
+    (one-quarter,       1/4,        $use-push-one-quarter),
+    (two-quarters,      2/4,        $use-push-one-quarter),
+    (three-quarters,    3/4,        $use-push-one-quarter),
 
-        (one-fifth,         1/5,        $use-push-one-fifth),
-        (two-fifths,        2/5,        $use-push-two-fifths),
-        (three-fifths,      3/5,        $use-push-three-fifths),
-        (four-fifths,       4/5,        $use-push-four-fifths),
+    (one-fifth,         1/5,        $use-push-one-fifth),
+    (two-fifths,        2/5,        $use-push-two-fifths),
+    (three-fifths,      3/5,        $use-push-three-fifths),
+    (four-fifths,       4/5,        $use-push-four-fifths),
 
-        (one-sixth,         1/6,        $use-push-one-sixth),
-        (two-sixths,        2/6,        $use-push-two-sixths),
-        (three-sixths,      3/6,        $use-push-three-sixths),
-        (four-sixths,       4/6,        $use-push-four-sixths),
-        (five-sixths,       5/6,        $use-push-five-sixths),
+    (one-sixth,         1/6,        $use-push-one-sixth),
+    (two-sixths,        2/6,        $use-push-two-sixths),
+    (three-sixths,      3/6,        $use-push-three-sixths),
+    (four-sixths,       4/6,        $use-push-four-sixths),
+    (five-sixths,       5/6,        $use-push-five-sixths),
 
-        (one-eighth,        1/8,        $use-push-one-eighth),
-        (two-eighths,       2/8,        $use-push-two-eighths),
-        (three-eighths,     3/8,        $use-push-three-eighths),
-        (four-eighths,      4/8,        $use-push-four-eighths),
-        (five-eighths,      5/8,        $use-push-five-eighths),
-        (six-eighths,       6/8,        $use-push-six-eighths),
-        (seven-eighths,     7/8,        $use-push-seven-eighths),
+    (one-eighth,        1/8,        $use-push-one-eighth),
+    (two-eighths,       2/8,        $use-push-two-eighths),
+    (three-eighths,     3/8,        $use-push-three-eighths),
+    (four-eighths,      4/8,        $use-push-four-eighths),
+    (five-eighths,      5/8,        $use-push-five-eighths),
+    (six-eighths,       6/8,        $use-push-six-eighths),
+    (seven-eighths,     7/8,        $use-push-seven-eighths),
 
-        (one-tenth,         1/10,       $use-push-one-tenth),
-        (two-tenths,        2/10,       $use-push-two-tenths),
-        (three-tenths,      3/10,       $use-push-three-tenths),
-        (four-tenths,       4/10,       $use-push-four-tenths),
-        (five-tenths,       5/10,       $use-push-five-tenths),
-        (six-tenths,        6/10,       $use-push-six-tenths),
-        (seven-tenths,      7/10,       $use-push-seven-tenths),
-        (eight-tenths,      8/10,       $use-push-eight-tenths),
-        (nine-tenths,       9/10,       $use-push-nine-tenths),
+    (one-tenth,         1/10,       $use-push-one-tenth),
+    (two-tenths,        2/10,       $use-push-two-tenths),
+    (three-tenths,      3/10,       $use-push-three-tenths),
+    (four-tenths,       4/10,       $use-push-four-tenths),
+    (five-tenths,       5/10,       $use-push-five-tenths),
+    (six-tenths,        6/10,       $use-push-six-tenths),
+    (seven-tenths,      7/10,       $use-push-seven-tenths),
+    (eight-tenths,      8/10,       $use-push-eight-tenths),
+    (nine-tenths,       9/10,       $use-push-nine-tenths),
 
-        (one-twelfth,       1/12,       $use-push-one-twelfth),
-        (two-twelfths,      2/12,       $use-push-two-twelfths),
-        (three-twelfths,    3/12,       $use-push-three-twelfths),
-        (four-twelfths,     4/12,       $use-push-four-twelfths),
-        (five-twelfths,     5/12,       $use-push-five-twelfths),
-        (six-twelfths,      6/12,       $use-push-six-twelfths),
-        (seven-twelfths,    7/12,       $use-push-seven-twelfths),
-        (eight-twelfths,    8/12,       $use-push-eight-twelfths),
-        (nine-twelfths,     9/12,       $use-push-nine-twelfths),
-        (ten-twelfths,      10/12,      $use-push-ten-twelfths),
-        (eleven-twelfths,   11/12,      $use-push-eleven-twelfths),
-    );
-    
-    @each $fraction in $fractions {
-        @if nth($fraction,3) {
-            @if $breakpoint {
-                .push-#{nth($fraction,1)}#{nth($breakpoint,2)} {
-                    left: nth($fraction,2)*100%;
-                }
-            } @else {
-                .push-#{nth($fraction,1)} {
-                    left: nth($fraction,2)*100%;
-                }
-            }
-        }
-    }
-}
+    (one-twelfth,       1/12,       $use-push-one-twelfth),
+    (two-twelfths,      2/12,       $use-push-two-twelfths),
+    (three-twelfths,    3/12,       $use-push-three-twelfths),
+    (four-twelfths,     4/12,       $use-push-four-twelfths),
+    (five-twelfths,     5/12,       $use-push-five-twelfths),
+    (six-twelfths,      6/12,       $use-push-six-twelfths),
+    (seven-twelfths,    7/12,       $use-push-seven-twelfths),
+    (eight-twelfths,    8/12,       $use-push-eight-twelfths),
+    (nine-twelfths,     9/12,       $use-push-nine-twelfths),
+    (ten-twelfths,      10/12,      $use-push-ten-twelfths),
+    (eleven-twelfths,   11/12,      $use-push-eleven-twelfths),
+);
 
-@mixin makePushOffsets() {
-    $breakpoints: (
-        ($screen-xxs,  \@xxs-up),
-        ($screen-xs,   \@xs-up),
-        ($screen-sm,   \@sm-up),
-        ($screen-md,   \@md-up),
-        ($screen-lg,   \@lg-up)
-    );
-    
-    @include fractions();
-    @each $breakpoint in $breakpoints {
-        @media (min-width: (nth($breakpoint,1)+1)) {
-            @include fractions($breakpoint);
-        }
-    }
-}
-
-@include makePushOffsets();
-
+@include make-offsets(left, $push-fractions, push-);
 
 
 
@@ -652,94 +603,58 @@ $use-push-eleven-twelfths:  true !default;
 /*------------------------------------*\
     $PULL
 \*------------------------------------*/
-/**
- * Create the pull classes.
- */
-@mixin fractions($breakpoint: null) {
-    $fractions: (
-        (one-whole,         1,          $use-pull-one-whole),
+$pull-fractions: (
+    (one-whole,         1,          $use-pull-one-whole),
 
-        (one-half,          1/2,        $use-pull-one-half),
+    (one-half,          1/2,        $use-pull-one-half),
 
-        (one-third,         1/3,        $use-pull-one-third),
-        (two-thirds,        2/3,        $use-pull-two-thirds),
+    (one-third,         1/3,        $use-pull-one-third),
+    (two-thirds,        2/3,        $use-pull-two-thirds),
 
-        (one-quarter,       1/4,        $use-pull-one-quarter),
-        (two-quarters,      2/4,        $use-pull-one-quarter),
-        (three-quarters,    3/4,        $use-pull-one-quarter),
+    (one-quarter,       1/4,        $use-pull-one-quarter),
+    (two-quarters,      2/4,        $use-pull-one-quarter),
+    (three-quarters,    3/4,        $use-pull-one-quarter),
 
-        (one-fifth,         1/5,        $use-pull-one-fifth),
-        (two-fifths,        2/5,        $use-pull-two-fifths),
-        (three-fifths,      3/5,        $use-pull-three-fifths),
-        (four-fifths,       4/5,        $use-pull-four-fifths),
+    (one-fifth,         1/5,        $use-pull-one-fifth),
+    (two-fifths,        2/5,        $use-pull-two-fifths),
+    (three-fifths,      3/5,        $use-pull-three-fifths),
+    (four-fifths,       4/5,        $use-pull-four-fifths),
 
-        (one-sixth,         1/6,        $use-pull-one-sixth),
-        (two-sixths,        2/6,        $use-pull-two-sixths),
-        (three-sixths,      3/6,        $use-pull-three-sixths),
-        (four-sixths,       4/6,        $use-pull-four-sixths),
-        (five-sixths,       5/6,        $use-pull-five-sixths),
+    (one-sixth,         1/6,        $use-pull-one-sixth),
+    (two-sixths,        2/6,        $use-pull-two-sixths),
+    (three-sixths,      3/6,        $use-pull-three-sixths),
+    (four-sixths,       4/6,        $use-pull-four-sixths),
+    (five-sixths,       5/6,        $use-pull-five-sixths),
 
-        (one-eighth,        1/8,        $use-pull-one-eighth),
-        (two-eighths,       2/8,        $use-pull-two-eighths),
-        (three-eighths,     3/8,        $use-pull-three-eighths),
-        (four-eighths,      4/8,        $use-pull-four-eighths),
-        (five-eighths,      5/8,        $use-pull-five-eighths),
-        (six-eighths,       6/8,        $use-pull-six-eighths),
-        (seven-eighths,     7/8,        $use-pull-seven-eighths),
+    (one-eighth,        1/8,        $use-pull-one-eighth),
+    (two-eighths,       2/8,        $use-pull-two-eighths),
+    (three-eighths,     3/8,        $use-pull-three-eighths),
+    (four-eighths,      4/8,        $use-pull-four-eighths),
+    (five-eighths,      5/8,        $use-pull-five-eighths),
+    (six-eighths,       6/8,        $use-pull-six-eighths),
+    (seven-eighths,     7/8,        $use-pull-seven-eighths),
 
-        (one-tenth,         1/10,       $use-pull-one-tenth),
-        (two-tenths,        2/10,       $use-pull-two-tenths),
-        (three-tenths,      3/10,       $use-pull-three-tenths),
-        (four-tenths,       4/10,       $use-pull-four-tenths),
-        (five-tenths,       5/10,       $use-pull-five-tenths),
-        (six-tenths,        6/10,       $use-pull-six-tenths),
-        (seven-tenths,      7/10,       $use-pull-seven-tenths),
-        (eight-tenths,      8/10,       $use-pull-eight-tenths),
-        (nine-tenths,       9/10,       $use-pull-nine-tenths),
+    (one-tenth,         1/10,       $use-pull-one-tenth),
+    (two-tenths,        2/10,       $use-pull-two-tenths),
+    (three-tenths,      3/10,       $use-pull-three-tenths),
+    (four-tenths,       4/10,       $use-pull-four-tenths),
+    (five-tenths,       5/10,       $use-pull-five-tenths),
+    (six-tenths,        6/10,       $use-pull-six-tenths),
+    (seven-tenths,      7/10,       $use-pull-seven-tenths),
+    (eight-tenths,      8/10,       $use-pull-eight-tenths),
+    (nine-tenths,       9/10,       $use-pull-nine-tenths),
 
-        (one-twelfth,       1/12,       $use-pull-one-twelfth),
-        (two-twelfths,      2/12,       $use-pull-two-twelfths),
-        (three-twelfths,    3/12,       $use-pull-three-twelfths),
-        (four-twelfths,     4/12,       $use-pull-four-twelfths),
-        (five-twelfths,     5/12,       $use-pull-five-twelfths),
-        (six-twelfths,      6/12,       $use-pull-six-twelfths),
-        (seven-twelfths,    7/12,       $use-pull-seven-twelfths),
-        (eight-twelfths,    8/12,       $use-pull-eight-twelfths),
-        (nine-twelfths,     9/12,       $use-pull-nine-twelfths),
-        (ten-twelfths,      10/12,      $use-pull-ten-twelfths),
-        (eleven-twelfths,   11/12,      $use-pull-eleven-twelfths),
-    );
-    
-    @each $fraction in $fractions {
-        @if nth($fraction,3) {
-            @if $breakpoint {
-                .pull-#{nth($fraction,1)}#{nth($breakpoint,2)} {
-                    right: nth($fraction,2)*100%;
-                }
-            } @else {
-                .pull-#{nth($fraction,1)} {
-                    right: nth($fraction,2)*100%;
-                }
-            }
-        }
-    }
-}
+    (one-twelfth,       1/12,       $use-pull-one-twelfth),
+    (two-twelfths,      2/12,       $use-pull-two-twelfths),
+    (three-twelfths,    3/12,       $use-pull-three-twelfths),
+    (four-twelfths,     4/12,       $use-pull-four-twelfths),
+    (five-twelfths,     5/12,       $use-pull-five-twelfths),
+    (six-twelfths,      6/12,       $use-pull-six-twelfths),
+    (seven-twelfths,    7/12,       $use-pull-seven-twelfths),
+    (eight-twelfths,    8/12,       $use-pull-eight-twelfths),
+    (nine-twelfths,     9/12,       $use-pull-nine-twelfths),
+    (ten-twelfths,      10/12,      $use-pull-ten-twelfths),
+    (eleven-twelfths,   11/12,      $use-pull-eleven-twelfths),
+);
 
-@mixin makePullOffsets() {
-    $breakpoints: (
-        ($screen-xxs,  \@xxs-up),
-        ($screen-xs,   \@xs-up),
-        ($screen-sm,   \@sm-up),
-        ($screen-md,   \@md-up),
-        ($screen-lg,   \@lg-up)
-    );
-    
-    @include fractions();
-    @each $breakpoint in $breakpoints {
-        @media (min-width: (nth($breakpoint,1)+1)) {
-            @include fractions($breakpoint);
-        }
-    }
-}
-
-@include makePullOffsets();
+@include make-offsets(right, $pull-fractions, pull-);
