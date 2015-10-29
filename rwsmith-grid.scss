@@ -108,12 +108,14 @@ $base-font-size:    1rem !default;
  * You can choose how many, the namespace and breakpoint value.
  * Example width class with default values: Note the `@`symbol prepends
  * the namespace.
+ *
+ `one-half@sm-up two-fifths@lg-up`
+ *
  * 1. Namespace for the breakpoint.
  * 2. Value for the breakpoint.
  * You can comment out or remove breakpoints from the list to reduce
  * bloat from the stylesheet, or add additional breakpoints.
  *
- `one-half@sm-up two-fifths@lg-up`
  */
 $breakpoints: (
     /* [1]       [2] */
