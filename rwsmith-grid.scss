@@ -368,7 +368,7 @@ $use-push-eleven-twelfths:  true !default;
             display: flex;
             display: -ms-flexbox;
             >* { /** [10] */
-                max-width: 100%;
+                width: 100%;
             }
         }
     }
