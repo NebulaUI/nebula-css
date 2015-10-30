@@ -344,20 +344,6 @@ $use-push-eleven-twelfths:   true !default;
  * 4. Set a zero font-size to remove spacing on the `grid__item` children
  *    caused by them having their display set to `inline-block`.
  * 5. Remove any possible list styling.
- * 6. Large gutters.
- * 7. Small gutters. 
- * 8. Zero width gutters
- * 9. Set up a grid with for equal height items using flexbox.  
- *    Works for ie10+  IE9 will fallback to the default grid.
- * 10. Fix for IE10 which requires children of flexbox-items to have a
- *     maximum width of 100%.
- * 11. Allow equal height items to wrap, just as standard grid items do, when
- *     a combined width of the grid-items is > 100%.
- * 12. Vertically center any content nested inside of equal-height grid items.
- * 13. Vertically center grid items
- * 14. Vertically align grid items to the bottom.
- * 15. Reverse the order of the grid items.
- * 16. Matrix spaces out grid items vertically equal to their horizontal spacing.
  */
 .grid {
     min-width: 100%; /* [1] */
@@ -366,104 +352,168 @@ $use-push-eleven-twelfths:   true !default;
     margin-left: -$grid-gutter-width; /* [3] */
     font-size: 0; /* [4] */
     list-style: none; /* [5] */
-    @if $use-grid--gutter-lg { /* [6] */
-        &--gutter-lg {
-            margin-left: -$gutter-lg-width;            
-        }
-        &--gutter-lg >.grid__item {
-            padding-left: $gutter-lg-width;
+}
+
+/**
+ * Large gutters
+ */
+@if $use-grid--gutter-lg {
+    .grid--gutter-lg {
+        margin-left: -$gutter-lg-width;            
+    }
+    
+    .grid--gutter-lg >.grid__item {
+        padding-left: $gutter-lg-width;
+    }
+}
+    
+/**
+ * Small gutters
+ */
+@if $use-grid--gutter-sm {
+    .grid--gutter-sm {
+        margin-left: -$gutter-sm-width;            
+    }
+
+    .grid--gutter-sm >.grid__item {
+        padding-left: $gutter-sm-width;
+    }
+}
+
+/**
+ * Zero width gutters
+ */
+@if $use-grid--no-gutter {
+    .grid--no-gutter {
+        margin-left: 0;            
+    }
+
+    .grid--no-gutter >.grid__item {
+        padding-left: 0;
+    }
+}
+
+/**
+ * 1. Give grid items equal heights using flexbox.  
+ *    Works for ie10+  IE9 will fallback to the default grid.
+ * 2. Fix for IE10 which requires children of flexbox-items to have a
+ *    maximum width of 100%.
+ */
+@if $use-grid--equal-height { /* 1 */
+    .grid--equal-height,
+    .grid--equal-height>.grid__item,
+    .grid--equal-height--center-content>.grid__item >* {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        display: -ms-flexbox;
+        
+        >* { /** [2] */
+            width: 100%;
         }
     }
-    @if $use-grid--gutter-sm { /* [7] */
-        &--gutter-sm {
-            margin-left: -$gutter-sm-width;            
-        }
-        &--gutter-sm >.grid__item {
-            padding-left: $gutter-sm-width;
-        }
+    /**
+     * Allow equal height items to wrap, just as standard grid items do, when
+     * a combined width of the grid-items is > 100%.
+     */
+    .grid--equal-height {
+        -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
     }
-    @if $use-grid--no-gutter { /* [8] */
-        &--no-gutter {
-            margin-left: 0;            
-        }
-        &--no-gutter >.grid__item {
-            padding-left: 0;
-        }
+    /**
+     * Vertically center any content nested inside of equal-height grid items.
+     */
+    .grid--equal-height--centered-content>.grid__item >* {
+              -webkit-box-align: center;
+            -webkit-align-items: center;
+                 -ms-flex-align: center;
+                    align-items: center;
+               -webkit-box-pack: center;
+        -webkit-justify-content: center;
+                justify-content: center;
+                  -ms-flex-pack: center;
     }
-    @if $use-grid--equal-height { /* 9 */
-        &--equal-height,
-        &--equal-height>.grid__item,
-        &--equal-height--center-content>.grid__item >* {
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: flex;
-            display: -ms-flexbox;
-            >* { /** [10] */
-                width: 100%;
-            }
-        }
-        &--equal-height { /** [11] */
-            -webkit-flex-wrap: wrap;
-                    flex-wrap: wrap;
-                -ms-flex-wrap: wrap;
-        }
-        &--equal-height--centered-content>.grid__item >* {
-            /** [12] */
-                  -webkit-box-align: center;
-                -webkit-align-items: center;
-                     -ms-flex-align: center;
-                        align-items: center;
-                   -webkit-box-pack: center;
-            -webkit-justify-content: center;
-                    justify-content: center;
-                      -ms-flex-pack: center;
-        }
+}
+
+/**
+ * Vertially align grid-items to the center
+ */
+@if $use-grid--centered {
+    .grid--centered >.grid__item {
+        vertical-align: middle;
     }
-    @if $use-grid--centered {
-        &--centered >.grid__item {
-            vertical-align: middle; /* [13] */
-        }
+}
+
+/**
+ * Vertially align grid-items to the bottom
+ */
+@if $use-grid--bottom {
+    .grid--bottom >.grid__item {
+        vertical-align: bottom;
     }
-    @if $use-grid--bottom {
-        &--bottom >.grid__item {
-            vertical-align: bottom; /* [14] */
-        }
-    }
-    @if $use-grid--reverse {
-        &--reverse { /* [15] */
-            direction: rtl;
-            text-align:left;
-            >.grid__item {
-                direction: ltr;
-                text-align: left;
-            }
-        }
-    }
-    @if $use-grid--matrix {
-        &--matrix { /* [16] */
-            margin-bottom: -$grid-gutter-width;
-            >.grid__item {
-                margin-bottom: $grid-gutter-width;
-            }
-            @if $use-grid--gutter-sm {
-                &.grid--gutter-sm {
-                    margin-bottom: -$gutter-sm-width;
-                    >.grid__item {
-                        margin-bottom: $gutter-sm-width;
-                    }
-                }
-            }
-            @if $use-grid--gutter-lg {
-                &.grid--gutter-lg {
-                    margin-bottom: -$gutter-lg-width;
-                    >.grid__item {
-                        margin-bottom: $gutter-lg-width;
-                    }
-                }
-            }
+}
+
+/**
+ * Reverse grid items on the horizontal axis.
+ */
+@if $use-grid--reverse {
+    .grid--reverse {
+        direction: rtl;
+        text-align:left;
+
+        >.grid__item {
+            direction: ltr;
+            text-align: left;
         }
     }
 }
+
+/**
+ * Give grid items a vertical gutter that is equal to
+ * whatever horizontal gutter is applied to the grid.
+ */
+@if $use-grid--matrix {
+    .grid--matrix {
+        margin-bottom: -$grid-gutter-width;
+    }
+
+    .grid--matrix > .grid__item {
+        margin-bottom: $grid-gutter-width;
+    }
+
+    @if $use-grid--gutter-lg {
+        .grid--gutter-lg {
+            margin-bottom: -$gutter-lg-width;
+        }
+
+        .grid--gutter-lg > .grid__item {
+            margin-bottom: $gutter-lg-width;
+        }
+    }
+
+    @if $use-grid--gutter-sm {
+        .grid--gutter-sm {
+            margin-bottom: -$gutter-sm-width;
+        }
+
+        .grid--gutter-sm > .grid__item {
+            margin-bottom: $gutter-sm-width;
+        }
+    }
+
+    @if $use-grid--no-gutter {
+        .grid--no-gutter {
+            margin-bottom: 0;
+        }
+
+        .grid--no-gutter > .grid__item {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
 
 /**
  * 1. Set display to relative to allow the push/pull classes to work
@@ -474,7 +524,7 @@ $use-push-eleven-twelfths:   true !default;
  *    benefits such as: 
  *    - No clearfixing issues.
  *    - Rows will tile nicely even if grid items are all different heights.  
- *    - You can vetically align grid items that are different heights.
+ *    - You can vertically align grid items that are different heights.
  *    - You can horizontally align grid items, when total width is <100%
  *      using text-align on the parent 'grid' component.
  *    - You can reverse the order of the grid items by using `grid--reverse`
@@ -483,7 +533,7 @@ $use-push-eleven-twelfths:   true !default;
  * 5. Prevent item from collapsing when empty.
  * 6. Create the gutter.
  * 7. When grid items are differing heights, align them to the top.
- * 8. Prevent grid-items from inherting text-align properties set
+ * 8. Prevent grid-items from inhering text-align properties set
  *    One parent or ancestor nodes.
  * 9. Inject the base font-size.  The grid items cannot inherit font-size
  *    As the font-size on the parent `grid` component is set to zero to
