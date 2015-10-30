@@ -408,7 +408,7 @@ $use-push-eleven-twelfths:   true !default;
         margin-left: -$gutter-lg-width;            
     }
 
-    .grid--gutter-lg >.grid__item {
+    .grid--gutter-lg > .grid__item {
         padding-left: $gutter-lg-width;
     }
 }
@@ -421,7 +421,7 @@ $use-push-eleven-twelfths:   true !default;
         margin-left: -$gutter-sm-width;            
     }
 
-    .grid--gutter-sm >.grid__item {
+    .grid--gutter-sm > .grid__item {
         padding-left: $gutter-sm-width;
     }
 }
@@ -434,7 +434,7 @@ $use-push-eleven-twelfths:   true !default;
         margin-left: 0;            
     }
 
-    .grid--no-gutter >.grid__item {
+    .grid--no-gutter > .grid__item {
         padding-left: 0;
     }
 }
