@@ -22,9 +22,9 @@
 \*------------------------------------*/
 /**
  * This grid system is designed to be as minimal as possible, using only width,
- * push and pull classes that you actually intend to use via the feature-toggle 
- * section below.
- * The grid settings are located in the $VARS section below.
+ * push and pull classes that you actually intend to use via the 
+ * `FEATURE-TOGGLE` section below.
+ * The grid settings are located in the `VARS` section below.
  *
  * NOTE: This grid system uses responsive suffices on top of the modified 
  * version of the BEM naming convention.
@@ -87,7 +87,7 @@
 $grid-gutter-width:      1rem !default;
 
 /**
- * Large and small gutters, must be toggled to false under `FEATURE-TOGGLE`.
+ * Large and small gutters, must be toggled to `true` under `FEATURE-TOGGLE`.
  * Can be activated on a grid with the modifier flag
  *
   <div class="grid grid--gutter-sm">
