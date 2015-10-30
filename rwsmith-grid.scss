@@ -79,8 +79,6 @@
 /*------------------------------------*\
     $VARS
 \*------------------------------------*/
-
-
 /**
  * Amount of space between grid items
  */
@@ -126,6 +124,7 @@ $grid-breakpoints: (
     ( sm-up,    768px ),
     ( xs-up,    480px ),
 ) !default;
+
 
 
 
@@ -291,6 +290,7 @@ $use-push-eleven-twelfths:   true !default;
 
 
 
+
 /**
  * NOTICE..............
  *
@@ -298,6 +298,7 @@ $use-push-eleven-twelfths:   true !default;
  * Doing so will likely break the grid system.
  *
  */
+
 
 
 
@@ -562,7 +563,6 @@ $use-push-eleven-twelfths:   true !default;
 }
 
 
-
 /**
  * 1. Set display to relative to allow the push/pull classes to work
  *    which are using left/right positioning values.
@@ -587,19 +587,19 @@ $use-push-eleven-twelfths:   true !default;
  *    As the font-size on the parent `grid` component is set to zero to
  *    overcome whitespace issues when using inline-block.
  */
-.grid__item {
-    position: relative; /* [1] */
-    -webkit-box-sizing: border-box;  /* [2] */
-       -moz-box-sizing: border-box;  /* [2] */
-            box-sizing: border-box;  /* [2] */
-    display: inline-block; /* [3] */
-    width: 100%; /* [4] */
-    min-height: 1px; /* [5] */
-    padding-left: $grid-gutter-width; /* [6] */
-    vertical-align: top; /* [7] */
-    text-align: left; /* |8] */
-    font-size: $grid-font-size; /* [9] */
-}
+    .grid__item {
+        position: relative; /* [1] */
+        -webkit-box-sizing: border-box;  /* [2] */
+           -moz-box-sizing: border-box;  /* [2] */
+                box-sizing: border-box;  /* [2] */
+        display: inline-block; /* [3] */
+        width: 100%; /* [4] */
+        min-height: 1px; /* [5] */
+        padding-left: $grid-gutter-width; /* [6] */
+        vertical-align: top; /* [7] */
+        text-align: left; /* |8] */
+        font-size: $grid-font-size; /* [9] */
+    }
 
 } /** Close @if `$use-grid` /*
 
