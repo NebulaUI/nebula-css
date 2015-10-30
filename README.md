@@ -23,7 +23,17 @@ Probably the most feature packed responsive grid system you've ever come across&
 
 ##Setup
 
-###Vars
+**Vars**
+* `$grid-gutter-width` set the width of the guttering.
+* `$gutter-lg-width` width of large gutters
+* `$gutter-sm-width` width of small gutters
+* `$grid-font-size` Due to using inline-blocks on the `.grid__item`s we have to
+ set the font-size on the `.grid` block to zero to remove unwanted whitespace,
+ which would otherwise cause the grid to fail.  This font-size value will be
+ set on each individual item and should equal the base font size of your project.
+* `$grid-breakpoints` is a nested Sass list that contains all the grid's 
+breakpoints that will be used on any toggled width, push or pull classes. You
+can set or remove breakpoints, alter their values and the namespace.
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
