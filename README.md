@@ -1,7 +1,7 @@
 # rwsmith-grid
 Probably the most feature packed responsive grid system you've ever come across&hellip;
 
-** Features **
+**Features**
 * Fluid
 * Infinitely nestable
 * Based on fractions rather than columns yielding increased flexibility over
