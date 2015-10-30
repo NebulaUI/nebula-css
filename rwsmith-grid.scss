@@ -344,17 +344,20 @@ $use-push-eleven-twelfths:   true !default;
  * 4. Set a zero font-size to remove spacing on the `grid__item` children
  *    caused by them having their display set to `inline-block`.
  * 5. Remove any possible list styling.
- * 6. Optional small gutters. 
- * 7. Optional large gutters.
- * 8. remove the guttering from the grid
+ * 6. Large gutters.
+ * 7. Small gutters. 
+ * 8. Zero width gutters
  * 9. Set up a grid with for equal height items using flexbox.  
  *    Works for ie10+  IE9 will fallback to the default grid.
  * 10. Fix for IE10 which requires children of flexbox-items to have a
- *    maximum width of 100%.
- * 11. Vertically center grid items
- * 12. Vertically align grid items to the bottom.
- * 13. Reverse the order of the grid items.
- * 14. Matrix spaces out grid items vertically equal to their horizontal spacing.
+ *     maximum width of 100%.
+ * 11. All equal height items to wrap, just as standard grid items do, when
+ *     a combined width > 100%.
+ * 12. Vertically center any content nested inside of equal-height grid items.
+ * 13. Vertically center grid items
+ * 14. Vertically align grid items to the bottom.
+ * 15. Reverse the order of the grid items.
+ * 16. Matrix spaces out grid items vertically equal to their horizontal spacing.
  */
 .grid {
     min-width: 100%; /* [1] */
@@ -363,20 +366,20 @@ $use-push-eleven-twelfths:   true !default;
     margin-left: -$grid-gutter-width; /* [3] */
     font-size: 0; /* [4] */
     list-style: none; /* [5] */
-    @if $use-grid--gutter-sm { /* [6] */
-        &--gutter-sm {
-            margin-left: -$gutter-sm-width;            
-        }
-        &--gutter-sm >.grid__item {
-            padding-left: $gutter-sm-width;
-        }
-    }
-    @if $use-grid--gutter-lg { /* [7] */
+    @if $use-grid--gutter-lg { /* [6] */
         &--gutter-lg {
             margin-left: -$gutter-lg-width;            
         }
         &--gutter-lg >.grid__item {
             padding-left: $gutter-lg-width;
+        }
+    }
+    @if $use-grid--gutter-sm { /* [7] */
+        &--gutter-sm {
+            margin-left: -$gutter-sm-width;            
+        }
+        &--gutter-sm >.grid__item {
+            padding-left: $gutter-sm-width;
         }
     }
     @if $use-grid--no-gutter { /* [8] */
@@ -397,12 +400,12 @@ $use-push-eleven-twelfths:   true !default;
                 width: 100%;
             }
         }
-        &--equal-height {
+        &--equal-height { /** [11] */
             flex-wrap: wrap;
             -ms-flex-wrap: wrap;
         }
         &--equal-height--centered-content>.grid__item >* {
-            /** vertically center content */
+            /** [12] */
             align-items: center;
             justify-content: center;
             -ms-flex-pack: center;
@@ -410,16 +413,16 @@ $use-push-eleven-twelfths:   true !default;
     }
     @if $use-grid--centered {
         &--centered >.grid__item {
-            vertical-align: middle; /* [11] */
+            vertical-align: middle; /* [13] */
         }
     }
     @if $use-grid--bottom {
         &--bottom >.grid__item {
-            vertical-align: bottom; /* [12] */
+            vertical-align: bottom; /* [14] */
         }
     }
     @if $use-grid--reverse {
-        &--reverse { /* [13] */
+        &--reverse { /* [15] */
             direction: rtl;
             text-align:left;
             >.grid__item {
@@ -429,7 +432,7 @@ $use-push-eleven-twelfths:   true !default;
         }
     }
     @if $use-grid--matrix {
-        &--matrix { /* [14] */
+        &--matrix { /* [16] */
             margin-bottom: -$grid-gutter-width;
             >.grid__item {
                 margin-bottom: $grid-gutter-width;
@@ -457,17 +460,25 @@ $use-push-eleven-twelfths:   true !default;
 /**
  * 1. Inject the base font-size.  The grid items cannot inherit font-size
  *    As the font-size on the parent `grid` component is set to zero to
- *    avoid spacing issues when using inline-block.
+ *    overcome whitespace issues when using inline-block.
  * 2. Set display to relative to allow the push/pull classes to work
- *    using left/right positioning values.
- * 3. Set display property to inline-block.  Rather than floating blocks
- *    inline-blocks do not have any issues with clearfixing, which is
- *    especially troublesome when dealing with dynamic content resulting
- *    in unequal heights.
+ *    which are using left/right positioning values.
+ * 3. Set display to inline-block.  Rather than floating block elements that
+ *    you see on many other grid systems, inline-blocks have a number of
+ *    benefits such as: 
+ *    - No clearfixing issues.
+ *    - Rows will tile nicely even if grid items are all different heights.  
+ *    - You can vetically align grid items that are different heights.
+ *    - You can horizontally align grid items, when total width is <100%
+ *      using text-align on the parent 'grid' component.
+ *    - You can reverse the order of the grid items by using `grid--reverse`
+ *       which changes the direction property from right to left.
  * 4. Set default width of 100%.
  * 5. Prevent item from collapsing when empty.
  * 6. Create the gutter.
- * 7. When grid items are differing heights, align them to the top
+ * 7. When grid items are differing heights, align them to the top.
+ * 8. Prevent grid-items from inherting text-align properties set
+ *    One parent or ancestor nodes.
  */
 .grid__item {
     font-size: $grid-font-size; /* [1] */
@@ -477,7 +488,7 @@ $use-push-eleven-twelfths:   true !default;
     min-height: 1px; /* [5] */
     padding-left: $grid-gutter-width; /* [6] */
     vertical-align: top; /* [7] */
-    text-align: left;
+    text-align: left; /* |8] */
 }
 
 } /** Close @if `$use-grid` /*
