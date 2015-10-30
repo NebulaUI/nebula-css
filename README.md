@@ -23,7 +23,7 @@ Probably the most feature packed responsive grid system you've ever come across&
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
-[@csswizardry](https://twitter.com/csswizardry])'s' own grid system 
+[@csswizardry](https://twitter.com/csswizardry])'s own grid system 
 [csswizardry-grids](https://github.com/csswizardry/csswizardry-grids).  
 
 If you haven't already had the privilege of reading Harry's blog then I really 
