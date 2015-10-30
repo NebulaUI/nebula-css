@@ -486,7 +486,7 @@ $use-push-eleven-twelfths:   true !default;
  * Vertically align grid-items to the center
  */
 @if $use-grid--centered {
-    .grid--centered >.grid__item {
+    .grid--centered > .grid__item {
         vertical-align: middle;
     }
 }
@@ -495,7 +495,7 @@ $use-push-eleven-twelfths:   true !default;
  * Vertically align grid-items to the bottom
  */
 @if $use-grid--bottom {
-    .grid--bottom >.grid__item {
+    .grid--bottom > .grid__item {
         vertical-align: bottom;
     }
 }
@@ -508,7 +508,7 @@ $use-push-eleven-twelfths:   true !default;
         direction: rtl;
         text-align:left;
 
-        >.grid__item {
+        > .grid__item {
             direction: ltr;
             text-align: left;
         }
