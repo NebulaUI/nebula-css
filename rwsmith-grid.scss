@@ -351,8 +351,8 @@ $use-push-eleven-twelfths:   true !default;
  *    Works for ie10+  IE9 will fallback to the default grid.
  * 10. Fix for IE10 which requires children of flexbox-items to have a
  *     maximum width of 100%.
- * 11. All equal height items to wrap, just as standard grid items do, when
- *     a combined width > 100%.
+ * 11. Allow equal height items to wrap, just as standard grid items do, when
+ *     a combined width of the grid-items is > 100%.
  * 12. Vertically center any content nested inside of equal-height grid items.
  * 13. Vertically center grid items
  * 14. Vertically align grid items to the bottom.
