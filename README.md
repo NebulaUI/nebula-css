@@ -21,6 +21,10 @@ Probably the most feature packed responsive grid system you've ever come across&
 * Ability to use any number of user-defined breakpoints with user defined
   namespaces.
 
+##Setup
+
+###Vars
+
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
 [@csswizardry](https://twitter.com/csswizardry])'s own grid system 
