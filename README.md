@@ -6,10 +6,10 @@ Probably the most feature packed responsive grid system you've ever come across&
 * Infinitely nestable
 * Based on fractions rather than columns yielding increased flexibility over
   traditional approach using 12 columns.
-* Intuitive classnames based on a BEM methodology hybrid known as BEMIT
+* Intuitive classnames based on a BEM methodology hybrid known as [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes)
 * Optional equal height grid items based on flexbox (IE10+)
-* Optional vertical alignment of grid items (when are differing heights).
-* Large, standard, small or zero gutters.
+* Optional vertical alignment of grid items (when heights differ).
+* Large, standard, small or zero gutters&mdash;all of which are cusomisable.
 * Optional vertical gutters&mdash;which match the width of horizontal gutters.
 * No clearfixing required, rows of items with uneven heights tile gracefully.
 * Does not require a wrapping element like most other grid systems.
@@ -22,9 +22,15 @@ Probably the most feature packed responsive grid system you've ever come across&
   namespaces.
 
 ##Acknowledgments
-This grid system is Heavily influenced by [@csswizardry](https://twitter.com/csswizardry])'s
-grid system [csswizardry-grids](https://github.com/csswizardry/csswizardry-grids)  
-The responsive suffix classes are also based on Harry's writing:
-[bemit-taking-the-bem-naming-convention-a-step-further](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes)
+This grid system is Heavily influenced by the great work of Harry Robert's
+[@csswizardry](https://twitter.com/csswizardry]) own grid system 
+[csswizardry-grids](https://github.com/csswizardry/csswizardry-grids).  
+
+If you haven't already had the privilege of reading Harry's blog then I really 
+urge you to dive right in.  It's quite literally a goldmine of useful 
+information and techniques.
+[http://csswizardry.com](http://csswizardry.com)
+
+
 
 
