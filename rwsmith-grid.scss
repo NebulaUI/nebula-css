@@ -79,10 +79,12 @@
 /*------------------------------------*\
     $VARS
 \*------------------------------------*/
+
+
 /**
  * Amount of space between grid items
  */
-$gutter-width:      1rem !default;
+$grid-gutter-width:      1rem !default;
 
 /**
  * Large and small gutters, must be toggled to false under `FEATURE-TOGGLE`.
@@ -90,8 +92,8 @@ $gutter-width:      1rem !default;
  *
   <div class="grid grid--gutter-sm">
  */
-$gutter-lg-width:   $gutter-width * 2 !default;
-$gutter-sm-width:   $gutter-width / 2 !default;
+$gutter-lg-width:   $grid-gutter-width * 2 !default;
+$gutter-sm-width:   $grid-gutter-width / 2 !default;
 
 /**
  * In order to remove unwanted whitespace between grid items due to inline-blocks 
@@ -101,7 +103,7 @@ $gutter-sm-width:   $gutter-width / 2 !default;
  * Any headlines that are descendants of the `grid__item` will inherit their 
  * respective set font-sizes.
  */
-$base-font-size:    1rem !default;
+$grid-font-size:    1rem !default;
 
 /**
  * Media query breakpoints.
@@ -117,7 +119,7 @@ $base-font-size:    1rem !default;
  * bloat from the stylesheet, or add additional breakpoints.
  *
  */
-$breakpoints: (
+$grid-breakpoints: (
     /* [1]       [2] */
     ( lg-up,    1200px ),
     ( md-up,    980px ),
@@ -132,17 +134,20 @@ $breakpoints: (
     $FEATURE-TOGGLE
 \*------------------------------------*/
 
+
+$use-grid:                    true !default;
+
 /** GRID FLAGS */
-$use-grid-equal-height:      true !default;
-$use-grid-centered:          true !default;
-$use-grid-bottom:            true !default;
+$use-grid--equal-height:      true !default;
+$use-grid--centered:          true !default;
+$use-grid--bottom:            true !default;
 
-$use-grid-gutter-sm:         true !default;
-$use-grid-gutter-lg:         true !default;
-$use-grid-matrix:            true !default;
+$use-grid--gutter-lg:         true !default;
+$use-grid--gutter-sm:         true !default;
+$use-grid--no-gutter:         true !default;
+$use-grid--matrix:            true !default;
 
-$use-grid-no-gutter:         true !default;
-$use-grid-rev:               true !default;
+$use-grid--reverse:           true !default;
 
 
 /** WIDTHS */
@@ -299,7 +304,7 @@ $use-push-eleven-twelfths:   true !default;
 \*------------------------------------*/
 @mixin set-fractions($property, $fractions, $breakpoint, $namespace: null) {    
     @each $fraction in $fractions {
-        @if(nth($fraction,3)) {
+        @if nth($fraction,3) {
             @if $breakpoint {
                 .#{$namespace}#{nth($fraction,1)}\@#{nth($breakpoint,1)} {
                     #{$property}: nth($fraction,2)*100%;
@@ -315,8 +320,8 @@ $use-push-eleven-twelfths:   true !default;
 
 @mixin make-offsets($property, $fractions, $namespace: null) {
     @include set-fractions($property, $fractions, null, $namespace);
-        @if $breakpoints {
-            @each $breakpoint in $breakpoints {
+    @if $grid-breakpoints {
+        @each $breakpoint in $grid-breakpoints {
             @media (min-width: (nth($breakpoint,2)+1)) {
                 @include set-fractions($property, $fractions, $breakpoint, $namespace);
             }
@@ -326,7 +331,7 @@ $use-push-eleven-twelfths:   true !default;
 
 
 
-
+@if $use-grid {
 
 /*------------------------------------*\
     $GRID-INITIALISE
@@ -355,10 +360,10 @@ $use-push-eleven-twelfths:   true !default;
     min-width: 100%; /* [1] */
     margin: 0; /* [2] */
     padding: 0; /* [2] */
-    margin-left: -$gutter-width; /* [3] */
+    margin-left: -$grid-gutter-width; /* [3] */
     font-size: 0; /* [4] */
     list-style: none; /* [5] */
-    @if $use-grid-gutter-sm { /* [6] */
+    @if $use-grid--gutter-sm { /* [6] */
         &--gutter-sm {
             margin-left: -$gutter-sm-width;            
         }
@@ -366,15 +371,15 @@ $use-push-eleven-twelfths:   true !default;
             padding-left: $gutter-sm-width;
         }
     }
-    @if $use-grid-gutter-lg { /* [7] */
+    @if $use-grid--gutter-lg { /* [7] */
         &--gutter-lg {
             margin-left: -$gutter-lg-width;            
         }
-        &--gutter-sm >.grid__item {
+        &--gutter-lg >.grid__item {
             padding-left: $gutter-lg-width;
         }
     }
-    @if $use-grid-no-gutter { /* [8] */
+    @if $use-grid--no-gutter { /* [8] */
         &--no-gutter {
             margin-left: 0;            
         }
@@ -382,7 +387,7 @@ $use-push-eleven-twelfths:   true !default;
             padding-left: 0;
         }
     }
-    @if $use-grid-equal-height { /* 9 */
+    @if $use-grid--equal-height { /* 9 */
         &--equal-height,
         &--equal-height>.grid__item,
         &--equal-height--center-content>.grid__item >* {
@@ -396,25 +401,25 @@ $use-push-eleven-twelfths:   true !default;
             flex-wrap: wrap;
             -ms-flex-wrap: wrap;
         }
-        &--equal-height--center-content>.grid__item >* {
+        &--equal-height--centered-content>.grid__item >* {
             /** vertically center content */
             align-items: center;
             justify-content: center;
             -ms-flex-pack: center;
         }
     }
-    @if $use-grid-centered {
+    @if $use-grid--centered {
         &--centered >.grid__item {
             vertical-align: middle; /* [11] */
         }
     }
-    @if $use-grid-bottom {
+    @if $use-grid--bottom {
         &--bottom >.grid__item {
             vertical-align: bottom; /* [12] */
         }
     }
-    @if $use-grid-rev {
-        &--rev { /* [13] */
+    @if $use-grid--reverse {
+        &--reverse { /* [13] */
             direction: rtl;
             text-align:left;
             >.grid__item {
@@ -423,13 +428,13 @@ $use-push-eleven-twelfths:   true !default;
             }
         }
     }
-    @if $use-grid-matrix {
+    @if $use-grid--matrix {
         &--matrix { /* [14] */
-            margin-bottom: -$gutter-width;
+            margin-bottom: -$grid-gutter-width;
             >.grid__item {
-                margin-bottom: $gutter-width;
+                margin-bottom: $grid-gutter-width;
             }
-            @if $use-grid-gutter-sm {
+            @if $use-grid--gutter-sm {
                 &.grid--gutter-sm {
                     margin-bottom: -$gutter-sm-width;
                     >.grid__item {
@@ -437,7 +442,7 @@ $use-push-eleven-twelfths:   true !default;
                     }
                 }
             }
-            @if $use-grid-gutter-lg {
+            @if $use-grid--gutter-lg {
                 &.grid--gutter-lg {
                     margin-bottom: -$gutter-lg-width;
                     >.grid__item {
@@ -465,16 +470,17 @@ $use-push-eleven-twelfths:   true !default;
  * 7. When grid items are differing heights, align them to the top
  */
 .grid__item {
-    font-size: $base-font-size; /* [1] */
-    
+    font-size: $grid-font-size; /* [1] */
     position: relative; /* [2] */
     display: inline-block; /* [3] */
     width: 100%; /* [4] */
     min-height: 1px; /* [5] */
-    padding-left: $gutter-width; /* [6] */
+    padding-left: $grid-gutter-width; /* [6] */
     vertical-align: top; /* [7] */
     text-align: left;
 }
+
+} /** Close @if `$use-grid` /*
 
 
 
