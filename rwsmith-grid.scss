@@ -361,7 +361,7 @@ $use-push-eleven-twelfths:   true !default;
     .grid--gutter-lg {
         margin-left: -$gutter-lg-width;            
     }
-    
+
     .grid--gutter-lg >.grid__item {
         padding-left: $gutter-lg-width;
     }
@@ -401,8 +401,8 @@ $use-push-eleven-twelfths:   true !default;
  */
 @if $use-grid--equal-height { /* 1 */
     .grid--equal-height,
-    .grid--equal-height>.grid__item,
-    .grid--equal-height--center-content>.grid__item >* {
+    .grid--equal-height > .grid__item,
+    .grid--equal-height--center-content > .grid__item > * {
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
@@ -424,7 +424,7 @@ $use-push-eleven-twelfths:   true !default;
     /**
      * Vertically center any content nested inside of equal-height grid items.
      */
-    .grid--equal-height--centered-content>.grid__item >* {
+    .grid--equal-height--centered-content > .grid__item > * {
               -webkit-box-align: center;
             -webkit-align-items: center;
                  -ms-flex-align: center;
