@@ -553,7 +553,6 @@ $width-fractions: (
     (ten-twelfths,      10/12,      $use-width-ten-twelfths),
     (eleven-twelfths,   11/12,      $use-width-eleven-twelfths),
 );
-
 @include make-offsets(width, $width-fractions);
 
 
@@ -615,7 +614,6 @@ $push-fractions: (
     (ten-twelfths,      10/12,      $use-push-ten-twelfths),
     (eleven-twelfths,   11/12,      $use-push-eleven-twelfths),
 );
-
 @include make-offsets(left, $push-fractions, push-);
 
 
@@ -678,5 +676,4 @@ $pull-fractions: (
     (ten-twelfths,      10/12,      $use-pull-ten-twelfths),
     (eleven-twelfths,   11/12,      $use-pull-eleven-twelfths),
 );
-
 @include make-offsets(right, $pull-fractions, pull-);
