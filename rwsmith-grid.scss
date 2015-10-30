@@ -133,8 +133,8 @@ $grid-breakpoints: (
     $FEATURE-TOGGLE
 \*------------------------------------*/
 /**
- * Set values to true to have Sass compile it into your resulting stylesheet.
- * Set features that you are not using to keep bloat down to a minimum!
+ * Set values to `true` to have Sass compile it into your resulting CSS.
+ * Set features that you are not using to `false` to keep bloat down to a minimum!
  */
 
 $use-grid:                    true !default;
