@@ -133,7 +133,10 @@ $grid-breakpoints: (
 /*------------------------------------*\
     $FEATURE-TOGGLE
 \*------------------------------------*/
-
+/**
+ * Set values to true to have Sass compile it into your resulting stylesheet.
+ * Set features that you are not using to keep bloat down to a minimum!
+ */
 
 $use-grid:                    true !default;
 
@@ -302,32 +305,74 @@ $use-push-eleven-twelfths:   true !default;
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
-@mixin set-fractions($property, $fractions, $breakpoint, $namespace: null) {    
-    @each $fraction in $fractions {
-        @if nth($fraction,3) {
-            @if $breakpoint {
-                .#{$namespace}#{nth($fraction,1)}\@#{nth($breakpoint,1)} {
-                    #{$property}: nth($fraction,2)*100%;
+/**
+ * 1. Takes 4 arguments:
+ *    - The property (Width OR push OR pull),
+ *    - The fractions list that corresponds to the property,
+ *    - The breakpoint (can be an item in the `$breakpoints` list or null).
+ *    - An optional namespace that will form a segment of the eventual class name.
+ * 2. Loop through all of the fractions
+ * 3. If the property within the current fraction has been set feature-toggled
+ * 4. If a breakpoint was passed into the mixin...
+ * 5. Generate a class name based on:
+ *    - The passed in (optional) namespace +
+ *    - The namespace in the current fraction +
+ *    - An escaped @ symbol as a responsive suffix +
+ *    - The namespace from the current breakpoint item.
+ * 6. Generate the property and the value, which is the fraction e.g. 1/3 
+ *    converted into a percentage.
+ * 7. A breakpoint was not passed into the mixin...
+ * 8. Generate the same as above but without any responsive suffixes.
+ */
+@mixin set-fractions($property, $fractions, $breakpoint, $namespace: null) { /* [1] */    
+    @each $fraction in $fractions { /* [2] */
+        @if nth($fraction, 3) { /* [3] */
+            @if $breakpoint { /* [4] */
+                .#{$namespace}#{nth($fraction, 1)}\@#{nth($breakpoint, 1)} { /* [5] */
+                    #{$property}: nth($fraction, 2) * 100%; /* [6] */
                 }
-            } @else {
-                .#{$namespace}#{nth($fraction,1)} {
-                    #{$property}: nth($fraction,2)*100%;
+            } @else { /* [7] */
+                .#{$namespace}#{nth($fraction, 1)} { /* [8] */
+                    #{$property}: nth($fraction, 2) * 100%;
                 }
             }
         }
     }
 }
 
-@mixin make-offsets($property, $fractions, $namespace: null) {
-    @include set-fractions($property, $fractions, null, $namespace);
-    @if $grid-breakpoints {
-        @each $breakpoint in $grid-breakpoints {
-            @media (min-width: (nth($breakpoint,2)+1)) {
+/**
+ * 1. Takes 3 arguments: 
+ *    - The property (Width OR push OR pull),
+ *    - The fractions list that corresponds to the property,
+ *    - An optional namespace that will form a segment of the eventual class name.
+ * 2. Call the `set-fractions mixin` passing in:
+ *    - The property,
+ *    - The fractions list,
+ *    - null (No breakpoint in this call)
+ *    - The namespace.
+ * 3. Check if any breakpoints are defined.
+ * 4. Loop through the breakpoints.
+ * 5. Generate a mobile first media query taking with width value from the
+ *    current breakpoint's list (2nd value) and add `1` to the value.
+ * 2. Call the `set-fractions mixin` passing in:
+ *    - The property,
+ *    - The fractions list,
+ *    - the current breakpoint
+ *    - The namespace.
+ */
+@mixin make-offsets($property, $fractions, $namespace: null) { /* [1] */
+    @include set-fractions($property, $fractions, null, $namespace); /* [2] */
+    @if $grid-breakpoints { /* [3] */
+        @each $breakpoint in $grid-breakpoints { /* [4] */
+            @media (min-width: (nth($breakpoint, 2) +1)) { /* [5] */
+                /* [6] */
                 @include set-fractions($property, $fractions, $breakpoint, $namespace);
             }
         }
     }
 }
+
+
 
 
 
@@ -395,7 +440,7 @@ $use-push-eleven-twelfths:   true !default;
 
 /**
  * 1. Give grid items equal heights using flexbox.  
- *    Works for ie10+  IE9 will fallback to the default grid.
+ *    Works for IE10+  IE9 will fallback to the default grid.
  * 2. Fix for IE10 which requires children of flexbox-items to have a
  *    maximum width of 100%.
  */
@@ -437,7 +482,7 @@ $use-push-eleven-twelfths:   true !default;
 }
 
 /**
- * Vertially align grid-items to the center
+ * Vertically align grid-items to the center
  */
 @if $use-grid--centered {
     .grid--centered >.grid__item {
@@ -446,7 +491,7 @@ $use-push-eleven-twelfths:   true !default;
 }
 
 /**
- * Vertially align grid-items to the bottom
+ * Vertically align grid-items to the bottom
  */
 @if $use-grid--bottom {
     .grid--bottom >.grid__item {
@@ -482,6 +527,7 @@ $use-push-eleven-twelfths:   true !default;
         margin-bottom: $grid-gutter-width;
     }
 
+    /** Increase vertical gutter for large horizontal gutters */
     @if $use-grid--gutter-lg {
         .grid--gutter-lg {
             margin-bottom: -$gutter-lg-width;
@@ -492,6 +538,7 @@ $use-push-eleven-twelfths:   true !default;
         }
     }
 
+    /** Decrease vertical gutter for small horizontal gutters */
     @if $use-grid--gutter-sm {
         .grid--gutter-sm {
             margin-bottom: -$gutter-sm-width;
@@ -502,6 +549,7 @@ $use-push-eleven-twelfths:   true !default;
         }
     }
 
+    /** Remove vertical gutter for zero horizontal gutters */
     @if $use-grid--no-gutter {
         .grid--no-gutter {
             margin-bottom: 0;
