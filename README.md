@@ -26,7 +26,7 @@ the standard grid.
   namespaces to match.
 
 ##Demo
-[http://codepen.io/rbrtsmith/full/VvdGMp/](http://codepen.io/rbrtsmith/full/VvdGMp/)
+[A quick overview of the features](http://codepen.io/rbrtsmith/full/VvdGMp/)
 
 ##Setup
 ###Vars
