@@ -12,7 +12,7 @@ ever come across&hellip;
 * Ability to reverse the horizontal order of grid-items.
 * No clearfixing required, rows of items with uneven heights tile gracefully.
 * Based on fractions rather than columns yielding increased flexibility over
-  some more traditional approaches using 12 columns.
+  some more traditional approaches that use a fixed number of columns.
 * Intuitive class names based on a BEM methodology hybrid known as [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes)
 * Does not require a wrapping element like most other grid systems.
 * Extremely lightweight, using Sass @if blocks you can include only the
@@ -26,8 +26,12 @@ ever come across&hellip;
 Coming soon!
 
 ##Setup
-
 **Vars**
+* `object-ns` set the object namespace e.g. `[value]grid` `[value]grid__item`.  
+ The default value is `o-` which gives `o-grid` `o-grid__item`
+* `utility-ns` set the utility namespace e.g. `[value]1/2` 
+ `[value]push-2/3@sum-up`.  
+ The default value is `u-` which gives `u-1/2` `u-push-2/3@sm-up`.
 * `$grid-gutter-width` set the width of the guttering.
 * `$gutter-lg-width` width of large gutters
 * `$gutter-sm-width` width of small gutters
@@ -36,7 +40,7 @@ Coming soon!
  which would otherwise cause the grid to fail.  This font-size value will be
  set on each individual item and should equal the base font size of your project.
 * `$grid-breakpoints` is a nested Sass list that contains all the grid's 
-breakpoints that will be used on any toggled width, push or pull classe. You
+breakpoints that will be used on any toggled width, push or pull classes. You
 can set additional or remove breakpoints, alter their values and the namespace.
 
 ##Acknowledgments
