@@ -110,10 +110,23 @@ breakpoint.
 
 ##Examples in markup##
 
+**Basic bare bones grid component.**
 ```html
-<div class="grid">
-    <div class="grid__item">
+<div class="o-grid">
+    <div class="o-grid__item">
         [CONTENT]
+    </div>
+</div>
+```
+
+**Grid component with two columns at viewports greater than `sm-up`.**
+```html
+<div class="o-grid">
+    <div class="o-grid__item u-1/3@sm-up">
+        [CONTENT] <!-- I'm 33.33% wide -->
+    </div>
+    <div class="o-grid__item u-2/3@sm-up">
+        [CONTENT] <!-- I'm 66.66% wide -->
     </div>
 </div>
 ```
