@@ -69,16 +69,17 @@ Using BEMIT based class names the markup becomes extremely descriptive and
 concise.
 Those not familiar with BEMIT here's a short introduction.
 ###BEMIT
-Based on BEM which stands for **B**lock **E**lement **M**odifier.
+Based on BEM which stands for **B**lock **E**lement **M**odifier.  BEMIT extends
+on BEM to add in additional prefixing and responsive suffixes to better describe
+the intentions of the components.
 * `.grid` is a **B**lock
 * `.grid--equal-height` is a **M**odifier signified by `--`
 * `.grid__item` is an **E**lement signified by `__` and element is a descendant
 of a block.
 
-BEMIT adds in namespacing and responsive suffixes.  
-**BEMIT namespaces**
+**BEMIT prefixes**
 I use the ITCSS system in my projects so I have added **Object** and **Utility** 
-namespaces to this grid.  
+prefixes to this grid that better describe where they live within ITCSS.  
 * `o-grid` is an object class
 * `o-grid__item` is also an object class.
 * `u-1/2` &nbsp; `u-push-2/3` are both utility classes.
