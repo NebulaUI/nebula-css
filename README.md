@@ -102,10 +102,21 @@ Further examples of responsive suffixes:
 Although not a part of BEMIT, fractions can better describe widths and offsets
 than set column numbers.  The values simply get converted to a percentage of the
 parent container `.grid` via a Sass mixin so `1/2 = 50%` &nbsp; `2/3 = 66.66%`.
-* `u-1/2` 50% the width.
+* `u-1/2` 50% width.
 * `u-2/3@sm-up` 66.66% width for viewports greater than `sm-up` breakpoint.
 * `u-pull-1/10@lg-up` pull to the left by 10% at viewports greater than `lg-up`
 breakpoint.
+
+
+##Examples in markup##
+
+```html
+<div class="grid">
+    <div class="grid__item">
+        [CONTENT]
+    </div>
+</div>
+```
 
 
 ##Acknowledgments
