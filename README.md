@@ -24,7 +24,7 @@ the standard grid.
   namespaces to match.
 
 ##Demo
-Coming real soon!
+[http://codepen.io/rbrtsmith/full/VvdGMp/](http://codepen.io/rbrtsmith/full/VvdGMp/)
 
 ##Setup
 ###Vars
@@ -52,7 +52,7 @@ you are not using to false to keep out as much bloat as possible from the
 resulting CSS.
 * `$use-grid` skeleton of the grid system.
 * `$use-grid--equal-height` equal height grid items.
-* `$use-grid--centered` vertically center grid items.
+* `$use-grid--center` vertically center grid items.
 * `$use-grid--bottom` vertically align grid-items to the bottom.
 * `$use-grid--gutter-lg` larger gutter.
 * `$use-grid--gutter-sm` smaller gutter.
@@ -210,7 +210,7 @@ equal height items, vertically align them etc&hellip;
 
 **Vertically aligned to the center**
 ```html
-<div class="o-grid o-grid--centered">
+<div class="o-grid o-grid--center">
     <div class="o-grid__item u-1/2">
         [CONTENT] <!-- we'll be vertically centered no matter what our heights are -->
     </div>
