@@ -66,7 +66,8 @@ automatically added to activated width, push and pull classes.
 ##Useage
 rbrtsmith grids is easy to use and customize.
 Using [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes) 
-based class names the markup becomes extremely descriptive and concise.  
+based class names paired with fractions the markup becomes extremely descriptive 
+and concise.  
 Those not familiar with BEMIT here's a short introduction&hellip;
 ###BEMIT
 Based on [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) 
@@ -90,12 +91,22 @@ where they live within ITCSS.
 
 ####BEMIT responsive suffixes####
 * `u-1/2@sm-up` has the responsive suffix that suggests that this class will
-be applied to screens larger than the `sm` breakpoint and up. the `sm-up`
+be applied to screens larger than the `sm-up` breakpoint and up. the `sm-up`
 namespace can be modified via `$grid-breakpoints` in the `VARS` section.
 
 Further examples of responsive suffixes:
-* `u-push-2/3@lg-up`
-* `u-pull-5/6@xs-up`
+* `u-push-2/3@lg-up` breakpoints larger than `lg-up`
+* `u-pull-5/6@xs-up` breakpoints larger than `xs-up`
+
+####Fractions####
+Although not a part of BEMIT, fractions can better describe widths and offsets
+than set column numbers.  The values simply get converted to a percentage of the
+parent container `.grid` via a Sass mixin so `1/2 = 50%` &nbsp; `2/3 = 66.66%`.
+* `u-1/2` 50% the width.
+* `u-2/3@sm-up` 66.66% width for viewports greater than `sm-up` breakpoint.
+* `u-pull-1/10@lg-up` pull to the left by 10% at viewports greater than `lg-up`
+breakpoint.
+
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
