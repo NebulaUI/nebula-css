@@ -123,8 +123,8 @@ breakpoint.
 ```
 
 ###Width classes###
-**Grid component with two columns at viewports greater than `sm-up`.**
-[Demo](http://codepen.io/rbrtsmith/full/VvdExG/)
+**Grid component with two columns at viewports greater than `sm-up`.**  
+[Demo of all width classes](http://codepen.io/rbrtsmith/full/VvdExG/)
 ```html
 <div class="o-grid">
     <div class="o-grid__item u-1/3@sm-up">
