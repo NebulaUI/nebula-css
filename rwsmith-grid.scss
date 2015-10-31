@@ -462,7 +462,7 @@ $use-pull-11-12:  true !default;
 @if $use-grid--equal-height { /* 1 */
     .#{$object-ns}grid--equal-height,
     .#{$object-ns}grid--equal-height > .#{$object-ns}grid__item,
-    .#{$object-ns}grid--equal-height--center-content > .#{$object-ns}grid__item > * {
+    .#{$object-ns}grid--equal-height--centered-content > .#{$object-ns}grid__item > * {
         display: -webkit-box;
         display: -webkit-flex;
         display: flex;
