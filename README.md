@@ -29,10 +29,10 @@ Coming real soon!
 ##Setup
 ###Vars
 Either roll with the defaults or simply adjust the values wherever necessary&hellip;
-* `object-ns` set the object namespace e.g. `.[value]grid` &nbsp; `.[value]grid__item` 
+* `object-ns` set the object namespace e.g. `.{value}grid` &nbsp; `.{value}grid__item` 
  The default value is `o-` which gives `.o-grid` &nbsp; `.o-grid__item`
-* `utility-ns` set the utility namespace e.g. `.[value]1/2` &nbsp; 
- `.[value]push-2/3@sum-up`
+* `utility-ns` set the utility namespace e.g. `.{value}1/2` &nbsp; 
+ `.{value}push-2/3@sum-up`
  The default value is `u-` which gives `.u-1/2` &nbsp; `.u-push-2/3@sm-up`
 * `$grid-gutter-width` set the width of the guttering.
 * `$gutter-lg-width` width of large gutters.
