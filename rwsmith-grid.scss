@@ -135,10 +135,10 @@ $grid-font-size: 1rem !default;
  */
 $grid-breakpoints: (
     /* [1]       [2] */
-    ( lg-up,    1200px ),
-    ( md-up,    980px ),
-    ( sm-up,    768px ),
     ( xs-up,    480px ),
+    ( sm-up,    768px ),
+    ( md-up,    980px ),
+    ( lg-up,    1200px ),
 ) !default;
 
 
