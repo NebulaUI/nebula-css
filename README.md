@@ -157,21 +157,23 @@ with `left` or `right` values.
 Like the width classes you can add responsive suffices and compose multiple 
 combinations.
 
-**Push
+**Push**
 ```html
 <div class="o-grid">
     <div class="o-grid__item u-1/3 u-push--1/4@sm-up">
         [CONTENT] <!-- I'm 33.33% wide and am shifted to the right by 25% at viewports larger than ´sm-up´ -->
     </div>
 </div>
+```
 
-**pull
+**Pull**
 ```html
 <div class="o-grid">
     <div class="o-grid__item u-1/3 u-pull--1/4@lg-up">
         [CONTENT] <!-- I'm 33.33% wide and am shifted to the left by 25% at viewports larger than ´lg-up´ -->
     </div>
 </div>
+```
 
 ###Grid modifiers###
 This is where the true power of this grid system comes in, where we can set
