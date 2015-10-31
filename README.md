@@ -165,6 +165,23 @@ equal height items, vertically align them etc&hellip;
 </div>
 ```
 
+**Equal heights centered content**
+*Of course you would replace the inline styles with your own BEM block&hellip;*
+```html
+<div class="o-grid o-grid--equal-height o-grid--equal-height--centered-content">
+    <div class="o-grid__item u-1/2">
+        <div style="background: cornflour;">
+            [CONTENT] <!-- No matter what content we contain we'll be equal in height and the text centered -->
+        </div>
+    </div>
+    <div class="o-grid__item u-1/2">
+        <div style="background: cornflour;">
+            [CONTENT] <!-- No matter what content we contain we'll be equal in height and the text centered -->
+        </div>
+    </div>
+</div>
+```
+
 **Vertically aligned to the center**
 ```html
 <div class="o-grid o-grid--centered">
@@ -258,7 +275,7 @@ equal height items, vertically align them etc&hellip;
 ##Composing grid modifiers##
 You can compose multiple modifiers to give even more control.
 
-**Matrix with small gutters with equal height items**
+**Matrix with small gutters and equal height items**
 ```html
 <div class="o-grid o-grid--matrix o-grid--gutter-sm o-grid--equal-height">
     <div class="o-grid__item u-1/2">
