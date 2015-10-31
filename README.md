@@ -1,5 +1,6 @@
 # rwsmith-grid
-Probably the most feature packed responsive grid system you've ever come across&hellip;
+Probably the most feature packed and powerful responsive grid system you've 
+ever come across&hellip;
 
 **Features**
 * Fluid
@@ -19,7 +20,7 @@ Probably the most feature packed responsive grid system you've ever come across&
   reused anywhere in your project.
 * Ability to reverse the order of grid-items.
 * Ability to use any number of user-defined breakpoints with user defined
-  namespaces.
+  namespaces to match.
 
 ##Setup
 
