@@ -131,6 +131,24 @@ breakpoint.
 </div>
 ```
 
+**We can compose multiple breakpoints and widths.**
+```html
+<div class="o-grid">
+    <div class="o-grid__item u-1/2@sm-up u-1/4@lg-up">
+        [CONTENT] <!-- I'm 50% wide @sm-up and 25% wide @lg-up -->
+    </div>
+    <div class="o-grid__item u-1/2@sm-up u-1/4@lg-up">
+        [CONTENT] <!-- I'm 50% wide @sm-up and 25% wide @lg-up -->
+    </div>
+    <div class="o-grid__item u-1/2@sm-up u-1/4@lg-up">
+        [CONTENT] <!-- I'm 50% wide @sm-up and 25% wide @lg-up -->
+    </div>
+    <div class="o-grid__item u-1/2@sm-up u-1/4@lg-up">
+        [CONTENT] <!-- I'm 50% wide @sm-up and 25% wide @lg-up -->
+    </div>
+</div>
+```
+
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
