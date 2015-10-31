@@ -94,7 +94,7 @@ where they live within ITCSS.
 
 ####BEMIT - responsive suffixes####
 * `u-1/2@sm-up` has the responsive suffix that suggests that this class will
-be applied to screens larger than the `sm-up` breakpoint and up. the `sm-up`
+be applied to screens larger than the `sm-up` breakpoint. the `sm-up`
 namespace can be modified via `$grid-breakpoints` in the `VARS` section.
 
 Further examples of responsive suffixes:
