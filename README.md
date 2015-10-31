@@ -321,7 +321,7 @@ You can compose multiple modifiers to give even more control.
 </div>
 ```
 
-##Other##
+##Nesting##
 You can infinitely nest grids inside of one another like this example
 ```html
 <div class="o-grid">
@@ -347,6 +347,7 @@ You can infinitely nest grids inside of one another like this example
 </div>
 ```
 
+##Misc##
 It is also possible to horizontally align the grid items using `text-align`
 which you can define as utility classes in your Sass:
 ```css
