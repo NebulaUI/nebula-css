@@ -15,7 +15,7 @@ the standard grid.
 * No clearfixing required, rows of items with uneven heights tile gracefully.
 * Based on fractions rather than columns yielding increased flexibility over
   some more traditional approaches that use a fixed number of columns.
-* Intuitive class names based on a BEM methodology hybrid known as [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes)
+* Intuitive class names based on fractions and a BEM methodology hybrid known as [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes)
 * Does not require a wrapping element like most other grid systems.
 * Extremely lightweight you can include only the
   features that you require via the `Feature-toggle` list and your compiled CSS
