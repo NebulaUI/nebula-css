@@ -156,7 +156,7 @@ $use-grid:               true !default;
 
 /** GRID FLAGS */
 $use-grid--equal-height: true !default;
-$use-grid--centered:     true !default;
+$use-grid--center:       true !default;
 $use-grid--bottom:       true !default;
 
 $use-grid--gutter-lg:    true !default;
@@ -499,8 +499,8 @@ $use-pull-11-12:  true !default;
 /**
  * Vertically align grid-items to the center
  */
-@if $use-grid--centered {
-    .#{$object-ns}grid--centered > .#{$object-ns}grid__item {
+@if $use-grid--center {
+    .#{$object-ns}grid--center > .#{$object-ns}grid__item {
         vertical-align: middle;
     }
 }
