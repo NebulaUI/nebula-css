@@ -73,6 +73,7 @@ Based on [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-roun
 which stands for **B**lock **E**lement **M**odifier.  BEMIT extends
 on BEM to add in additional prefixing and responsive suffixes to better describe
 the intentions of the components.
+
 **BEM**
 * `.grid` is a **B**lock
 * `.grid--equal-height` is a **M**odifier signified by `--`
