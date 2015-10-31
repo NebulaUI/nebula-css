@@ -153,14 +153,125 @@ breakpoint.
 This is where the true power of this grid system comes in, where we can set
 equal height items, vertically align them etc&hellip;
 
-**Equal heights
+**Equal heights**
 ```html
 <div class="o-grid o-grid--equal-height">
     <div class="o-grid__item u-1/2">
-        [CONTENT] <!-- No matter what content we contain we'll be equal in height- -->
+        [CONTENT] <!-- No matter what content we contain we'll be equal in height -->
     </div>
     <div class="o-grid__item u-1/2">
-        [CONTENT] <!-- No matter what content we contain we'll be equal in height- -->
+        [CONTENT] <!-- No matter what content we contain we'll be equal in height -->
+    </div>
+</div>
+```
+
+**Vertically aligned to the center**
+```html
+<div class="o-grid o-grid--centered">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- we'll be vertically centered no matter what our heights are -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- we'll be vertically centered no matter what our heights are -->
+    </div>
+</div>
+```
+
+**Vertically aligned to the bottom**
+```html
+<div class="o-grid o-grid--centered">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- we'll vertically aligned to the bottom -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- we'll vertically aligned to the bottom -->
+    </div>
+</div>
+```
+
+**Large gutter**
+```html
+<div class="o-grid o-grid--gutter-lg">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have larger guttering -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have larger guttering -->
+    </div>
+</div>
+```
+
+**Small gutter**
+```html
+<div class="o-grid o-grid--gutter-lg">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have smaller guttering -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have smaller guttering -->
+    </div>
+</div>
+```
+
+**Zero gutter**
+```html
+<div class="o-grid o-grid--gutter-lg">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have zero gutter -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have zero gutter -->
+    </div>
+</div>
+```
+
+**Matrix**
+```html
+<div class="o-grid o-grid--matrix">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have vertical gutters as well as horizontal -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have vertical gutters as well as horizontal -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have vertical gutters as well as horizontal -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- We have vertical gutters as well as horizontal -->
+    </div>
+</div>
+```
+
+**Reverse**
+```html
+<div class="o-grid o-grid--reverse">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- I appear to the right -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- I appear to the left -->
+    </div>
+</div>
+```
+
+##Composing grid modifiers##
+You can compose multiple modifiers to give even more control.
+
+**Matrix with small gutters with equal height items**
+```html
+<div class="o-grid o-grid--matrix o-grid--gutter-sm o-grid--equal-height">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- So much control! -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- So much control! -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- So much control! -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- So much control! -->
     </div>
 </div>
 ```
