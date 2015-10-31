@@ -64,7 +64,16 @@ are controlled by the `$grid-breakpoints` list in the `VARS` section and are
 automatically added to activated width, push and pull classes.
 
 ##Useage
-
+rbrtsmith grids is easy to use and customize.
+Using BEMIT based class names the markup becomes extremely descriptive and 
+concise.
+Those not familiar with BEMIT here's a short introduction.
+###BEMIT
+Based on BEM which stands for **B**lock **E**lement **M**odifier.
+* `.grid` is a **B**lock
+* `.grid--equal-height` is a **M**odifier signified by `--`
+* `.grid__item` is an **E**lement signified by `__` and element is a descendant
+of a block.
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
