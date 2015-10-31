@@ -2,7 +2,7 @@
 Probably the most feature packed and powerful responsive grid system you've 
 ever come across&hellip;
 
-**Features**
+##Features
 * Fluid
 * Infinitely nestable
 * Optional equal height grid items based on flexbox (IE10+)
@@ -22,7 +22,7 @@ ever come across&hellip;
 * Ability to use any number of user-defined breakpoints with user defined
   namespaces to match.
 
-##DEMO
+##Demo
 Coming soon!
 
 ##Setup
