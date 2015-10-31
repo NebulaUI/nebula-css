@@ -81,7 +81,7 @@ the intentions of the components.
 * `.grid__item` is an **E**lement signified by `__` which is a descendant
 of a block.
 
-####BEMIT prefixes####
+####BEMIT - prefixes####
 I use the [ITCSS](https://twitter.com/itcss_io) system in my projects so I have 
 added **Object** and **Utility** prefixes to this grid that better describe 
 where they live within ITCSS.  
@@ -89,7 +89,7 @@ where they live within ITCSS.
 * `o-grid__item` is also an object class.
 * `u-1/2` &nbsp; `u-push-2/3` are both utility classes.
 
-####BEMIT responsive suffixes####
+####BEMIT - responsive suffixes####
 * `u-1/2@sm-up` has the responsive suffix that suggests that this class will
 be applied to screens larger than the `sm-up` breakpoint and up. the `sm-up`
 namespace can be modified via `$grid-breakpoints` in the `VARS` section.
@@ -131,7 +131,7 @@ breakpoint.
 </div>
 ```
 
-**We can compose multiple breakpoints and widths.**
+**You can easily compose multiple breakpoints and widths.**
 ```html
 <div class="o-grid">
     <div class="o-grid__item u-1/2@sm-up u-1/4@lg-up">
@@ -149,6 +149,21 @@ breakpoint.
 </div>
 ```
 
+##Grid modifiers##
+This is where the true power of this grid system comes in, where we can set
+equal height items, vertically align them etc&hellip;
+
+**Equal heights
+```html
+<div class="o-grid o-grid--equal-height">
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- No matter what content we contain we'll be equal in height- -->
+    </div>
+    <div class="o-grid__item u-1/2">
+        [CONTENT] <!-- No matter what content we contain we'll be equal in height- -->
+    </div>
+</div>
+```
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
