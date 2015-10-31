@@ -5,20 +5,20 @@ ever come across&hellip;
 **Features**
 * Fluid
 * Infinitely nestable
-* Based on fractions rather than columns yielding increased flexibility over
-  traditional approach using 12 columns.
-* Intuitive classnames based on a BEM methodology hybrid known as [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes)
 * Optional equal height grid items based on flexbox (IE10+)
 * Optional vertical alignment of grid items (when heights differ).
-* Large, standard, small or zero gutters&mdash;all of which are cusomisable.
 * Optional vertical gutters&mdash;which match the width of horizontal gutters.
+* Large, standard, small or zero gutters&mdash;all of which are customizable.
+* Ability to reverse the horizontal order of grid-items.
 * No clearfixing required, rows of items with uneven heights tile gracefully.
+* Based on fractions rather than columns yielding increased flexibility over
+  some more traditional approaches using 12 columns.
+* Intuitive class names based on a BEM methodology hybrid known as [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes)
 * Does not require a wrapping element like most other grid systems.
 * Extremely lightweight, using Sass @if blocks you can include only the
   features that you require via the `Feature-toggle` list.
 * Width, push and pull classes are not tied directly to the grid, and can be 
   reused anywhere in your project.
-* Ability to reverse the order of grid-items.
 * Ability to use any number of user-defined breakpoints with user defined
   namespaces to match.
 
