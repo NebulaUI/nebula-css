@@ -2,6 +2,7 @@
 Probably the most feature packed and powerful responsive grid system you've 
 ever come across&hellip;
 
+
 ##Features
 * Fluid
 * Infinitely nestable
@@ -321,6 +322,31 @@ You can compose multiple modifiers to give even more control.
 ```
 
 ##Other##
+You can infinitely nest grids inside of one another like this example
+```html
+<div class="o-grid">
+    <div class="o-grid__item u-1/2">
+        <div class="o-grid">
+            <div class="o-grid__item u-1/2">
+                1.1
+            </div>
+            <div class="o-grid__item u-1/2">
+                1.2
+            </div>
+        </div>
+    </div>
+    <div class="o-grid__item u-1/2">
+        <div class="o-grid__item u-1/2">
+                2.1
+            </div>
+            <div class="o-grid__item u-1/2">
+                2.2
+            </div>
+        </div>
+    </div>
+</div>
+```
+
 It is also possible to horizontally align the grid items using `text-align`
 which you can define as utility classes in your Sass:
 ```css
@@ -361,10 +387,8 @@ quantity of boxes and the client wants them to always be centered.
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
-[@csswizardry](https://twitter.com/csswizardry])'s and borrows many ideas from
-his grid system and his writings.
-You can check out Harry's Grid system:  
-[csswizardry-grids](https://github.com/csswizardry/csswizardry-grids).
+[@csswizardry](https://twitter.com/csswizardry]) and borrows many ideas from
+his writings and grid system [csswizardry-grids](https://github.com/csswizardry/csswizardry-grids).
 
 If you haven't already had the privilege of reading Harry's blog then I really 
 urge you to dive right in.  It's quite literally a goldmine of useful 
