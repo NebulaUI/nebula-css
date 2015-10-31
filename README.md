@@ -120,6 +120,7 @@ breakpoint.
 </div>
 ```
 
+###Width classes###
 **Grid component with two columns at viewports greater than `sm-up`.**
 ```html
 <div class="o-grid">
@@ -150,7 +151,29 @@ breakpoint.
 </div>
 ```
 
-##Grid modifiers##
+###Push &amp; Pull classes###
+Use to shift individual items horizontally using `position: relative` combined 
+with `left` or `right` values.
+Like the width classes you can add responsive suffices and compose multiple 
+combinations.
+
+**Push
+```html
+<div class="o-grid">
+    <div class="o-grid__item u-1/3 u-push--1/4@sm-up">
+        [CONTENT] <!-- I'm 33.33% wide and am shifted to the right by 25% at viewports larger than ´sm-up´ -->
+    </div>
+</div>
+
+**pull
+```html
+<div class="o-grid">
+    <div class="o-grid__item u-1/3 u-pull--1/4@lg-up">
+        [CONTENT] <!-- I'm 33.33% wide and am shifted to the left by 25% at viewports larger than ´lg-up´ -->
+    </div>
+</div>
+
+###Grid modifiers###
 This is where the true power of this grid system comes in, where we can set
 equal height items, vertically align them etc&hellip;
 
@@ -197,7 +220,7 @@ equal height items, vertically align them etc&hellip;
 
 **Vertically aligned to the bottom**
 ```html
-<div class="o-grid o-grid--centered">
+<div class="o-grid o-grid--bottom">
     <div class="o-grid__item u-1/2">
         [CONTENT] <!-- we'll vertically aligned to the bottom -->
     </div>
@@ -221,7 +244,7 @@ equal height items, vertically align them etc&hellip;
 
 **Small gutter**
 ```html
-<div class="o-grid o-grid--gutter-lg">
+<div class="o-grid o-grid--gutter-sm">
     <div class="o-grid__item u-1/2">
         [CONTENT] <!-- We have smaller guttering -->
     </div>
@@ -231,14 +254,14 @@ equal height items, vertically align them etc&hellip;
 </div>
 ```
 
-**Zero gutter**
+**No gutter**
 ```html
-<div class="o-grid o-grid--gutter-lg">
+<div class="o-grid o-grid--gutter-no-gutter">
     <div class="o-grid__item u-1/2">
-        [CONTENT] <!-- We have zero gutter -->
+        [CONTENT] <!-- We have No gutter -->
     </div>
     <div class="o-grid__item u-1/2">
-        [CONTENT] <!-- We have zero gutter -->
+        [CONTENT] <!-- We have No gutter -->
     </div>
 </div>
 ```
@@ -296,8 +319,10 @@ You can compose multiple modifiers to give even more control.
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
-[@csswizardry](https://twitter.com/csswizardry])'s own grid system 
-[csswizardry-grids](https://github.com/csswizardry/csswizardry-grids).  
+[@csswizardry](https://twitter.com/csswizardry])'s and borrows many ideas from
+his grid system and his writings.
+You can check out Harry's Grid system:  
+[csswizardry-grids](https://github.com/csswizardry/csswizardry-grids).
 
 If you haven't already had the privilege of reading Harry's blog then I really 
 urge you to dive right in.  It's quite literally a goldmine of useful 
