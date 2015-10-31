@@ -49,15 +49,21 @@ namespace.
 A list of feature switches, that are all set to true by default.  Set any that
 you are not using to false to keep out as much bloat as possible from the
 resulting CSS.
-* `use-grid` skeleton of the grid system.
-* `use-grid--equal-height` equal height grid items.
-* `use-grid--centered` vertically center grid items.
-* `use-grid--bottom` vertically align grid-items to the bottom.
-* `use-grid--gutter-lg` larger gutter.
-* `use-grid--gutter-sm` smaller gutter.
-* `use-grid--no-gutter` remove gutter.
-* `use-grid--matrix` vertical gutter matching horizontal gutter.
-* `use-grid--reverse` reverse horizontal ordering of grid items.
+* `$use-grid` skeleton of the grid system.
+* `$use-grid--equal-height` equal height grid items.
+* `$use-grid--centered` vertically center grid items.
+* `$use-grid--bottom` vertically align grid-items to the bottom.
+* `$use-grid--gutter-lg` larger gutter.
+* `$use-grid--gutter-sm` smaller gutter.
+* `$use-grid--no-gutter` remove gutter.
+* `$use-grid--matrix` vertical gutter matching horizontal gutter.
+* `$use-grid--reverse` reverse horizontal ordering of grid items.
+
+You can also toggle specific width, push and pull classes.  Responsive classes
+are controlled by the `$grid-breakpoints` list in the `VARS` section and are
+automatically added to activated width, push and pull classes.
+
+##Useage
 
 
 ##Acknowledgments
