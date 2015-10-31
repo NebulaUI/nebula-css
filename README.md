@@ -355,8 +355,8 @@ and then in your markup:
     </div>
 </div>
 ```
-This can be useful when dealing with content from a CMS when you may have 1 or
-three boxes and the client wants the boxes to always be centered.
+This can be useful when dealing with content from a CMS when you have an unknown
+quantity of boxes and the client wants them to always be centered.
 
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
