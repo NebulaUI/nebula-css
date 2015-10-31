@@ -5,7 +5,8 @@ ever come across&hellip;
 ##Features
 * Fluid
 * Infinitely nestable
-* Optional equal height grid items based on flexbox (IE10+)
+* Optional equal height grid items based on flexbox (IE10+) IE9 falls back to 
+the standard grid.
 * Optional vertical alignment of grid items (when heights differ).
 * Optional vertical gutters&mdash;which match the width of horizontal gutters.
 * Large, standard, small or zero gutters&mdash;all of which are customizable.
