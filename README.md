@@ -16,8 +16,9 @@ the standard grid.
   some more traditional approaches that use a fixed number of columns.
 * Intuitive class names based on a BEM methodology hybrid known as [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes)
 * Does not require a wrapping element like most other grid systems.
-* Extremely lightweight, using Sass @if blocks you can include only the
-  features that you require via the `Feature-toggle` list.
+* Extremely lightweight you can include only the
+  features that you require via the `Feature-toggle` list and your compiled CSS
+  will omit features set to `false`.
 * Width, push and pull classes are not tied directly to the grid, and can be 
   reused anywhere in your project.
 * Ability to use any number of user-defined breakpoints with user defined
