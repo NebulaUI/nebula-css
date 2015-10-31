@@ -65,21 +65,23 @@ automatically added to activated width, push and pull classes.
 
 ##Useage
 rbrtsmith grids is easy to use and customize.
-Using BEMIT based class names the markup becomes extremely descriptive and 
-concise.
-Those not familiar with BEMIT here's a short introduction.
+Using [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes) 
+based class names the markup becomes extremely descriptive and concise.  
+Those not familiar with BEMIT here's a short introduction&helipp;
 ###BEMIT
-Based on BEM which stands for **B**lock **E**lement **M**odifier.  BEMIT extends
+Based on [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) 
+which stands for **B**lock **E**lement **M**odifier.  BEMIT extends
 on BEM to add in additional prefixing and responsive suffixes to better describe
 the intentions of the components.
 * `.grid` is a **B**lock
 * `.grid--equal-height` is a **M**odifier signified by `--`
-* `.grid__item` is an **E**lement signified by `__` and element is a descendant
+* `.grid__item` is an **E**lement signified by `__` which is a descendant
 of a block.
 
 **BEMIT prefixes**
-I use the ITCSS system in my projects so I have added **Object** and **Utility** 
-prefixes to this grid that better describe where they live within ITCSS.  
+I use the [ITCSS](https://twitter.com/itcss_io) system in my projects so I have 
+added **Object** and **Utility** prefixes to this grid that better describe 
+where they live within ITCSS.  
 * `o-grid` is an object class
 * `o-grid__item` is also an object class.
 * `u-1/2` &nbsp; `u-push-2/3` are both utility classes.
