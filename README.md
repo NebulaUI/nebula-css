@@ -75,6 +75,23 @@ Based on BEM which stands for **B**lock **E**lement **M**odifier.
 * `.grid__item` is an **E**lement signified by `__` and element is a descendant
 of a block.
 
+BEMIT adds in namespacing and responsive suffixes.  
+**BEMIT namespaces**
+I use the ITCSS system in my projects so I have added **Object** and **Utility** 
+namespaces to this grid.  
+* `o-grid` is an object class
+* `o-grid__item` is also an object class.
+* `u-1/2` &nbsp; `u-push-2/3` are both utility classes.
+
+**BEMIT responsive suffixes**
+* `u-1/2@sm-up` has the responsive suffix that suggests that this class will
+be applied to screens larger than the `sm` breakpoint and up. the `sm-up`
+namespace can be modified via `$grid-breakpoints` in the `VARS` section.
+
+Further examples of responsive suffixes:
+* `u-push-2/3@lg-up`
+* `u-pull-5/6@xs-up`
+
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
 [@csswizardry](https://twitter.com/csswizardry])'s own grid system 
