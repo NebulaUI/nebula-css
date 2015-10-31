@@ -165,7 +165,7 @@ equal height items, vertically align them etc&hellip;
 </div>
 ```
 
-**Equal heights centered content**
+**Equal heights centered content**  
 *Of course you would replace the inline styles with your own BEM block&hellip;*
 ```html
 <div class="o-grid o-grid--equal-height o-grid--equal-height--centered-content">
