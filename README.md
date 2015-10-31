@@ -67,7 +67,7 @@ automatically added to activated width, push and pull classes.
 rbrtsmith grids is easy to use and customize.
 Using [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/#responsive-suffixes) 
 based class names the markup becomes extremely descriptive and concise.  
-Those not familiar with BEMIT here's a short introduction&helipp;
+Those not familiar with BEMIT here's a short introduction&hellip;
 ###BEMIT
 Based on [BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) 
 which stands for **B**lock **E**lement **M**odifier.  BEMIT extends
