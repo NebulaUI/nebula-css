@@ -98,7 +98,7 @@ $utility-ns: u- !default;
 /**
  * Amount of space between grid items
  */
-$grid-gutter-width:      1rem !default;
+$grid-gutter-width: 1rem !default;
 
 /**
  * Large and small gutters, must be toggled to false under `FEATURE-TOGGLE`.
@@ -106,8 +106,8 @@ $grid-gutter-width:      1rem !default;
  *
   <div class="grid grid--gutter-sm">
  */
-$gutter-lg-width:   $grid-gutter-width * 2 !default;
-$gutter-sm-width:   $grid-gutter-width / 2 !default;
+$gutter-lg-width: $grid-gutter-width * 2 !default;
+$gutter-sm-width: $grid-gutter-width / 2 !default;
 
 /**
  * In order to remove unwanted whitespace between grid items due to inline-blocks 
@@ -117,7 +117,7 @@ $gutter-sm-width:   $grid-gutter-width / 2 !default;
  * Any headlines that are descendants of the `grid__item` will inherit their 
  * respective set font-sizes.
  */
-$grid-font-size:    1rem !default;
+$grid-font-size: 1rem !default;
 
 /**
  * Media query breakpoints.
