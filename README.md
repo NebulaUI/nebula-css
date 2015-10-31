@@ -26,7 +26,7 @@ ever come across&hellip;
 Coming soon!
 
 ##Setup
-**Vars**
+###Vars
 Either roll with the defaults or simply adjust the values wherever necessary&hellip;
 * `object-ns` set the object namespace e.g. `.[value]grid` &nbsp; `.[value]grid__item` 
  The default value is `o-` which gives `.o-grid` &nbsp; `.o-grid__item`
