@@ -46,27 +46,27 @@
  * or deactivated via the feature toggle.  
  * Example:
  *
-    <div class="grid grid--no-gutter">
+    <div class="o-grid o-grid--no-gutter">
  *
  * Within the grid you can nest grid items.
  *
-    <div class="grid">
-        <div class="grid__item">
+    <div class="o-grid">
+        <div class="o-grid__item">
  *
  * These items can than be manipulated with width, push or pull classes.
  * 
-  <div class="grid__item one-half">
+  <div class="o-grid__item u-one-half">
  *
  * Using responsive suffixes widths, push and pull can be applied for specific
  * breakpoints.
-  `class="grid__item one-half@sm-up one-third@md-up"`
+  `class="o-grid__item u-one-half@sm-up u-one-third@md-up"`
  *
  * Push and pull classes can be used to shift the grid item's positioning along
  * the X axis.  They can also be used with responsive suffixes and combined
  * with width classes, which gives an enormous variety of possible combinations.
  * Example:
  *
-  `class="grid__item two-thirds@sm-up push-one-third@md-up"`
+  `class="o-grid__item u-two-thirds@sm-up u-push-one-third@md-up"`
  *
  * This grid system is infinitely nestable.
  *
