@@ -24,7 +24,7 @@ the standard grid.
   namespaces to match.
 
 ##Demo
-Coming soon!
+Coming real soon!
 
 ##Setup
 ###Vars
