@@ -319,6 +319,45 @@ You can compose multiple modifiers to give even more control.
 </div>
 ```
 
+##Other##
+It is also possible to horizontally align the grid items using `text-align`
+which you can define as utility classes in your Sass:
+```css
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+```
+and then in your markup:
+```html
+<div class="o-grid text-center">
+    <div class="o-grid__item u-1/4">
+        [CONTENT] <!-- We're horizontally centered -->
+    </div>
+    <div class="o-grid__item u-1/4">
+        [CONTENT] <!-- We're horizontally centered -->
+    </div>
+</div>
+```
+
+**Or**
+
+```html
+<div class="o-grid text-right">
+    <div class="o-grid__item u-1/4">
+        [CONTENT] <!-- We're to the right -->
+    </div>
+    <div class="o-grid__item u-1/4">
+        [CONTENT] <!-- We're to the right -->
+    </div>
+</div>
+```
+This can be useful when dealing with content from a CMS when you may have 1 or
+three boxes and the client wants the boxes to always be centered.
+
 ##Acknowledgments
 This grid system is Heavily influenced by the great work of
 [@csswizardry](https://twitter.com/csswizardry])'s and borrows many ideas from
