@@ -29,6 +29,11 @@ the standard grid.
 [A quick overview of the features](http://codepen.io/rbrtsmith/full/VvdGMp/)
 
 ##Setup
+
+###Installation
+Either download this repository via Git or via Bower:  
+`bower install rbrtsmith-grid`
+
 ###Vars
 Either roll with the defaults or simply adjust the values wherever necessary&hellip;
 * `object-ns` set the object namespace e.g. `.{value}grid` &nbsp; `.{value}grid__item` 
