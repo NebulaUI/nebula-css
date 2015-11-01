@@ -31,7 +31,7 @@ the standard grid.
 ##Setup
 
 ###Installation
-Either download this repository via Git or via Bower:  
+Either pull down this repository via Git or you can use Bower:  
 `bower install rbrtsmith-grid`
 
 ###Vars
