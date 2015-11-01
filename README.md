@@ -164,7 +164,7 @@ combinations.
 ```html
 <div class="o-grid">
     <div class="o-grid__item u-1/3 u-push-1/4@sm-up">
-        [CONTENT] <!-- I'm 33.33% wide and am shifted to the right by 25% @sm-up -->
+        [CONTENT] <!-- I'm 33.33% wide and pushed to the right by 25% @sm-up -->
     </div>
 </div>
 ```
@@ -173,7 +173,7 @@ combinations.
 ```html
 <div class="o-grid">
     <div class="o-grid__item u-1/3 u-pull-1/4@lg-up">
-        [CONTENT] <!-- I'm 33.33% wide and am shifted to the left by 25% @lg-up -->
+        [CONTENT] <!-- I'm 33.33% wide and pulled to the left by 25% @lg-up -->
     </div>
 </div>
 ```
