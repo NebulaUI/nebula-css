@@ -1,0 +1,19 @@
+{
+  "name": "rwsmith-grids",
+  "version": "1.0.0",
+  "homepage": "https://github.com/rbrtsmith/rwsmith-grid",
+  "authors": [
+    "Robert Smith <rbrtsmith84@googlemail.com>"
+  ],
+  "description": "flexible responsive grid, equal heights, vertical alignment, reversible, infinitely nestable, multiple gutter widths, zero gutters, zero bloat",
+  "main": "rwsmith-grid.scss",
+  "moduleType": [],
+  "keywords": [
+    "rbrtsmith",
+    "grid",
+    "grids",
+    "layout",
+    "responsive"
+  ],
+  "license": "MIT"
+}
