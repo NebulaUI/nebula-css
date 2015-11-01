@@ -1,4 +1,4 @@
-# rwsmith-grid
+# rbrtsmith-grid
 Probably the most feature packed and powerful responsive grid system you've 
 ever come across&hellip;
 
