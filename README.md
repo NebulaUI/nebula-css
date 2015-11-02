@@ -1,6 +1,5 @@
 # rbrtsmith-grid
-Probably the most feature packed and powerful responsive grid system you've 
-ever come across&hellip;
+Fluid grid system, equal heights, vertical alignment, horizontal reversal, almost zero bloat, fraction based.
 
 
 ##Features
