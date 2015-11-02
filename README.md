@@ -1,5 +1,5 @@
 # rbrtsmith-grid
-Fluid grid system, equal heights, vertical alignment, horizontal reversal, almost zero bloat, fraction based.
+fluid, nestable, equal heights, vertical alignment, horizontal reversal, minimal bloat, fractional based grid.
 
 
 ##Features
