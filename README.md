@@ -90,7 +90,7 @@ added **Object** and **Utility** prefixes to this grid that better describe
 where they live within ITCSS.  
 * `o-grid` is an object class as signified by `o-`
 * `o-grid__item` is also an object class.
-* `u-1/2` &nbsp; `u-push-2/3` are both utility classes. as signified by `u-`
+* `u-1/2` &nbsp; `u-push-2/3` are both utility classes as signified by `u-`
 
 ####BEMIT - responsive suffixes####
 * `u-1/2@sm-up` has the responsive suffix that suggests that this class will
