@@ -39,7 +39,7 @@ Either roll with the defaults or simply adjust the values wherever necessary&hel
 * `$grid-gutter-width` set the width of the guttering.
 * `$gutter-lg-width` width of large gutters.
 * `$gutter-sm-width` width of small gutters.
-* `$grid-font-size` Due to using inline-blocks on the `.grid__items we have to
+* `$grid-font-size` Due to using inline-blocks on the `.grid__items` we have to
  set the font-size on the `.grid` block to zero to remove unwanted whitespace,
  which would otherwise cause the grid to fail.  This font-size value will be
  set on each individual item and should equal the base font size of your project.
