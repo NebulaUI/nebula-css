@@ -80,25 +80,25 @@ the intentions of the components.
 
 ####BEM####
 * `.grid` is a **B**lock
-* `.grid--equal-height` is a **M**odifier signified by `--`
-* `.grid__item` is an **E**lement signified by `__` which is a descendant
+* `.grid--equal-height` is a **M**odifier as signified by `--`
+* `.grid__item` is an **E**lement as signified by `__` which is a descendant
 of a block.
 
 ####BEMIT - prefixes####
 I use the [ITCSS](https://twitter.com/itcss_io) system in my projects so I have 
 added **Object** and **Utility** prefixes to this grid that better describe 
 where they live within ITCSS.  
-* `o-grid` is an object class
+* `o-grid` is an object class as signified by `o-`
 * `o-grid__item` is also an object class.
-* `u-1/2` &nbsp; `u-push-2/3` are both utility classes.
+* `u-1/2` &nbsp; `u-push-2/3` are both utility classes. as signified by `u-`
 
 ####BEMIT - responsive suffixes####
 * `u-1/2@sm-up` has the responsive suffix that suggests that this class will
 be applied to screens larger than the `sm-up` breakpoint.
 
 Further examples of responsive suffixes:
-* `u-push-2/3@lg-up` breakpoints larger than `lg-up`
-* `u-pull-5/6@xs-up` breakpoints larger than `xs-up`
+* `u-push-2/3@lg-up` breakpoints larger than `lg-up` as signified by `@lg-up`
+* `u-pull-5/6@xs-up` breakpoints larger than `xs-up` as signified by `@xs-up`
 
 ####Fractions####
 Although not a part of BEMIT, fractions can better describe widths and offsets
