@@ -304,7 +304,7 @@ $use-pull-11-12:  true !default;
     $MIXINS
 \*------------------------------------*/
 /**
- * 1. Takes 4 arguments:
+ * 1. Takes 3 arguments:
  *    - The property (Width OR push OR pull),
  *    - The fractions list that corresponds to the property,
  *    - The breakpoint (can be an item in the `$breakpoints` list or null).
@@ -312,8 +312,6 @@ $use-pull-11-12:  true !default;
  * 3. If the property within the current fraction has been set feature-toggled
  * 4. If a breakpoint was passed into the mixin...
  * 5. Generate a class name based on:
- *    - The utility namespace +
- *    - The passed in (optional) namespace +
  *    - The namespace in the current fraction +
  *    - An escaped @ symbol as a responsive suffix +
  *    - The namespace from the current breakpoint item.
@@ -339,15 +337,12 @@ $use-pull-11-12:  true !default;
 }
 
 /**
- * 1. Takes 3 arguments: 
- *    - The property (Width OR push OR pull),
- *    - The fractions list that corresponds to the property,
+ * 1. Takes 2 arguments: 
+ *    - The fractions list that corresponds to the property (Width/Push/pull),
  *    - An optional namespace that will form a segment of the eventual class name.
  * 2. Call the `set-fractions mixin` passing in:
  *    - The property,
  *    - The fractions list,
- *    - null (No breakpoint in this call)
- *    - The namespace.
  * 3. Check if any breakpoints are defined.
  * 4. Loop through the breakpoints.
  * 5. Generate a mobile first media query taking with width value from the
@@ -356,7 +351,6 @@ $use-pull-11-12:  true !default;
  *    - The property,
  *    - The fractions list,
  *    - the current breakpoint
- *    - The namespace.
  */
 @mixin make-offsets($property, $fractions) { /* [1] */
     @include set-fractions($property, $fractions, null); /* [2] */
@@ -383,8 +377,8 @@ $use-pull-11-12:  true !default;
  * 1. Ensure grid spans full width of parent.
  * 2. Reset any margins and paddings.
  * 3. Set a negative margin-left & right to create space for 
- *    `grid__item`s gutter.
- * 4. Set a zero font-size to remove spacing on the `grid__item` children
+ *    `o-grid__item`s gutter.
+ * 4. Set a zero font-size to remove spacing on the `o-grid__item` children
  *    caused by them having their display set to `inline-block`.
  * 5. Remove any possible list styling.
  */
@@ -582,7 +576,7 @@ $use-pull-11-12:  true !default;
  * 8. Prevent grid-items from inhering text-align properties set
  *    One parent or ancestor nodes.
  * 9. Inject the base font-size.  The grid items cannot inherit font-size
- *    As the font-size on the parent `grid` component is set to zero to
+ *    As the font-size on the parent `o-grid` component is set to zero to
  *    overcome whitespace issues when using inline-block.
  */
 .o-grid__item {
