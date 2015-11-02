@@ -89,7 +89,7 @@ $grid-gutter-width: 1rem !default;
  * Large and small gutters, must be toggled to false under `FEATURE-TOGGLE`.
  * Can be activated on a grid with the modifier flag
  *
-  <div class="grid grid--gutter-sm">
+  <div class="o-grid o-grid--gutter-sm">
  */
 $gutter-lg-width: $grid-gutter-width * 2 !default;
 $gutter-sm-width: $grid-gutter-width / 2 !default;
@@ -99,7 +99,7 @@ $gutter-sm-width: $grid-gutter-width / 2 !default;
  * the font-size of the grid is set to zero, then on the grid items themselves
  * the font-size will be given the value below - which should be equal to your
  * projects default font size.
- * Any headlines that are descendants of the `grid__item` will inherit their 
+ * Any headlines that are descendants of the `o-grid__item` will inherit their 
  * respective set font-sizes.
  */
 $grid-font-size: 1rem !default;
@@ -110,7 +110,7 @@ $grid-font-size: 1rem !default;
  * Example width class with default values: Note the `@`symbol prepends
  * the namespace.
  *
- `one-half@sm-up two-fifths@lg-up`
+ `u-1/2@sm-up u-2/5@lg-up`
  *
  * 1. Namespace for the breakpoint.
  * 2. Value for the breakpoint.
