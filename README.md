@@ -33,6 +33,13 @@ the standard grid.
 Either pull down this repository via Git or you can use Bower:  
 `bower install rbrtsmith-grid`
 
+### A word on CSS minification
+Some CSS minifiers change the source order of your CSS and merge media querys.  This will cause this gris system to break as it is dependant upon it's source order.  It's also generally a bad idea tp be reordering our CSS as we should ideally be writing our CSS in [specificity order](http://csswizardry.com/2014/10/the-specificity-graph/).
+The minifier I use is [clean css](https://github.com/jakubpawlowicz/clean-css) and I run ít with the flag `--skip-advanced` to stop this reordering and merging.  
+If you are using Gulp and the plugin [gulp-minify-css](https://www.npmjs.com/package/gulp-minify-css) which is essentially a wrapper for clean-css then you will need to pipe the following: `.pipe(minifyCSS({'advanced': false}))`.
+
+Having more media querys in your CSS will make almost zero difference after everything is Gzipped, it deals with repetition extremely well.
+
 ###Vars
 Either roll with the defaults or simply adjust the values wherever necessary&hellip;
 * `$grid-gutter-width` set the width of the guttering.
