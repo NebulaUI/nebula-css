@@ -10,7 +10,7 @@ the standard grid.
 * Optional vertical alignment of grid items (when heights differ).
 * Optional vertical gutters&mdash;which match the width of horizontal gutters.
 * Large, standard, small or zero gutters&mdash;all of which are customizable.
-* Ability to reverse the horizontal order of grid-items.
+* Ability to reverse the horizontal order of grid-items via a single classname.
 * No clearfixing required, rows of items with uneven heights tile gracefully.
 * Based on fractions rather than columns yielding increased flexibility over
   some more traditional approaches that use a fixed number of columns.
