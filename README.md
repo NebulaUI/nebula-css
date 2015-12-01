@@ -18,8 +18,7 @@ the standard grid.
 `u-1/4@sm-up` = width one quarter at screens larger than the `screen-sm` breakpoint.
 * Does not require a wrapping element like most other grid systems.
 * Extremely lightweight you can include only the
-  features that you require via the `Feature-toggle` list and your compiled CSS
-  will omit features set to `false`.
+  features that you require via the `Feature-toggle` list and the Sass compiler will ommit classes set to `false`.
 * Width, push and pull classes are not tied directly to the grid, and can be 
   reused anywhere in your project.
 * Ability to use any number of user-defined breakpoints with user defined
