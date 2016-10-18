@@ -7,6 +7,9 @@
   "rules": {
     "selector-class-pattern": "",
     "declaration-block-properties-order": [],
+    "selector-no-qualifying-type": [ true, {
+      "ignore": ["attribute"]
+    }],
     "scss/selector-no-redundant-nesting-selector": true,
     "scss/at-extend-no-missing-placeholder": true,
     "scss/dollar-variable-no-missing-interpolation": true,
