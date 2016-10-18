@@ -4,28 +4,29 @@
   $matrix-class-child: '';
   $matrix-class-modifier: '';
 
+
   @if $matrix {
     $side: 'bottom';
     $matrix-class-modifier: '--matrix';
-    $matrix-class: '.ln-o-grid' + $matrix-class-modifier;
+    $matrix-class: '.nb-o-grid' + $matrix-class-modifier;
     $matrix-class-child: $matrix-class + ' > ';
   }
 
   @if ($size-key == 'def') {
-    .ln-o-grid#{$matrix-class-modifier} {
+    .nb-o-grid#{$matrix-class-modifier} {
       margin-#{$side}: -$size-value;
     }
 
-    #{$matrix-class-child}.ln-o-grid__item {
+    #{$matrix-class-child}.nb-o-grid__item {
       padding-#{$side}: $size-value;
     }
 
   } @else {
-    #{$matrix-class}.ln-o-grid--gutter-#{$size-key} {
+    #{$matrix-class}.nb-o-grid--gutter-#{$size-key} {
       margin-#{$side}: -$size-value;
     }
 
-    #{$matrix-class}.ln-o-grid--gutter-#{$size-key} > .ln-o-grid__item {
+    #{$matrix-class}.nb-o-grid--gutter-#{$size-key} > .nb-o-grid__item {
       padding-#{$side}: $size-value;
     }
   }
@@ -40,11 +41,11 @@
         }
 
         @include nb-respond-to($bp-key) {
-          #{$matrix-class}.ln-o-grid--gutter-#{$size-key}\@#{$bp-key} {
+          #{$matrix-class}.nb-o-grid--gutter-#{$size-key}\@#{$bp-key} {
             margin-#{$side}: -$size-value;
           }
 
-          #{$matrix-class}.ln-o-grid--gutter-#{$size-key}\@#{$bp-key} > .ln-o-grid__item {
+          #{$matrix-class}.nb-o-grid--gutter-#{$size-key}\@#{$bp-key} > .nb-o-grid__item {
             padding-#{$side}: $size-value;
           }
         }

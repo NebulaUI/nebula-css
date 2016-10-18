@@ -1,0 +1,17 @@
+@mixin nb-widths {
+  @each $key, $value in $nb-width-fractions {
+    $class: nb-string-replace($key, '/', '\\/');
+    $width-value: (($value * 100) * 1%);
+    .nb-u-#{$class} {
+      width: $width-value;
+    }
+
+    @each $bp-key, $bp-value in $nb-breakpoints {
+      @include nb-respond-to($bp-key) {
+        .nb-u-#{$class}\@#{$bp-key} {
+          width: $width-value;
+        }
+      }
+    }
+  }
+}
