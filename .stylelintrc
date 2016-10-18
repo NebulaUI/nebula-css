@@ -1,5 +1,6 @@
 {
   "extends": "stylelint-config-sass-guidelines",
+  "ignoreFiles": 'nebula-css/tools/*',
   "plugins": [
     "stylelint-scss",
     "stylelint-selector-bem-pattern"
