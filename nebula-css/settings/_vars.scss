@@ -11,3 +11,8 @@ $nb-breakpoints: (
 $nb-spacing-percentages: (
   def: 100%
 ) !default;
+
+$nb-list-spacing: (
+  def: $nb-spacing-unit,
+  lg: ($nb-spacing-unit * 2)
+) !default;

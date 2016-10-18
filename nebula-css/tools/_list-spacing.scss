@@ -1,0 +1,17 @@
+@mixin nb-list-spacing($class, $side) {
+  @each $key, $value in $nb-list-spacing {
+    $compound-class: 'nb-o-#{$class}--spaced-#{$key}';
+
+    @if $key == 'def' {
+      $compound-class: 'nb-o-#{$class}--spaced';
+    }
+
+    .#{$compound-class} {
+      margin-#{$side}: -$value;
+    }
+
+    .#{$compound-class} > .nb-o-#{$class}__item {
+      padding-#{$side}: $value;
+    }
+  }
+}
