@@ -8,7 +8,8 @@
     "sass": "node-sass --output-style compressed --include-path ./nebula-css/ --include-path ./node_modules/normalize-scss/sass/ -o demo/dist demo/src/main.scss",
     "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' 'ie 9-11' -r demo/dist/main.css",
     "build": "npm run lint && npm run sass && npm run autoprefixer",
-    "watch": "npm run build && onchange '*/**/*.scss' -- npm run build"
+    "watch": "npm run build && onchange '*/**/*.scss' -- npm run build",
+    "serve": "http-server demo"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   "homepage": "https://github.com/rbrtsmith/nebula-css#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.5",
+    "http-server": "^0.9.0",
     "node-sass": "^3.4.2",
     "onchange": "^2.2.0",
     "postcss-cli": "^2.5.1",
