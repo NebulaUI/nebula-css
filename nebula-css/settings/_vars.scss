@@ -1,5 +1,7 @@
 $nb-site-wrap-width: 60rem !default;
 $nb-spacing-unit: 1rem !default;
+$nb-base-font-size: 16px !default;
+$nb-base-line-height: 1.5 !default;
 
 $nb-breakpoints: (
   xs: 460px,
@@ -13,6 +15,12 @@ $nb-spacing-percentages: (
 ) !default;
 
 $nb-list-spacing: (
+  def: $nb-spacing-unit
+) !default;
+
+$nb-grid-gutter-sizes: (
   def: $nb-spacing-unit,
+  zero: 0,
+  sm: ($nb-spacing-unit * 0.5),
   lg: ($nb-spacing-unit * 2)
 ) !default;

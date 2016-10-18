@@ -4,6 +4,11 @@ html {
   @include nb-spacing;
 }
 
+body {
+  font-size: $nb-base-font-size;
+  line-height: $nb-base-line-height;
+}
+
 /**
  * Where `margin-bottom` is concerned, this value will be the same as the
  * base line-height. This allows us to keep a consistent vertical rhythm.
