@@ -1,0 +1,35 @@
+@if $use-nb-flag {
+  .nb-o-flag {
+    display: table;
+    width: 100%;
+  }
+
+  .nb-o-flag__component,
+  .nb-o-flag__body {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .nb-o-flag--top > .nb-o-flag__component,
+  .nb-o-flag--top > .nb-o-flag__body {
+    vertical-align: top;
+  }
+
+  .nb-o-flag__body {
+    width: 100%;
+  }
+
+  .nb-o-flag__component--nowrap {
+    white-space: nowrap;
+  }
+
+  .nb-o-flag--bottom > .nb-o-flag__component,
+  .nb-o-flag--bottom > .nb-o-flag__body {
+    vertical-align: bottom;
+  }
+
+  .nb-o-flag__component > img {
+    display: block;
+    max-width: none;
+  }
+}

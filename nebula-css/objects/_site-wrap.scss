@@ -1,0 +1,12 @@
+@if $use-nb-site-wrap {
+  .nb-o-site-wrap {
+    max-width: $nb-site-wrap-width;
+    margin: 0 auto;
+  }
+
+  .nb-o-site-wrap--padding {
+    max-width: ($nb-site-wrap-width + ($nb-spacing-unit * 2));
+    padding-left: $nb-spacing-unit;
+    padding-right: $nb-spacing-unit;
+  }  
+}
