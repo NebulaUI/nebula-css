@@ -1,9 +1,13 @@
 @mixin nb-list-spacing($class, $side) {
+  $modifier: '--spaced';
+  @if $class == 'matrix-list' {
+    $modifier: '';
+  }
   @each $key, $value in $nb-list-spacing {
-    $compound-class: '#{$nb-namespace}o-#{$class}--spaced-#{$key}';
+    $compound-class: '#{$nb-namespace}o-#{$class}#{$modifier}-#{$key}';
 
     @if $key == 'def' {
-      $compound-class: '#{$nb-namespace}o-#{$class}--spaced';
+      $compound-class: '#{$nb-namespace}o-#{$class}#{$modifier}';
     }
 
     .#{$compound-class} {

@@ -1,5 +1,7 @@
 # Nebula-css
 
+Under development.  Please follow along by...
+
 1. `git clone git@github.com:rbrtsmith/nebula-css.git`
 2. `cd nebula-css`
 3. `npm install`
