@@ -1,9 +1,9 @@
-.nb-o-inline-list {
+.#{$nb-namespace}o-inline-list {
   margin: 0;
   list-style: none;
 }
 
-.nb-o-inline-list__item {
+.#{$nb-namespace}o-inline-list__item {
   display: inline-block;
   vertical-align: middle;
 }

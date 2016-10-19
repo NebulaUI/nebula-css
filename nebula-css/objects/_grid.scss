@@ -1,4 +1,4 @@
-.nb-o-grid {
+.#{$nb-namespace}o-grid {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -8,48 +8,48 @@
 @include nb-gutters;
 
 @if $nb-use-grid-zero-font-size {
-  .nb-o-grid {
+  .#{$nb-namespace}o-grid {
     font-size: 0;
   }
 
-  .nb-o-grid__item {
+  .#{$nb-namespace}o-grid__item {
     font-size: $nb-base-font-size;
   }
 }
 
-.nb-o-grid--equal-height,
-.nb-o-grid--equal-height > .nb-o-grid__item {
+.#{$nb-namespace}o-grid--equal-height,
+.#{$nb-namespace}o-grid--equal-height > .#{$nb-namespace}o-grid__item {
   display: flex;
 }
 
-.nb-o-grid--equal-height > *,
-.nb-o-grid--equal-height > .nb-o-grid__item > * {
+.#{$nb-namespace}o-grid--equal-height > *,
+.#{$nb-namespace}o-grid--equal-height > .#{$nb-namespace}o-grid__item > * {
   width: 100%;
 }
 
-.nb-o-grid--equal-height {
+.#{$nb-namespace}o-grid--equal-height {
   flex-wrap: wrap;
 }
 
-.nb-o-grid--center > .nb-o-grid__item {
+.#{$nb-namespace}o-grid--center > .#{$nb-namespace}o-grid__item {
   vertical-align: middle;
 }
 
-.nb-o-grid--bottom > .nb-o-grid__item {
+.#{$nb-namespace}o-grid--bottom > .#{$nb-namespace}o-grid__item {
   vertical-align: bottom;
 }
 
-.nb-o-grid--reverse {
+.#{$nb-namespace}o-grid--reverse {
   direction: rtl;
   text-align: left;
 }
 
-.nb-o-grid--reverse > .nb-o-grid__item {
+.#{$nb-namespace}o-grid--reverse > .#{$nb-namespace}o-grid__item {
   direction: ltr;
   text-align: left;
 }
 
-.nb-o-grid__item {
+.#{$nb-namespace}o-grid__item {
   position: relative;
   display: inline-block;
   width: 100%;
