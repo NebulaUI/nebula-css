@@ -60,12 +60,12 @@
     ```
   And will populate the remaining files with the appropriate imports to pull in Nebula CSS fron your `node_modules` directory.
 
-  **Note! The paths you see are not directly linking to `node_modules`, this is because IncludePaths required in your build tool to provide the alias.  IncludePaths to both nebula an normalise are required `./node_modules/nebula-css/`, `./node_modules/normalize-scss/sass/`**
+  **Note! The paths you see are not directly linking to `node_modules`, this is because IncludePaths required in your build tool to provide the alias.  IncludePaths to both nebula an normalize are required `./node_modules/nebula-css/`, `./node_modules/normalize-scss/sass/`**
 
 4. Ensure the build tool of your choice is configured to build you Sass files appropriately.  
 
-  below you'll find an example using NPM Scripts.  
-  It uses [node-sass](https://github.com/sass/node-sass) and [autoprefixer](https://github.com/postcss/autoprefixer).  You can also see how the `--include-path` is set here.  You can paste this into your `package.json`
+  below you'll find an example using NPM Scripts.
+  It uses [node-sass](https://github.com/sass/node-sass) and [autoprefixer](https://github.com/postcss/autoprefixer).  You can also see how the `--include-path` is set here.  You can paste this into your `package.json` and change the paths to suit those within your project.
 
   **Note** For this to work you will also have to install: `npm i -D node-sass autoprefixer`
   ```json
@@ -75,3 +75,7 @@
     "build": "npm run sass && npm run autoprefixer"
   },
   ```
+
+  `npm run build` will execute the build script above and generate your compiled CSS output.
+
+5. Happy coding!
