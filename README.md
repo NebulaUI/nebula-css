@@ -61,6 +61,7 @@
   And will populate the remaining files with the appropriate imports to pull in Nebula CSS fron your `node_modules` directory.
 
   **Note! The paths you see are not directly linking to `node_modules`, this is because IncludePaths required in your build tool to allow these paths to be resolved.  IncludePaths for both nebula an normalize are required: `./node_modules/nebula-css/`, `./node_modules/normalize-scss/sass/`**
+  
   You can read more about IncludePaths:
    * [Node-sass](https://github.com/sass/node-sass#includepaths)
 
