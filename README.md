@@ -1,19 +1,4 @@
 # Nebula CSS
-<style>
-.warning-block {
-  border: 2px solid #b90101;
-  background: #fdf0f0;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.warnining-pill {
-  background: #ec0a0a;
-  color: white;
-  padding: 5px;
-  border-radius: 5px;
-}
-</style>
 
 [View the demo](http://rbrtsmith.com/nebula-css/demo/)
 
@@ -74,9 +59,8 @@
     @import 'utilities';
     ```
   And will populate the remaining files with the appropriate imports to pull in Nebula CSS fron your `node_modules` directory.
-  <div class="warning-block">
-  <span class="warning-pill">**Note**</span> The paths you see are not directly linking to `node_modules`, this is because IncludePaths required in your build tool to provide the alias.  IncludePaths to both nebula an normalise are required `./node_modules/nebula-css/`, `./node_modules/normalize-scss/sass/`
-  </div>
+
+  **Note!** The paths you see are not directly linking to `node_modules`, this is because IncludePaths required in your build tool to provide the alias.  IncludePaths to both nebula an normalise are required `./node_modules/nebula-css/`, `./node_modules/normalize-scss/sass/`
 
 4. Ensure the build tool of your choice is configured to build you Sass files appropriately.  
 
