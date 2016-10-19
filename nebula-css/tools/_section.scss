@@ -1,0 +1,14 @@
+@mixin ln-section() {
+  @each $key, $value in $nb-section-spacing {
+    $class: '--' + $key;
+
+    @if $key == 'def' {
+      $class: '';
+    }
+
+    .ln-o-section#{$class} {
+      padding-top: $value;
+      padding-bottom: $value;
+    }
+  }
+}

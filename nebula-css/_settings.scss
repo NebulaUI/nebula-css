@@ -25,10 +25,13 @@ $nb-list-spacing: (
 ) !default;
 
 
+$nb-section-spacing: (
+  def: ($nb-spacing-unit * 2)
+) !default;
+
+
 $nb-grid-gutter-sizes: (
-  def: $nb-spacing-unit,
-  sm: ($nb-spacing-unit * 0.5),
-  lg: ($nb-spacing-unit * 2)
+  def: $nb-spacing-unit
 ) !default;
 
 
