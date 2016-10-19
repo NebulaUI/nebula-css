@@ -20,6 +20,7 @@
       <h2>Grid</h2>
       <h4>Grid widths</h4>
       <p><em>Fractional based grid contains one-whole, halves, thirds, quarters, fifths, sixths, eighths, tenths, twelfths.</em></p>
+      <p>fractions can be added or removed via the <code>$nb-offset-fractions</code> map.
       <div class="o-grid o-grid--gutter o-grid--matrix">
         <div class="o-grid__item u-1/1">
           <div class="c-card">
@@ -147,6 +148,186 @@
           </div>
         </div>
       </div>
+
+      <div class="o-section--sm">
+        <h3>Grid width breakpoints</h3>
+        <p>Breakpoints can be added or removed via the <code>$nb-breakpoints</code> map.
+        <div class="o-grid o-grid--matrix o-grid--gutter">
+          <div class="o-grid__item u-1/2@sm">
+            <div class="c-card">
+              1/2@sm
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2@sm">
+            <div class="c-card">
+              1/2@sm
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2@md">
+            <div class="c-card">
+              1/2@md
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2@lg">
+            <div class="c-card">
+              1/2@lg
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="o-section--sm">
+        <h3>Grid guttering</h3>
+        <p>Gutter sizes can be added or removed via the <code>$nb-grid-gutter-sizes</code> map.
+        <p>By default the grid comes with no guttering.<p>
+        <div class="o-grid">
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="o-section--sm">
+        <h3>Grid with guttering</h3>
+        <p>Also by default the grid comes with no vertical guttering</p>
+        <div class="o-grid o-grid--gutter">
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="o-section--sm">
+        <h3>Grid matrix</h3>
+        <p>Provides vertical gutters that match whatever horizontal gutter is specified.</p>
+        <div class="o-grid o-grid--gutter o-grid--matrix">
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="o-section--sm">
+        <h3>Grid equal height</h3>
+        <div class="o-grid o-grid--gutter o-grid--equal-height">
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla nesciunt voluptatem asperiores culpa quasi autem placeat commodi explicabo sit ipsum at eaque, voluptatum necessitatibus aperiam nam ullam maiores harum, iure.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="o-section--sm">
+        <h3>Grid reverse</h3>
+        <div class="o-grid o-grid--gutter o-grid--reverse">
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              First
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              Second
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="o-section--sm">
+        <h3>Vertically centered</h3>
+        <div class="o-grid o-grid--gutter o-grid--center">
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia eaque rem ab modi quaerat tempore asperiores quos nobis quasi! Ad voluptatibus nobis repellat nemo impedit aperiam repudiandae ullam magni aliquid!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="o-section--sm">
+        <h3>bottom aligned</h3>
+        <div class="o-grid o-grid--gutter o-grid--bottom">
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              1/2
+            </div>
+          </div>
+          <div class="o-grid__item u-1/2">
+            <div class="c-card">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia eaque rem ab modi quaerat tempore asperiores quos nobis quasi! Ad voluptatibus nobis repellat nemo impedit aperiam repudiandae ullam magni aliquid!
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="o-section">
+    <div class="o-site-wrap o-site-wrap--padding">
+      <h2>Lists</h2>
     </div>
   </section>
 </body>
