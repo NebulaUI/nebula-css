@@ -10,13 +10,16 @@ $nb-breakpoints: (
   lg: 1200px
 ) !default;
 
-$nb-spacing-percentages: (
+
+$nb-root-sizing: (
   def: 100%
 ) !default;
+
 
 $nb-list-spacing: (
   def: $nb-spacing-unit
 ) !default;
+
 
 $nb-grid-gutter-sizes: (
   def: $nb-spacing-unit,
@@ -26,7 +29,7 @@ $nb-grid-gutter-sizes: (
 ) !default;
 
 
-$nb-width-fractions: (
+$nb-offset-fractions: (
   '1/1': 1/1,
   '1/2': 1/2,
   '1/3': 1/3,
@@ -70,4 +73,4 @@ $nb-width-fractions: (
   '9/12': 9/12,
   '10/12': 10/12,
   '11/12': 11/12
-);
+) !default;

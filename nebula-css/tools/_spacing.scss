@@ -1,5 +1,5 @@
 @mixin nb-spacing {
-  @each $percentage in $nb-spacing-percentages {
+  @each $percentage in $nb-root-sizing {
     @if nth($percentage, 1) == 'def' {
       font-size: nth($percentage, 2);
     }

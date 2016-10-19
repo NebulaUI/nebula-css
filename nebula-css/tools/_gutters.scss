@@ -4,7 +4,6 @@
   $matrix-class-child: '';
   $matrix-class-modifier: '';
 
-
   @if $matrix {
     $side: 'bottom';
     $matrix-class-modifier: '--matrix';
@@ -57,9 +56,6 @@
 @mixin nb-gutters {
   @each $key, $value in $nb-grid-gutter-sizes {
     @include build-gutters($key, $value);
-
-    @if $nb-use-grid-matrix {
-      @include build-gutters($key, $value, 'matrix');
-    }
+    @include build-gutters($key, $value, 'matrix');
   }
 }
