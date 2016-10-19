@@ -1,4 +1,18 @@
 # Nebula CSS
+Nebula CSS is a super low-level Sass framework that is built using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture uses [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming conventions.
+
+Nebula comes with 100% zero cosmetic styling.  This allows every project built with Nebula to have a completely bespoke look and feel with Nebula doing the heavy lifting when it comes to layout and architecture.
+
+Nebula ships with a highly flexible and and extendible grid system - actually everything here is extensible including but not limited to
+* Breakpoints
+* Grid fractions
+* Grid guttering
+* list spacing
+* section spacing
+
+It also ships with a few common and useful abstractions such as the Flag Object.
+
+Nebula is ultra lightweight with the default settings coming in at a tiny 5kb Gizpped.  This can potentially be even less if you decided to remove unwanted grid features for example.
 
 [View the demo](http://rbrtsmith.com/nebula-css/demo/)
 
