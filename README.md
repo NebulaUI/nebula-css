@@ -78,4 +78,6 @@
 
   `npm run build` will execute the build script above and generate your compiled CSS output.
 
-5. Happy coding!
+5.  You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
+
+... More documentation coming very soon!
