@@ -27,7 +27,6 @@ $nb-list-spacing: (
 
 $nb-grid-gutter-sizes: (
   def: $nb-spacing-unit,
-  zero: 0,
   sm: ($nb-spacing-unit * 0.5),
   lg: ($nb-spacing-unit * 2)
 ) !default;
