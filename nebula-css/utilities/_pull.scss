@@ -1,0 +1,3 @@
+@if $nb-use-push-offsets {
+  @include nb-offsets('pull', $nb-offset-fractions);  
+}

@@ -1,0 +1,33 @@
+.#{$nb-namespace}o-flag {
+  display: table;
+  width: 100%;
+}
+
+.#{$nb-namespace}o-flag__component,
+.#{$nb-namespace}o-flag__body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.#{$nb-namespace}o-flag--top > .#{$nb-namespace}o-flag__component,
+.#{$nb-namespace}o-flag--top > .#{$nb-namespace}o-flag__body {
+  vertical-align: top;
+}
+
+.#{$nb-namespace}o-flag__body {
+  width: 100%;
+}
+
+.#{$nb-namespace}o-flag__component--nowrap {
+  white-space: nowrap;
+}
+
+.#{$nb-namespace}o-flag--bottom > .#{$nb-namespace}o-flag__component,
+.#{$nb-namespace}o-flag--bottom > .#{$nb-namespace}o-flag__body {
+  vertical-align: bottom;
+}
+
+.#{$nb-namespace}o-flag__component > img {
+  display: block;
+  max-width: none;
+}

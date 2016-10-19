@@ -1,0 +1,11 @@
+.#{$nb-namespace}o-inline-list {
+  margin: 0;
+  list-style: none;
+}
+
+.#{$nb-namespace}o-inline-list__item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@include nb-list-spacing('inline-list', 'left');

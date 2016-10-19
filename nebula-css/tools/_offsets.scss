@@ -1,0 +1,31 @@
+@mixin nb-offsets($action, $fractions) {
+  $property: '';
+  $class: $action + '-';
+
+  @if $action == 'push' {
+    $property: 'left';
+  } @elseif $action == 'pull' {
+    $property: 'right';
+  } @else {
+    $property: 'width';
+    $class: '';
+  }
+
+  @each $key, $value in $fractions {
+    $modifier: nb-string-replace($key, '/', '\\/');
+    $offset-value: (($value * 100) * 1%);
+
+    .#{$nb-namespace}u-#{$class}#{$modifier} {
+      #{$property}: $offset-value;
+    }
+    @if $nb-use-offsets-breakpoints {
+      @each $bp-key, $bp-value in $nb-breakpoints {
+        @include nb-respond-to($bp-key) {
+          .#{$nb-namespace}u-#{$class}#{$modifier}\@#{$bp-key} {
+            #{$property}: $offset-value;
+          }
+        }
+      }
+    }
+  }
+}

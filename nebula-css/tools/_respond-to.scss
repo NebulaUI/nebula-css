@@ -1,0 +1,34 @@
+@mixin nb-respond-to($bp) {
+  @if map-has-key($nb-breakpoints, $bp) {
+    @media (min-width: #{map-get($nb-breakpoints, $bp)}) {
+      @content;
+    }
+  }
+
+  @else {
+    @if (str-index($bp, 'max-')) {
+      $ln-bp: ln-str-replace($bp, 'max-', '');
+
+      @if map-has-key($nb-breakpoints, $ln-bp) {
+        @media (max-width: #{(map-get($nb-breakpoints, $ln-bp)-1)}) {
+          @content;
+        }
+      }
+    }
+
+    @elseif (str-index($bp, 'min-')) {
+      $ln-bp: ln-str-replace($bp, 'min-', '');
+
+      @if map-has-key($nb-breakpoints, $ln-bp) {
+        @media (min-width: #{map-get($nb-breakpoints, $ln-bp)}) {
+          @content;
+        }
+      }
+    }
+
+    @else {
+      @warn 'Unfortunately, no value could be retrieved from `#{$bp}`. '
+        + 'Please make sure it is defined in `$nb-breakpoints` map.';
+    }
+  }
+}

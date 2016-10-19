@@ -1,0 +1,56 @@
+@mixin build-gutters($size-key, $size-value, $matrix: null) {
+  $side: 'left';
+  $matrix-class: '';
+  $matrix-class-child: '';
+  $matrix-class-modifier: '';
+
+  @if $size-key == 'def' {
+    $size-key: '';
+  } @else {
+    $size-key: '-' + $size-key;
+  }
+
+  @if $matrix {
+    $side: 'bottom';
+    $matrix-class-modifier: '--matrix';
+    $matrix-class: '.#{$nb-namespace}o-grid' + $matrix-class-modifier;
+    $matrix-class-child: $matrix-class + ' > ';
+  }
+
+  #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key} {
+    margin-#{$side}: -$size-value;
+  }
+
+  #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key} > .#{$nb-namespace}o-grid__item {
+    padding-#{$side}: $size-value;
+  }
+
+  @if $nb-use-grid-gutter-breakpoints {
+    @each $bp in $nb-breakpoints {
+      @for $i from 1 through 2 {
+        $bp-key: nth($bp, 1);
+
+        @if $i == 2 {
+          $bp-key: 'max-' + nth($bp, 1);
+        }
+
+        @include nb-respond-to($bp-key) {
+          #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} {
+            margin-#{$side}: -$size-value;
+          }
+
+          #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} > .#{$nb-namespace}o-grid__item {
+            padding-#{$side}: $size-value;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin nb-gutters {
+  @each $key, $value in $nb-grid-gutter-sizes {
+    @include build-gutters($key, $value);
+    @include build-gutters($key, $value, 'matrix');
+  }
+}

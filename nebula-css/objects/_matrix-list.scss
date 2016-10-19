@@ -1,0 +1,10 @@
+.#{$nb-namespace}o-matrix-list {
+  list-style: none;
+}
+
+.#{$nb-namespace}o-matrix-list__item {
+  display: inline-block;
+}
+
+@include nb-list-spacing('matrix-list', 'left');
+@include nb-list-spacing('matrix-list', 'bottom');
