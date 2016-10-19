@@ -6,7 +6,7 @@
       $class: '';
     }
 
-    .ln-o-section#{$class} {
+    .#{$nb-namespace}o-section#{$class} {
       padding-top: $value;
       padding-bottom: $value;
     }
