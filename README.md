@@ -5,7 +5,7 @@
 
 
 ##Get Started
-1. Ensure you have nodeJS and NPM installed on your machine and have setup a package.json with `npm init`
+1. Ensure you have [NodeJS](https://nodejs.org/en/) installed on your machine and have setup your `package.json`
 2. `npm i -S nebula-css`
 3. Setup an ITCSS file structure:
   1. `cd` into your source directory
