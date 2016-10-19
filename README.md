@@ -10,6 +10,7 @@
 3. Setup an ITCSS file structure:
   1. `cd` into your source directory
   2. Paste the following snippet into your terminal:
+
     ```
     mkdir scss &&
     cd scss &&
@@ -27,6 +28,7 @@
     cd ..
     ```
   It will create the file structure illustrated below
+
     ```
     scss/
     |
@@ -40,6 +42,7 @@
     ├──_utilities.scss
     ```
   and will also populate `main.scss` with the imports below.
+  
     ```scss
     /* main.scss */
     @import 'settings';
