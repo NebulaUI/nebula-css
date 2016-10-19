@@ -9,7 +9,8 @@
     "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' 'ie 9-11' -r demo/dist/main.css",
     "build": "npm run lint && npm run sass && npm run autoprefixer",
     "watch": "npm run build && onchange '*/**/*.scss' -- npm run build",
-    "serve": "http-server demo"
+    "serve": "http-server demo",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
