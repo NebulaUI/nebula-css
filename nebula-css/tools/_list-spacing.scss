@@ -6,16 +6,26 @@
   @each $key, $value in $nb-list-spacing {
     $compound-class: '#{$nb-namespace}o-#{$class}#{$modifier}-#{$key}';
 
-    @if $key == 'def' {
-      $compound-class: '#{$nb-namespace}o-#{$class}#{$modifier}';
-    }
-
     .#{$compound-class} {
       margin-#{$side}: -$value;
     }
 
     .#{$compound-class} > .#{$nb-namespace}o-#{$class}__item {
       padding-#{$side}: $value;
+    }
+
+    @if $nb-use-list-spacing-breakpoints {
+      @each $bp-key, $bp-value in $nb-breakpoints {
+        @include nb-respond-to($bp-key) {
+          .#{$compound-class}\@#{$bp-key} {
+            margin-#{$side}: -$value;
+          }
+
+          .#{$compound-class}\@#{$bp-key} > .#{$nb-namespace}o-#{$class}__item {
+            padding-#{$side}: $value;
+          }
+        }
+      }
     }
   }
 }

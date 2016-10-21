@@ -3,12 +3,7 @@
   $matrix-class: '';
   $matrix-class-child: '';
   $matrix-class-modifier: '';
-
-  @if $size-key == 'def' {
-    $size-key: '';
-  } @else {
-    $size-key: '-' + $size-key;
-  }
+  $size-key: '-' + $size-key;
 
   @if $matrix {
     $side: 'bottom';
@@ -26,22 +21,14 @@
   }
 
   @if $nb-use-grid-gutter-breakpoints {
-    @each $bp in $nb-breakpoints {
-      @for $i from 1 through 2 {
-        $bp-key: nth($bp, 1);
-
-        @if $i == 2 {
-          $bp-key: 'max-' + nth($bp, 1);
+    @each $bp-key, $bp-value in $nb-breakpoints {
+      @include nb-respond-to($bp-key) {
+        #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} {
+          margin-#{$side}: -$size-value;
         }
 
-        @include nb-respond-to($bp-key) {
-          #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} {
-            margin-#{$side}: -$size-value;
-          }
-
-          #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} > .#{$nb-namespace}o-grid__item {
-            padding-#{$side}: $size-value;
-          }
+        #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} > .#{$nb-namespace}o-grid__item {
+          padding-#{$side}: $size-value;
         }
       }
     }
