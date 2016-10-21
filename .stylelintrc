@@ -1,6 +1,9 @@
 {
   "extends": "stylelint-config-sass-guidelines",
-  "ignoreFiles": 'nebula-css/tools/*',
+  "ignoreFiles": [
+    "nebula-css/tools/*",
+    "nebula-css/resets/_normalize.scss"
+  ],
   "plugins": [
     "stylelint-scss",
     "stylelint-selector-bem-pattern"

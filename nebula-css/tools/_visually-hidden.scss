@@ -1,0 +1,17 @@
+@mixin nb-visually-hidden($important: false) {
+  $important-str: '';
+
+  @if ($important) {
+    $important-str: '!important';
+  }
+
+  position: absolute #{$important-str};
+  overflow: hidden #{$important-str};
+  width: 1px #{$important-str};
+  height: 1px #{$important-str};
+  padding: 0 #{$important-str};
+  border: 0;
+  white-space: nowrap #{$important-str};
+	clip: rect(1px, 1px, 1px, 1px) #{$important-str};
+	clip-path: inset(50%) #{$important-str};
+}
