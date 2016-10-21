@@ -1,0 +1,9 @@
+@mixin nb-hidden() {
+  @each $bp-key, $bp-value in $nb-breakpoints {
+    @include nb-respond-to($bp-key) {
+      .#{$nb-namespace}u-hidden\@#{$bp-key} {
+        display: none !important;
+      }
+    }
+  }
+}

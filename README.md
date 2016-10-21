@@ -13,7 +13,7 @@ At the core of Nebula sits a highly flexible and and extendible grid system - ac
 
 It also ships with a few common and useful abstractions such as the Flag Object.
 
-Nebula is ultra lightweight with the default settings coming in at a tiny 5kb Gizpped.  This can potentially be even less if you decided to remove unwanted grid features for example.
+Nebula is ultra lightweight with the default settings coming in at a tiny 6kb Gizpped.  This can  be reduced even further by switching off features and removing items in the Sass maps.
 
 [View the demo](http://rbrtsmith.com/nebula-css/demo/)
 

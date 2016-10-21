@@ -1,0 +1,8 @@
+.#{$nb-namespace}u-hidden {
+  display: none !important;
+}
+@include nb-hidden;
+
+.#{$nb-namespace}u-visually-hidden {
+  @include nb-visually-hidden(true);
+}
