@@ -12,7 +12,7 @@
   }
 
   @each $key, $value in $fractions {
-    $modifier: nb-string-replace($key, '/', '\\/');
+    $modifier: nb-str-replace($key, '/', '\\/');
     $offset-value: (($value * 100) * 1%);
 
     .#{$nb-namespace}u-#{$class}#{$modifier} {
