@@ -7,7 +7,7 @@
 
   @else {
     @if (str-index($bp, 'max-')) {
-      $ln-bp: ln-str-replace($bp, 'max-', '');
+      $ln-bp: nb-str-replace($bp, 'max-', '');
 
       @if map-has-key($nb-breakpoints, $ln-bp) {
         @media (max-width: #{(map-get($nb-breakpoints, $ln-bp)-1)}) {
@@ -17,7 +17,7 @@
     }
 
     @elseif (str-index($bp, 'min-')) {
-      $ln-bp: ln-str-replace($bp, 'min-', '');
+      $ln-bp: nb-str-replace($bp, 'min-', '');
 
       @if map-has-key($nb-breakpoints, $ln-bp) {
         @media (min-width: #{map-get($nb-breakpoints, $ln-bp)}) {
