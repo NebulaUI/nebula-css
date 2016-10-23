@@ -7,20 +7,20 @@
 
   @else {
     @if (str-index($bp, 'max-')) {
-      $ln-bp: nb-str-replace($bp, 'max-', '');
+      $max-bp: nb-str-replace($bp, 'max-', '');
 
-      @if map-has-key($nb-breakpoints, $ln-bp) {
-        @media (max-width: #{(map-get($nb-breakpoints, $ln-bp)-1)}) {
+      @if map-has-key($nb-breakpoints, $max-bp) {
+        @media (max-width: #{(map-get($nb-breakpoints, $max-bp)-1)}) {
           @content;
         }
       }
     }
 
     @elseif (str-index($bp, 'min-')) {
-      $ln-bp: nb-str-replace($bp, 'min-', '');
+      $min-bp: nb-str-replace($bp, 'min-', '');
 
-      @if map-has-key($nb-breakpoints, $ln-bp) {
-        @media (min-width: #{map-get($nb-breakpoints, $ln-bp)}) {
+      @if map-has-key($nb-breakpoints, $min-bp) {
+        @media (min-width: #{map-get($nb-breakpoints, $min-bp)}) {
           @content;
         }
       }
