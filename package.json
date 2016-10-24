@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "stylelint '*/**/*.scss' --syntax scss",
-    "sass": "node-sass --output-style --include-path ./nebula-css/ -o demo/dist demo/scss/main.scss",
+    "sass": "node-sass --output-style compressed --include-path ./nebula-css/ -o demo/dist demo/scss/main.scss",
     "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' 'ie 9-11' -r demo/dist/main.css",
     "build": "npm run lint && npm run sass && npm run autoprefixer && cp -r demo/assets/ demo/dist/assets",
     "start": "npm run build && onchange '*/**/*.scss' -- npm run build",
