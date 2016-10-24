@@ -1,4 +1,4 @@
-# Nebula CSS ![Travis-ci](https://travis-ci.org/rbrtsmith/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css)
+# Nebula CSS ![Travis-ci](https://travis-ci.org/rbrtsmith/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css) [![npm](https://img.shields.io/npm/dm/localeval.svg)]()
 
 * 6kb (gzip) with default settings.
 * [View the demo](http://rbrtsmith.com/nebula-css/demo/)
