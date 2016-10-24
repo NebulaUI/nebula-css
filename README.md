@@ -1,24 +1,22 @@
 # Nebula CSS ![Travis-ci](https://travis-ci.org/rbrtsmith/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css)
 
-* 6kb (gzip) with default settings. 
+* 6kb (gzip) with default settings.
+* [View the demo](http://rbrtsmith.com/nebula-css/demo/)
 
-Nebula CSS is a super low-level Sass framework that is built using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and uses the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention throughout.
+Super low-level Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
 
-Nebula ships with 100% zero cosmetic styling.  This allows every project built with Nebula to have a completely bespoke look and feel with Nebula doing the heavy lifting when it comes to layout and architecture.
+Ships with 100% zero cosmetic styling.  This allows every project built with Nebula CSS to have a completely bespoke look and feel with Nebula CSS doing the heavy lifting when it comes to layout and architecture.
 
-At the core of Nebula sits a highly flexible and and extendible grid system - actually everything here is extensible including but not limited to
+At the core sits a highly flexible and and extendible grid system making use of the very powerful [map](https://www.viget.com/articles/sass-maps-are-awesome) feature of Sass.
+Maps are used extensively and allow the following features to be easily extended:
 * Breakpoints
 * Grid fractions
 * Grid guttering
 * list spacing
 * section spacing
+* spacing - margin & padding utilities
 
-It also ships with a few common and useful abstractions such as the Flag Object.
-
-Nebula is ultra lightweight with the default settings coming in at a tiny 6kb Gizpped.  This can  be reduced even further by switching off features and removing items in the Sass maps.
-
-[View the demo](http://rbrtsmith.com/nebula-css/demo/)
-
+Also ships with some common and useful abstractions such as the Flag Object.
 
 ##Get Started
 1. Ensure you have [NodeJS](https://nodejs.org/en/) installed on your machine and have setup your `package.json`
