@@ -12,9 +12,9 @@ Maps are used extensively and allow the following features to be easily extended
 * Breakpoints
 * Grid fractions
 * Grid guttering
-* list spacing
-* section spacing
-* spacing - margin & padding utilities
+* List spacing
+* Section spacing
+* Spacing - margin & padding utilities
 
 Also ships with some common and useful abstractions such as the Flag Object.
 
