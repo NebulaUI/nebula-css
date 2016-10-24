@@ -1,0 +1,20 @@
+@mixin nb-root-sizing {
+  @each $key, $value in $nb-root-sizing {
+    @if $key == 'default' {
+      font-size: $value;
+    }
+
+    @else {
+      @if map-has-key($nb-breakpoints, $key) {
+        @include nb-respond-to($key) {
+          font-size: $value;
+        }
+      }
+
+      @else {
+        @warn 'Unfortunately, no value could be retrieved for the spacing-percentage `#{nth($percentage,1 )}`. '
+          + 'Please make sure the breakpoint is defined in `nb-spacing-percentages` map.';
+      }
+    }
+  }
+}

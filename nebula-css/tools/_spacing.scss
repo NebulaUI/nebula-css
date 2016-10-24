@@ -1,19 +1,64 @@
-@mixin nb-spacing {
-  @each $percentage in $nb-root-sizing {
-    @if nth($percentage, 1) == 'def' {
-      font-size: nth($percentage, 2);
+@mixin nb-spacing-push-soft($action, $sizes) {
+  $property: '';
+  $directions: '';
+
+  @if $action == 'push' {
+    $property: 'margin';
+    $directions: 'bottom', 'right';
+  } @else {
+    $property: 'padding';
+    $directions: 'top', 'right', 'bottom', 'left';
+  }
+
+  @each $key, $value in $sizes {
+    @each $direction in $directions {
+      .#{$nb-namespace}u-#{$action}-#{$direction}-#{$key} {
+        #{$property}-#{$direction}: $value !important;
+      }
     }
 
-    @else {
-      @if map-has-key($nb-breakpoints, nth($percentage,1)) {
-        @include nb-respond-to(nth($percentage, 1)) {
-          font-size: nth($percentage, 2);
+    @each $bp-key, $bp-value in $nb-breakpoints {
+      @include nb-respond-to(#{$bp-key}) {
+        @each $direction in $directions {
+          .#{$nb-namespace}u-#{$action}-#{$direction}-#{$key}\@#{$bp-key} {
+            #{$property}-#{$direction}: $value !important;
+          }
         }
       }
+    }
+  }
+}
 
-      @else {
-        @warn 'Unfortunately, no value could be retrieved for the spacing-percentage `#{nth($percentage,1 )}`. '
-          + 'Please make sure the breakpoint is defined in `nb-spacing-percentages` map.';
+@mixin nb-flush-hard($action) {
+  $property: '';
+
+  @if $action == 'flush' {
+    $property: 'margin';
+  } @else {
+    $property: 'padding';
+  }
+
+  $directions: 'top', 'right', 'bottom', 'left';
+  .#{$nb-namespace}u-#{$action} {
+    #{$property}: 0 !important;
+  }
+
+  @each $direction in $directions {
+    .#{$nb-namespace}u-#{$action}-#{$direction} {
+      #{$property}-#{$direction}: 0 !important;
+    }
+  }
+
+  @each $key, $value in $nb-breakpoints {
+    @include nb-respond-to(#{$key}) {
+      .#{$nb-namespace}u-#{$action}\@#{$key} {
+        #{$property}: 0 !important;
+      }
+
+      @each $direction in $directions {
+        .#{$nb-namespace}u-#{$action}-#{$direction}\@#{$key} {
+          #{$property}-#{$direction}: 0 !important;
+        }
       }
     }
   }

@@ -1,7 +1,7 @@
 $nb-namespace: '' !default;
 $nb-site-wrap-width: 60rem !default;
 $nb-spacing-unit: 1rem !default;
-$nb-base-font-size: 16px !default;
+$nb-base-font-size: 1rem !default;
 $nb-base-line-height: 1.5 !default;
 
 $nb-breakpoints: (
@@ -11,30 +11,27 @@ $nb-breakpoints: (
 ) !default;
 
 $nb-root-sizing: (
-  def: 100%
+  default: 100%,
 ) !default;
 
-$nb-use-list-spacing-breakpoints: true;
 $nb-list-spacing: (
   md: $nb-spacing-unit
 ) !default;
 
-$nb-use-section-spacing-breakpoints: true;
 $nb-section-spacing: (
   md: ($nb-spacing-unit * 2)
 ) !default;
 
 $nb-use-grid-zero-font-size: true !default;
-$nb-use-grid-gutter-breakpoints: true !default;
 $nb-grid-gutter-sizes: (
   sm: ($nb-spacing-unit / 2),
   md: $nb-spacing-unit,
   lg: ($nb-spacing-unit * 2)
 ) !default;
 
-$nb-use-push-offsets: true;
-$nb-use-pull-offsets: true;
-$nb-use-offsets-breakpoints: true;
+$nb-use-width-offsets: true !default;
+$nb-use-push-offsets: true !default;
+$nb-use-pull-offsets: true !default;
 $nb-offset-fractions: (
   '1/1': 1/1,
   '1/2': 1/2,
@@ -79,4 +76,12 @@ $nb-offset-fractions: (
   '9/12': 9/12,
   '10/12': 10/12,
   '11/12': 11/12
+) !default;
+
+$nb-push-sizes: (
+  md: $nb-spacing-unit
+) !default;
+
+$nb-soft-sizes: (
+  md: $nb-spacing-unit
 ) !default;

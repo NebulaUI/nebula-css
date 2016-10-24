@@ -20,16 +20,14 @@
     padding-#{$side}: $size-value;
   }
 
-  @if $nb-use-grid-gutter-breakpoints {
-    @each $bp-key, $bp-value in $nb-breakpoints {
-      @include nb-respond-to($bp-key) {
-        #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} {
-          margin-#{$side}: -$size-value;
-        }
+  @each $bp-key, $bp-value in $nb-breakpoints {
+    @include nb-respond-to($bp-key) {
+      #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} {
+        margin-#{$side}: -$size-value;
+      }
 
-        #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} > .#{$nb-namespace}o-grid__item {
-          padding-#{$side}: $size-value;
-        }
+      #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} > .#{$nb-namespace}o-grid__item {
+        padding-#{$side}: $size-value;
       }
     }
   }

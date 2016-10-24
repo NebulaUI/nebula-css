@@ -2,7 +2,8 @@
   "extends": "stylelint-config-sass-guidelines",
   "ignoreFiles": [
     "nebula-css/tools/*",
-    "nebula-css/resets/_normalize.scss"
+    "nebula-css/resets/_normalize.scss",
+    "demo/dist/main.css"
   ],
   "plugins": [
     "stylelint-scss",
