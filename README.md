@@ -8,7 +8,7 @@ Super low-level Sass framework using the [ITCSS](https://www.youtube.com/watch?v
 Ships with 100% zero cosmetic styling.  This allows every project built with Nebula CSS to have a completely bespoke look and feel with Nebula CSS doing the heavy lifting when it comes to layout and architecture.
 
 At the core sits a highly flexible and and extendible grid system making use of the very powerful [map](https://www.viget.com/articles/sass-maps-are-awesome) feature of Sass.
-Maps are used extensively and allow the following features to be easily extended:
+Maps are used extensively and allow the following features to be easily extended and in some cases composed:
 * Breakpoints
 * Grid fractions
 * Grid guttering
