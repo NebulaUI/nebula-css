@@ -491,17 +491,60 @@ Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#matrix-list)
 
 Form the Utilities Layer in ITCSS, each a single responsibility class.  They are intended to be used as overrides.
 
-## Push
+### Push
 
-Push adds margins to elments, Nebula CSS encourages [single direction margin declarations](http://csswizardry.com/2012/06/single-direction-margin-declarations/) to eliminate confusion around collapsing borders
+Adds margins, Nebula CSS encourages [single direction margin declarations](http://csswizardry.com/2012/06/single-direction-margin-declarations/) to eliminate confusion around collapsing borders
 
 ```html
-  <div class="u-push--right"></div>
-  <div class="u-push--bottom"></div>
-  <div class="u-push--right@sm"></div>
+<div class="u-push-right"></div>
+<div class="u-push-bottom"></div>
+<div class="u-push-right@sm"></div>
 ´´´
-* Flush
-* Soft
-* Hard
-* Text-align
-* Hidden
+
+### Flush
+Removes margins
+```html
+<div class="u-push-top"></div>
+<div class="u-push-right"></div>
+<div class="u-push-bottom"></div>
+<div class="u-push-left"></div>
+<div class="u-push-left@lg"></div>
+´´´
+
+### Soft
+Adds padding
+```html
+<div class="u-soft"></div>
+<div class="u-soft-top"></div>
+<div class="u-soft-right"></div>
+<div class="u-soft-bottom"></div>
+<div class="u-soft-left"></div>
+<div class="u-soft-left@lg"></div>
+´´´
+
+### Hard
+Removes padding
+```html
+<div class="u-hard"></div>
+<div class="u-hard-top"></div>
+<div class="u-hard-right"></div>
+<div class="u-hard-bottom"></div>
+<div class="u-hard-left"></div>
+<div class="u-hard-left@lg"></div>
+´´´
+
+### Text-align
+Adds text-alignment.
+```html
+<div class="u-text-left"></div>
+<div class="u-text-center"></div>
+<div class="u-text-right"></div>
+```
+
+### hidden
+
+Hides elements, or visually hides (Still accessible.)
+```html
+<div class="u-hidden"></div>
+<div class="u-visually-hidden"></div>
+```
