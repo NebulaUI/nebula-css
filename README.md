@@ -24,6 +24,7 @@ Also ships with some common and useful abstractions such as the Flag Object.
 * [Dependencies](#dependencies)
 * [Get started](#get-started)
 * [Default settings and config](#default-settings-and-config)
+* [Grid](#grid)
 
 ##dependencies
 
@@ -285,4 +286,38 @@ Used for the `Soft` utility to add padding to a component.
 $nb-soft-sizes: (
   md: $nb-spacing-unit
 ) !default;
+```
+
+## Grid
+
+[Demo](http://rbrtsmith.com/nebula-css/demo/#grid)
+
+The grid system employed in Nebula CSS uses fractions rather than columns yielding increased flexibility.  Instead of many other popular grid systems Nebula CSS uses inline-block as opposed to floats; this results in many benefits.
+
+### Grid features
+* Fluid
+* Infinitely nestable
+* Equal height grid items based on flexbox (IE10+)
+* Vertical alignment of grid items
+* Vertical gutters
+* Variable gutter sizing
+* horizontal reversal of grid-items
+* No clearfixing required, rows of items with uneven heights tile gracefully.
+* Classnames based on BEMIT fractions and responsive suffixes
+* Does not require a wrapping element like most other grid systems.
+* Extremely lightweight using the Sass maps found in [Default settings and config](#default-settings-and-config) unused bloat can be removed.
+* Width, push and pull classes are not tied directly to the grid, and can be reused anywhere in your project.
+
+### Examples
+A simple grid with two grid-items one 25% wide the other 75%.  By default the grid comes with no gutters.
+
+```html
+<div class="o-grid">
+  <div class="o-grid__item u-1/2">
+    ...
+  </div>
+  <div class="o-grid__item u-1/2">
+    ...
+  </div>
+</div>
 ```
