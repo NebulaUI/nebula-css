@@ -499,7 +499,7 @@ Adds margins, Nebula CSS encourages [single direction margin declarations](http:
 <div class="u-push-right"></div>
 <div class="u-push-bottom"></div>
 <div class="u-push-right@sm"></div>
-´´´
+```
 
 ### Flush
 Removes margins
@@ -509,7 +509,7 @@ Removes margins
 <div class="u-push-bottom"></div>
 <div class="u-push-left"></div>
 <div class="u-push-left@lg"></div>
-´´´
+```
 
 ### Soft
 Adds padding
@@ -520,7 +520,7 @@ Adds padding
 <div class="u-soft-bottom"></div>
 <div class="u-soft-left"></div>
 <div class="u-soft-left@lg"></div>
-´´´
+```
 
 ### Hard
 Removes padding
@@ -531,7 +531,7 @@ Removes padding
 <div class="u-hard-bottom"></div>
 <div class="u-hard-left"></div>
 <div class="u-hard-left@lg"></div>
-´´´
+```
 
 ### Text-align
 Adds text-alignment.
