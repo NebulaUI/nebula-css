@@ -100,7 +100,7 @@ Also ships with some common and useful abstractions such as the Flag Object.
 
   ```json
   "scripts": {
-    "sass": "node-sass --output-style compressed --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
+    "sass": "node-sass --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
     "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' 'ie 9-11' -r dist/main.css",
     "build": "npm run sass && npm run autoprefixer"
   },
