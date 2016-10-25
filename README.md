@@ -361,26 +361,32 @@ Varying guttering depending on the breakpoint
 There are various BEM modifiers that you can add to the grid as shown below:
 
 * Matrix (Vertical guttering that matches horizontal)
+
     ```html
     <div class="o-grid o-grid--gutter-sm o-grid--matrix" />
     ```
 * Equal heights items
+
     ```html
     <div class="o-grid o-grid--equal-height" />
     ```
 * Reverse item order
+
     ```html
     <div class="o-grid o-grid--reverse" />
     ```
 * Vertically centered items
+
     ```html
     <div class="o-grid o-grid--center" />
     ```
 * Bottom aligned items
+
     ```html
     <div class="o-grid o-grid--bottom" />
   ```
 * Horizontally centered items
+
     ```html
     <div class="o-grid u-text-center" />
     ```
