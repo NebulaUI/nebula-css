@@ -18,12 +18,32 @@ Maps are used extensively and allow the following features to be easily extended
 
 Also ships with some common and useful abstractions such as the Flag Object.
 
+##Table of contents
+
+* [Dependencies](#dependencies)
+* [Get started](#get-started)
+
+##dependencies
+
+Nebula CSS is composed of [Sass](http://sass-lang.com/) files so you'll need some way to compile to CSS.  We'd We'd recommend to use a [Libsass](http://sass-lang.com/libsass) based tool, which will likely be available for your build tool of choice:
+* [Node Sass](https://github.com/sass/node-sass) (NPM Scripts)
+* [Webpack Sass Loader](https://github.com/jtangelder/sass-loader) (Webpack)
+* [Gulp Sass](https://github.com/dlmanning/gulp-sass) (Gulp)
+
+Having a deep knowledge of Sass is not required to consume Nebula CSS, but a familiarity will greatly help you get the most out of this architecture.
+
+**This document assumes you have [NodeJS](https://nodejs.org/en/) installed on your machine.**
+
+Nebula's source code does not include any vendor prefixes.  This gives you the freedom to configure [Autoprefixer](https://github.com/postcss/autoprefixer) to the browsers that you intend to support.  
+This can be ran directly in NPM scripts as you can see happening in this projects [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L9).  Alternatively you can run this in your build-tool of choice.
+
+
 ##Get Started
-1. Ensure you have [NodeJS](https://nodejs.org/en/) installed on your machine and have setup your `package.json`
-2. Install Nebula-css: `npm i -S nebula-css`
-3. Setup an ITCSS file structure:
+1. `npm install --save nebula-css`
+2. Setup an ITCSS file structure:
   1. `cd` into the directory where you intend to build out your ITCSS structure.
-  2. Paste the following snippet into your terminal:
+  2. Paste the following snippet into your terminal:  
+  *&mdash; Windows users will have to manually create and populate the files.*
 
     ```
     mkdir scss &&
@@ -90,24 +110,28 @@ Also ships with some common and useful abstractions such as the Flag Object.
     ```
     As you can see this is rather verbose and ugly code but it works!
 
-4. Ensure the build tool of your choice is configured to compile your Sass appropriately.  Nebula CSS requires [Autoprefixer](https://github.com/postcss/autoprefixer)
+    Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
 
-  Below is an example build script using NPM Scripts that lives in a `package.json`.
+    ```json
+    "scripts": {
+      "sass": "node-sass --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
+    },
+    ```
+    See how the NPM scripts [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L8) are configured for the Nebula CSS Demo.
 
-  It has dependencies on [node-sass](https://github.com/sass/node-sass) and Autoprefixer.
-  You can also see how IncludePaths is defined inside of the `sass` task &mdash; `--include-path`.  
-  You can paste this into your `package.json` and change the paths to suit those within your project.
+    Alternatively here's an example using Gulp.
 
-  ```json
-  "scripts": {
-    "sass": "node-sass --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
-    "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' 'ie 9-11' -r dist/main.css",
-    "build": "npm run sass && npm run autoprefixer"
-  },
-  ```
+    ```JavaScript
+      gulp.task('build:css', () => {
+        const includePaths = ['./node_modules/nebula-css/'];
+        return gulp.src('src/scss/**/*.scss')
+          .pipe(sass({ includePaths }))
+          .pipe(gulp.dest('dist'))
+      });
+    ```
+3.
 
-  `npm run build` will execute the build script above and generate your compiled CSS output.
 
-5.  You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
+4. You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
 
 ... More documentation coming very soon!
