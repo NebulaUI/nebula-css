@@ -422,14 +422,14 @@ A simple max-width centered container to wrap your content. You can see it appli
 Nebula CSS comes with three types of list: Bare-list, Inline-list and Matrix-list.
 
 ### Bare-list
-Strips a list of all default list styling.
+Strips a list of all default list styling. [Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list)
 ```html
 <ul class="o-bare-list">
   <li>item</li>
   <li>item</li>
 </ul>
 ```
-Spaced
+Spaced [Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list-spaced)
 ```html
 <ul class="o-bare-list o-bare-list--spaced-md">
   <li class="o-bare-list__item">item</li>
@@ -437,7 +437,7 @@ Spaced
 </ul>
 ```
 
-Spaced by breakpoint
+Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list-spaced-by-breakpoint)
 ```html
 <ul class="o-bare-list o-bare-list--spaced-md@sm">
   <li class="o-bare-list__item">item</li>
@@ -446,14 +446,14 @@ Spaced by breakpoint
 ```
 
 ## Inline list
-Exactly like the bare list but the items are rendered horizontally.
+Exactly like the bare list but the items are rendered horizontally. [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list)
 ```html
 <ul class="o-inline-list">
   <li>item</li>
   <li>item</li>
 </ul>
 ```
-Spaced
+Spaced [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list-spaced)
 ```html
 <ul class="o-inline-list o-inline-list--spaced-md">
   <li class="o-inline-list__item">item</li>
@@ -461,7 +461,7 @@ Spaced
 </ul>
 ```
 
-Spaced by breakpoint
+Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list-spaced-by-breakpoint)
 ```html
 <ul class="o-inline-list o-inline-list--spaced-md@sm">
   <li class="o-inline-list__item">item</li>
@@ -469,7 +469,7 @@ Spaced by breakpoint
 </ul>
 ```
 
-## Inline list
+## Matrix list
 Exactly like the inline list but the items vertical spacing matches the horizontal.
 
 Spaced
@@ -480,7 +480,7 @@ Spaced
 </ul>
 ```
 
-Spaced by breakpoint
+Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#matrix-list)
 ```html
 <ul class="o-matrix-list o-matrix-list--spaced-md@sm">
   <li class="o-matrix-list__item">item</li>
@@ -488,7 +488,18 @@ Spaced by breakpoint
 </ul>
 ```
 ##utilities
-* Push
+
+Form the Utilities Layer in ITCSS, each a single responsibility class.  They are intended to be used as overrides.
+
+## Push
+
+Push adds margins to elments, Nebula CSS encourages [single direction margin declarations](http://csswizardry.com/2012/06/single-direction-margin-declarations/) to eliminate confusion around collapsing borders
+
+```html
+  <div class="u-push--right"></div>
+  <div class="u-push--bottom"></div>
+  <div class="u-push--right@sm"></div>
+´´´
 * Flush
 * Soft
 * Hard
