@@ -418,8 +418,75 @@ A simple max-width centered container to wrap your content. You can see it appli
 ```
 
 ## Lists
+
 Nebula CSS comes with three types of list: Bare-list, Inline-list and Matrix-list.
 
+### Bare-list
+Strips a list of all default list styling.
+```html
+<ul class="o-bare-list">
+  <li>item</li>
+  <li>item</li>
+</ul>
+```
+Spaced
+```html
+<ul class="o-bare-list o-bare-list--spaced-md">
+  <li class="o-bare-list__item">item</li>
+  <li class="o-bare-list__item">item</li>
+</ul>
+```
+
+Spaced by breakpoint
+```html
+<ul class="o-bare-list o-bare-list--spaced-md@sm">
+  <li class="o-bare-list__item">item</li>
+  <li class="o-bare-list__item">item</li>
+</ul>
+```
+
+## Inline list
+Exactly like the bare list but the items are rendered horizontally.
+```html
+<ul class="o-inline-list">
+  <li>item</li>
+  <li>item</li>
+</ul>
+```
+Spaced
+```html
+<ul class="o-inline-list o-inline-list--spaced-md">
+  <li class="o-inline-list__item">item</li>
+  <li class="o-inline-list__item">item</li>
+</ul>
+```
+
+Spaced by breakpoint
+```html
+<ul class="o-inline-list o-inline-list--spaced-md@sm">
+  <li class="o-inline-list__item">item</li>
+  <li class="o-inline-list__item">item</li>
+</ul>
+```
+
+## Inline list
+Exactly like the inline list but the items vertical spacing matches the horizontal.
+
+Spaced
+```html
+<ul class="o-matrix-list o-matrix-list--spaced-md">
+  <li class="o-matrix-list__item">item</li>
+  <li class="o-matrix-list__item">item</li>
+</ul>
+```
+
+Spaced by breakpoint
+```html
+<ul class="o-matrix-list o-matrix-list--spaced-md@sm">
+  <li class="o-matrix-list__item">item</li>
+  <li class="o-matrix-list__item">item</li>
+</ul>
+```
 ##utilities
 * Push
 * Flush
