@@ -22,6 +22,7 @@ Also ships with some common and useful abstractions such as the Flag Object.
 
 * [Dependencies](#dependencies)
 * [Get started](#get-started)
+* [Default settings and config](#default-settings-and-config)
 
 ##dependencies
 
@@ -129,9 +130,127 @@ This can be ran directly in NPM scripts as you can see happening in this project
           .pipe(gulp.dest('dist'))
       });
     ```
-3.
 
+3. Configure your build tool to build your Sass files and run Autoprefixer
 
 4. You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
 
-... More documentation coming very soon!
+  An example structure might look like this:
+  ```
+  scss/
+  |
+  ├──main.scss
+  ├──_settings.scss
+  ├──_tools.scss
+  ├──_resets.scss
+  ├──_base.scss
+  ├──_objects.scss
+  ├──_components.scss
+  ├──_utilities.scss
+  ├──settings/
+  |  └──_nebula-overrides.scss
+  |  └──_my-settings.scss
+  ├──base/
+  |  └──_my-base-styles.scss
+  ├──objects
+  |  ├──_my-object-1.scss
+  |  └──_my-object-2.scss
+  ├──components/
+  |  ├──_my-component-1.scss
+  |  └──_my-component-2.scss
+  └──utilities/
+  ├──_my-utility-1.scss
+  └──_my-utility-2.scss
+  ```
+
+##Default settings and config
+
+```scss
+$nb-namespace: '' !default;
+$nb-site-wrap-width: 60rem !default;
+$nb-spacing-unit: 1rem !default;
+$nb-base-font-size: 1rem !default;
+$nb-base-line-height: 1.5 !default;
+
+$nb-breakpoints: (
+  sm: 720px,
+  md: 960px,
+  lg: 1200px
+) !default;
+
+$nb-root-sizing: (
+  default: 100%,
+) !default;
+
+$nb-list-spacing: (
+  md: $nb-spacing-unit
+) !default;
+
+$nb-section-spacing: (
+  md: ($nb-spacing-unit * 2)
+) !default;
+
+$nb-use-grid-zero-font-size: true !default;
+$nb-grid-gutter-sizes: (
+  sm: ($nb-spacing-unit / 2),
+  md: $nb-spacing-unit,
+  lg: ($nb-spacing-unit * 2)
+) !default;
+
+$nb-use-width-offsets: true !default;
+$nb-use-push-offsets: true !default;
+$nb-use-pull-offsets: true !default;
+$nb-offset-fractions: (
+  '1/1': 1/1,
+  '1/2': 1/2,
+  '1/3': 1/3,
+  '2/3': 2/3,
+  '1/4': 1/4,
+  '2/4': 2/4,
+  '3/4': 3/4,
+  '1/5': 1/5,
+  '2/5': 2/5,
+  '3/5': 3/5,
+  '4/5': 4/5,
+  '1/6': 1/6,
+  '2/6': 2/6,
+  '3/6': 3/6,
+  '4/6': 4/6,
+  '5/6': 5/6,
+  '1/8': 1/8,
+  '2/8': 2/8,
+  '3/8': 3/8,
+  '4/8': 4/8,
+  '5/8': 5/8,
+  '6/8': 6/8,
+  '7/8': 7/8,
+  '1/10': 1/10,
+  '2/10': 2/10,
+  '3/10': 3/10,
+  '4/10': 4/10,
+  '5/10': 5/10,
+  '6/10': 6/10,
+  '7/10': 7/10,
+  '8/10': 8/10,
+  '9/10': 9/10,
+  '1/12': 1/12,
+  '2/12': 2/12,
+  '3/12': 3/12,
+  '4/12': 4/12,
+  '5/12': 5/12,
+  '6/12': 6/12,
+  '7/12': 7/12,
+  '8/12': 8/12,
+  '9/12': 9/12,
+  '10/12': 10/12,
+  '11/12': 11/12
+) !default;
+
+$nb-push-sizes: (
+  md: $nb-spacing-unit
+) !default;
+
+$nb-soft-sizes: (
+  md: $nb-spacing-unit
+) !default;
+```
