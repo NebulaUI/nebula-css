@@ -25,6 +25,18 @@ Also ships with some common and useful abstractions such as the Flag Object.
 * [Get started](#get-started)
 * [Default settings and config](#default-settings-and-config)
 * [Grid](#grid)
+* [Flag](#flag)
+* [Site-wrap](#site-wrap)
+* [Lists](#lists)
+  * [Bare list](#bare-list)
+  * [Inline list](#inline-list)
+  * [Matrix list](#matrix-list)
+* [Utilities](#utilities)
+  * [Push](#push)
+  * [Flush](#flush)
+  * [Soft](#soft)
+  * [Hard](#hard)
+  * [Hidden](#hidden)
 
 ##dependencies
 
@@ -541,7 +553,7 @@ Adds text-alignment.
 <div class="u-text-right"></div>
 ```
 
-### hidden
+### Hidden
 
 Hides elements, or visually hides (Still accessible.)
 ```html
