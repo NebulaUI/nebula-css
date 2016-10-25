@@ -390,3 +390,40 @@ There are various BEM modifiers that you can add to the grid as shown below:
     ```html
     <div class="o-grid u-text-center" />
     ```
+
+## Flag
+
+[Demo](http://rbrtsmith.com/nebula-css/demo/#flag)
+
+One of most underrated CSS abstractions originally thought up by [Harry Roberts](https://twitter.com/csswizardry) is the flag object.  It allows you to mix up fixed width components with fluid ones, is infinitely composable can be nested inside of the grid, or a grid nested inside of the fluid component it's incredibly versatile.  Oh and it also allows you to vertically align the contents to boot.
+
+```html
+<div class="o-flag">
+  <div class="o-flag__component">
+    <img src="my-amazing-dog.jpg" alt="">
+  </div>
+  <div class="o-flag__body">
+    Checkout my amazing dog!
+  </div>
+</div>
+```
+
+## Site-wrap
+A simple max-width centered container to wrap your content. You can see it applied throughout the demo page. The `--padding` modifier adds horizontal padding to the container.
+
+```html
+<div class="o-site-wrap o-site-wrap--padding">
+  Main content.
+</div>
+```
+
+## Lists
+Nebula CSS comes with three types of list: Bare-list, Inline-list and Matrix-list.
+
+##utilities
+* Push
+* Flush
+* Soft
+* Hard
+* Text-align
+* Hidden
