@@ -360,32 +360,32 @@ Varying guttering depending on the breakpoint
 
 There are various BEM modifiers that you can add to the grid as shown below:
 
-* Matrix (Vertical guttering that matches horizontal)
+* Matrix (Vertical guttering that matches horizontal) [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-matrix)
 
     ```html
     <div class="o-grid o-grid--gutter-sm o-grid--matrix" />
     ```
-* Equal heights items
+* Equal height items [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-equal-height)
 
     ```html
     <div class="o-grid o-grid--equal-height" />
     ```
-* Reverse item order
+* Reverse item order [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-reverse)
 
     ```html
     <div class="o-grid o-grid--reverse" />
     ```
-* Vertically centered items
+* Vertically centered items [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-vertically-centered)
 
     ```html
     <div class="o-grid o-grid--center" />
     ```
-* Bottom aligned items
+* Bottom aligned items [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-bottom-aligned)
 
     ```html
     <div class="o-grid o-grid--bottom" />
   ```
-* Horizontally centered items
+* Horizontally centered items [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-horizontally-aligned)
 
     ```html
     <div class="o-grid u-text-center" />
