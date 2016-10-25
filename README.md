@@ -322,7 +322,7 @@ A simple grid with two grid-items one 25% wide the other 75%.  By default the gr
 </div>
 ```
 
-Grid with responsive breakpoints
+Responsive breakpoints
 ```html
 <div class="o-grid">
   <div class="o-grid__item u-1/4@sm">
@@ -334,7 +334,7 @@ Grid with responsive breakpoints
 </div>
 ```
 
-Grid width medium sized guttering.
+Medium sized guttering
 ```html
 <div class="o-grid o-grid--gutter-md">
   <div class="o-grid__item u-1/4">
@@ -346,7 +346,7 @@ Grid width medium sized guttering.
 </div>
 ```
 
-Grid width varying guttering depending on the breakpoint.
+Varying guttering depending on the breakpoint
 ```html
 <div class="o-grid o-grid--gutter-sm@md o-grid--gutter-md@lg">
   <div class="o-grid__item u-1/4">
@@ -357,3 +357,30 @@ Grid width varying guttering depending on the breakpoint.
   </div>
 </div>
 ```
+
+There are various BEM modifiers that you can add to the grid as shown below:
+
+* Matrix (Vertical guttering that matches horizontal)
+  ```html
+  <div class="o-grid o-grid--gutter-sm o-grid--matrix" />
+  ```
+* Equal heights items
+  ```html
+  <div class="o-grid o-grid--equal-height" />
+  ```
+* Reverse item order
+  ```html
+  <div class="o-grid o-grid--reverse" />
+  ```
+* Vertically centered items
+  ```html
+  <div class="o-grid o-grid--center" />
+  ```
+* Bottom aligned items
+  ```html
+  <div class="o-grid o-grid--bottom" />
+  ```
+* Horizontally centered items
+  ```html
+  <div class="o-grid u-text-center" />
+  ```
