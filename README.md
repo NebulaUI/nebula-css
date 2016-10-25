@@ -3,7 +3,7 @@
 * 6kb (gzip) with default settings.
 * [View the demo](http://rbrtsmith.com/nebula-css/demo/)
 
-Super low-level Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
+Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
 
 Ships with 100% zero cosmetic styling.  This allows every project built with Nebula CSS to have a completely bespoke look and feel with Nebula CSS doing the heavy lifting when it comes to layout and architecture.
 
@@ -294,10 +294,10 @@ $nb-soft-sizes: (
 
 The grid system employed in Nebula CSS uses fractions rather than columns yielding increased flexibility.  Instead of many other popular grid systems Nebula CSS uses inline-block as opposed to floats; this results in many benefits.
 
-### Grid features
+### Features
 * Fluid
 * Infinitely nestable
-* Equal height grid items based on flexbox (IE10+)
+* Equal height grid items based on Flexbox (IE10+)
 * Vertical alignment of grid items
 * Vertical gutters
 * Variable gutter sizing
@@ -313,11 +313,47 @@ A simple grid with two grid-items one 25% wide the other 75%.  By default the gr
 
 ```html
 <div class="o-grid">
-  <div class="o-grid__item u-1/2">
-    ...
+  <div class="o-grid__item u-1/4">
+    25% wide
   </div>
-  <div class="o-grid__item u-1/2">
-    ...
+  <div class="o-grid__item u-3/4">
+    75% wide
+  </div>
+</div>
+```
+
+Grid with responsive breakpoints
+```html
+<div class="o-grid">
+  <div class="o-grid__item u-1/4@sm">
+    25% wide at screens larger than the `sm` breakpoint.
+  </div>
+  <div class="o-grid__item u-3/4@sm">
+    75% wide at screens larger than the `sm` breakpoint.
+  </div>
+</div>
+```
+
+Grid width medium sized guttering.
+```html
+<div class="o-grid o-grid--gutter-md">
+  <div class="o-grid__item u-1/4">
+    25% wide at screens larger than the `sm` breakpoint.
+  </div>
+  <div class="o-grid__item u-3/4">
+    75% wide at screens larger than the `sm` breakpoint.
+  </div>
+</div>
+```
+
+Grid width varying guttering depending on the breakpoint.
+```html
+<div class="o-grid o-grid--gutter-sm@md o-grid--gutter-md@lg">
+  <div class="o-grid__item u-1/4">
+    25% wide
+  </div>
+  <div class="o-grid__item u-3/4">
+    75% wide
   </div>
 </div>
 ```
