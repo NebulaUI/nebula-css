@@ -90,7 +90,7 @@ Also ships with some common and useful abstractions such as the Flag Object.
     ```
     As you can see this is rather verbose and ugly code but it works!
 
-4. Ensure the build tool of your choice is configured to build you Sass files appropriately.  Nebula CSS requires [Autoprefixer](https://github.com/postcss/autoprefixer)
+4. Ensure the build tool of your choice is configured to compile your Sass appropriately.  Nebula CSS requires [Autoprefixer](https://github.com/postcss/autoprefixer)
 
   Below is an example build script using NPM Scripts that lives in a `package.json`.
 
