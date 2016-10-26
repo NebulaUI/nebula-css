@@ -21,6 +21,7 @@ Also ships with some common yet useful abstractions such as the Flag Object.
 
 ##Table of contents
 
+* [Intro to ITCSS](#intro-to-itcss)
 * [Dependencies](#dependencies)
 * [Get started](#get-started)
 * [Default settings and config](#default-settings-and-config)
@@ -38,6 +39,56 @@ Also ships with some common yet useful abstractions such as the Flag Object.
   * [Soft](#soft)
   * [Hard](#hard)
   * [Hidden](#hidden)
+
+
+##Intro to ITCSS
+Nebula CSS is built upon the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture popularised by [Harry
+Roberts](http://csswizardry.com/).
+
+ITCSS stands for *Inverted Triangle* architecture for *CSS*
+
+It is a sane, scalable, managed architecture and is more of a school of thought than a framework.
+
+The architecture is based on the *write CSS in specificity order* principle.  This eliminates many of the specificity issues that occur as a project scales.
+
+ITCSS is divided up into 7 distinct sections they are:
+
+1. Settings
+2. Tools
+3. Resets
+4. Base
+5. Objects
+6. Components
+7. Utilities
+
+###1. Settings
+Flobal variables and config.
+
+###2. Tools
+Globally used mixins and functions.
+
+###3. Resets (Generic)
+[Normalize.css](https://github.com/necolas/normalize.css/) and any additional
+resets on top of Normalize.
+
+###4. Base
+Global baseline styles using element and attribute selectors only (No classes)
+
+###5. Objects
+Cosmetic-free design patters, things like the grid, lists and the flag
+object.  Think of it like the skeleton of the layout, with no visual styling
+applied.
+
+###6. Components
+Designed components, chunks of UI.  Think of it like the skin on top of the
+skeleton, so anything with colours, borders, backgrounds etc.  If in doubt
+whether some CSS/Sass code belongs in layout or components then put it within
+components. **Being cosmetic free Nebula CSS does not ship with any components**
+
+###7. Utilities
+Helpers and overrides. AKA Trumps.
+
+
 
 ##dependencies
 
