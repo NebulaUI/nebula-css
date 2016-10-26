@@ -25,6 +25,7 @@ Also ships with some common yet useful abstractions such as the Flag Object.
 * [Dependencies](#dependencies)
 * [Get started](#get-started)
 * [Default settings and config](#default-settings-and-config)
+  * [Overriding settings](#overriding-settings)
 * [Breakpoints](#breakpoints)
 * [Grid](#grid)
 * [Flag](#flag)
@@ -353,6 +354,26 @@ $nb-soft-sizes: (
   md: $nb-spacing-unit
 ) !default;
 ```
+
+###Overriding settings
+When you install this framework it will live in your `node_modules` directory and you won't want to go in there and change anything as any subsequent `npm install`s will potentially overwrite those changes.
+Thankfully Nebula CSS settings all have the `!default` flag attached which means they can be overridden:
+```Sass
+/*_settings.scss*/
+@import 'nebula-css/settings';
+@import 'settings/my-overrides';
+```
+
+```Sass
+/*/settings/_my-overrides.scss*/
+$nb-breakpoints(
+  sm: 800px,
+  md: 900px,
+  lg: 1000px,
+  xl: 1100px
+);
+```
+The above code will override the default `$nb-breakpoints` map with your own.
 
 ## Breakpoints
 The breakpoints map shown above (`$nb-breakpoints`) contains all of the breakpoints used in Nebula, you can add remove and edit the breakpoints in the map.  Nebula CSS features such as the lists, section, grid gutters, grid widths, push, flush, hard and soft utilities are all auto generate the CSS based on `$nb-breakpoints`.  The keys used in the map correlate directly to classnames generated.  For example:
