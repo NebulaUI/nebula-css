@@ -24,6 +24,7 @@ Also ships with some common and useful abstractions such as the Flag Object.
 * [Dependencies](#dependencies)
 * [Get started](#get-started)
 * [Default settings and config](#default-settings-and-config)
+* [Breakpoints](#breakpoints)
 * [Grid](#grid)
 * [Flag](#flag)
 * [Site-wrap](#site-wrap)
@@ -302,6 +303,68 @@ $nb-soft-sizes: (
 ) !default;
 ```
 
+## Breakpoints
+The breakpoints map shown above (`$nb-breakpoints`) contains all of the breakpoints used in Nebula, you can add remove and edit the breakpoints in the map.  Nebula CSS features such as the lists, section, grid gutters, grid widths, push, flush, hard and soft utilities are all auto generate the CSS based on `$nb-breakpoints`.  The keys used in the map correlate directly to classnames generated.  For example:
+```Sass
+$nb-breakpoints: (
+    sm: 400px,
+    md: 800px,
+    myKey: 1000px
+);
+```
+Will generate the following CSS classnames in our Bare list (Amongst the other objects)
+```Sass
+.o-bare-list {}
+.o-bare-list--spaced-md {}
+.o-bare-list--spaced-md@sm {}
+.o-bare-list--spaced-md@md {}
+.o-bare-list--spaced-md@myKey {}
+```
+Assuming we had the following:
+```sass
+$nb-list-spacing: (
+  md: $nb-spacing-unit
+) !default;
+```
+If our List spacing increased to:
+```sass
+$nb-list-spacing: (
+  md: $nb-spacing-unit,
+  lg: ($nb-spacing-unit * 2)
+) !default;
+```
+The following CSS classnames would be generated:
+```Sass
+.o-bare-list {}
+.o-bare-list--spaced-md {}
+.o-bare-list--spaced-md@sm {}
+.o-bare-list--spaced-md@md {}
+.o-bare-list--spaced-md@myKey {}
+.o-bare-list--spaced-lg {}
+.o-bare-list--spaced-lg@sm {}
+.o-bare-list--spaced-lg@md {}
+.o-bare-list--spaced-lg@myKey {}
+```
+
+As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.
+
+Nebula CSS also gives you a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a single argument as a string.  The string should match one of the maps in `nb-breakpoints`.  e.g.
+```sass
+.o-my-obj {
+  @include nb-respond-to('md') {
+    // my CSS
+  }
+}
+```
+Being mobile first the above CSS will respond to viewports larger than the `md` breakpoint (min-width media query).  It is possible to pass in a prefix as part of the sring to denote a max-width breakpoint:
+```sass
+.o-my-obj {
+  @include nb-respond-to('max-md') {
+    // my CSS
+  }
+}
+```
+The above CSS responding to viewports smaller than the `md` breakpoint.
 ## Grid
 
 [Demo](http://rbrtsmith.com/nebula-css/demo/#grid)
