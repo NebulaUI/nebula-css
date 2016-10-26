@@ -468,6 +468,7 @@ By default the grid comes with the following sets of fractions:
 * Eighths
 * Tenths
 * Twelfths
+
 As defined in the `$nb-offset-fractions` map.  You can add or remove fractions on the map to suit your project requirements.  The fractions map directly to the breakpoints.
 
 By default Nebula CSS provides three gutter width variations from the `nb-grid-gutter-sizes` map, again these can be removed, adjusted or added to.  With seemingly endless number combinations available and customisation making Nebula CSS's grid one of the most flexible available.
