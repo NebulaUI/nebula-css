@@ -312,19 +312,19 @@ $nb-breakpoints: (
     myKey: 1000px
 );
 ```
+and assuming we had the following declared:
+```sass
+$nb-list-spacing: (
+  md: $nb-spacing-unit
+  ) !default;
+  ```
 Will generate the following CSS classnames in our Bare list (Amongst the other objects)
 ```Sass
 .o-bare-list {}
 .o-bare-list--spaced-md {}
-.o-bare-list--spaced-md@sm {}
-.o-bare-list--spaced-md@md {}
-.o-bare-list--spaced-md@myKey {}
-```
-Assuming we had the following:
-```sass
-$nb-list-spacing: (
-  md: $nb-spacing-unit
-) !default;
+.o-bare-list--spaced-md\@sm {}
+.o-bare-list--spaced-md\@md {}
+.o-bare-list--spaced-md\@myKey {}
 ```
 If our List spacing increased to:
 ```sass
@@ -337,16 +337,17 @@ The following CSS classnames would be generated:
 ```Sass
 .o-bare-list {}
 .o-bare-list--spaced-md {}
-.o-bare-list--spaced-md@sm {}
-.o-bare-list--spaced-md@md {}
-.o-bare-list--spaced-md@myKey {}
+.o-bare-list--spaced-md\@sm {}
+.o-bare-list--spaced-md\@md {}
+.o-bare-list--spaced-md\@myKey {}
 .o-bare-list--spaced-lg {}
-.o-bare-list--spaced-lg@sm {}
-.o-bare-list--spaced-lg@md {}
-.o-bare-list--spaced-lg@myKey {}
+.o-bare-list--spaced-lg\@sm {}
+.o-bare-list--spaced-lg\@md {}
+.o-bare-list--spaced-lg\@myKey {}
 ```
 
 As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.
+Also note that the `@` symbol here is escaped, this is because symbols like `@` are not strictly valid CSS selectors so they must be escaped.  However you don't need to do this when defining your classnames in your HTML.
 
 Nebula CSS also gives you a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a single argument as a string.  The string should match one of the maps in `nb-breakpoints`.  e.g.
 ```sass
@@ -384,6 +385,20 @@ The grid system employed in Nebula CSS uses fractions rather than columns yieldi
 * Does not require a wrapping element like most other grid systems.
 * Extremely lightweight using the Sass maps found in [Default settings and config](#default-settings-and-config) unused bloat can be removed.
 * Width, push and pull classes are not tied directly to the grid, and can be reused anywhere in your project.
+
+By default the grid comes with the following sets of fractions:
+* One whole
+* Halves
+* Thirds
+* Fourths
+* Fifths
+* Sixths
+* Eighths
+* Tenths
+* Twelfths
+As defined in the `$nb-offset-fractions` map.  You can add or remove fractions on the map to suit your project requirements.  The fractions map directly to the breakpoints.
+
+By default Nebula CSS provides three gutter width variations from the `nb-grid-gutter-sizes` map, again these can be removed, adjusted or added to.  With seemingly endless number combinations available and customisation making Nebula CSS's grid one of the most flexible available.
 
 ### Examples
 A simple grid with two grid-items one 25% wide the other 75%.  By default the grid comes with no gutters.
