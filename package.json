@@ -1,6 +1,6 @@
 {
   "name": "nebula-css",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "ITCSS and BEMIT based framework that is ultra exensible and scales to any project size",
   "main": "index.js",
   "scripts": {
