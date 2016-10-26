@@ -5,7 +5,7 @@
 
 Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
 
-Ships with 100% zero cosmetic styling.  This allows every project built with Nebula CSS to have a completely bespoke look and feel with Nebula CSS doing the heavy lifting when it comes to layout and architecture.
+Ships with 100% zero cosmetic styling.  This allows every project built with Nebula CSS to have a completely bespoke look and feel with Nebula CSS doing the heavy lifting when it comes to layout and architecture.  This means it is totally upto you how you structure your colours, typography and cosmetic components, however you are encouraged to follow the ITCSS structure and BEMIT naming conventions.
 
 At the core sits a highly flexible and and extendible grid system making use of the very powerful [map](https://www.viget.com/articles/sass-maps-are-awesome) feature of Sass.
 Maps are used extensively and allow the following features to be easily extended and in some cases composed:
@@ -17,7 +17,7 @@ Maps are used extensively and allow the following features to be easily extended
 * Section spacing
 * Spacing - margin & padding utilities
 
-Also ships with some common and useful abstractions such as the Flag Object.
+Also ships with some common yet useful abstractions such as the Flag Object.
 
 ##Table of contents
 
@@ -346,10 +346,10 @@ The following CSS classnames would be generated:
 .o-bare-list--spaced-lg\@myKey {}
 ```
 
-As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.
+As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.  
 Also note that the `@` symbol here is escaped, this is because symbols like `@` are not strictly valid CSS selectors so they must be escaped.  However you don't need to do this when defining your classnames in your HTML.
 
-Nebula CSS also gives you a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a single argument as a string.  The string should match one of the maps in `nb-breakpoints`.  e.g.
+Nebula CSS also provides you with a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a single string argument.  The string should match one of the maps in `nb-breakpoints`.  e.g.
 ```sass
 .o-my-obj {
   @include nb-respond-to('md') {
