@@ -663,30 +663,30 @@ Form the Utilities Layer in ITCSS, each a single responsibility class.  They are
 Adds margins, Nebula CSS encourages [single direction margin declarations](http://csswizardry.com/2012/06/single-direction-margin-declarations/) to eliminate confusion around collapsing borders
 
 ```html
-<div class="u-push-right"></div>
-<div class="u-push-bottom"></div>
-<div class="u-push-right@sm"></div>
+<div class="u-push-left-md"></div>
+<div class="u-push-bottom-md"></div>
+<div class="u-push-left-md@sm"></div>
 ```
 
 ### Flush
 Removes margins
 ```html
-<div class="u-push-top"></div>
-<div class="u-push-right"></div>
-<div class="u-push-bottom"></div>
-<div class="u-push-left"></div>
-<div class="u-push-left@lg"></div>
+<div class="u-push-top-md"></div>
+<div class="u-push-right-md"></div>
+<div class="u-push-bottom-md"></div>
+<div class="u-push-left-md"></div>
+<div class="u-push-left-md@lg"></div>
 ```
 
 ### Soft
 Adds padding
 ```html
-<div class="u-soft"></div>
-<div class="u-soft-top"></div>
-<div class="u-soft-right"></div>
-<div class="u-soft-bottom"></div>
-<div class="u-soft-left"></div>
-<div class="u-soft-left@lg"></div>
+<div class="u-soft-md"></div>
+<div class="u-soft-top-md"></div>
+<div class="u-soft-right-md"></div>
+<div class="u-soft-bottom-md"></div>
+<div class="u-soft-left-md"></div>
+<div class="u-soft-left-md@lg"></div>
 ```
 
 ### Hard

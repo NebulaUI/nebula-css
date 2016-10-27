@@ -1,5 +1,12 @@
 .demo-card {
-  padding: ($nb-spacing-unit * 0.5) $nb-spacing-unit;
+  padding: $nb-spacing-unit;
   background: #222;
   color: #fff;
+}
+
+.demo-card-alt {
+  display: inline-block;
+  padding: 0;
+  background: #fff;
+  color: #222;
 }
