@@ -63,7 +63,7 @@ ITCSS is divided up into 7 distinct sections they are:
 7. Utilities
 
 ###1. Settings
-Flobal variables and config.
+Global variables and config.
 
 ###2. Tools
 Globally used mixins and functions.
