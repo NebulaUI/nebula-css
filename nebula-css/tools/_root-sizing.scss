@@ -12,8 +12,8 @@
       }
 
       @else {
-        @warn 'Unfortunately, no value could be retrieved for the spacing-percentage `#{nth($percentage,1 )}`. '
-          + 'Please make sure the breakpoint is defined in `nb-spacing-percentages` map.';
+        @warn 'Unfortunately the supplied nb-root-sizing key `#{$key}` '
+        + 'does not match a corresponding key in the `$nb-breakpoints` map or == `default`';
       }
     }
   }
