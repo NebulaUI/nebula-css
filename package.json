@@ -32,6 +32,8 @@
   "homepage": "https://github.com/rbrtsmith/nebula-css#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.5",
+    "commander": "^2.9.0",
+    "fs-extra": "^0.30.0",
     "http-server": "^0.9.0",
     "node-sass": "^3.4.2",
     "onchange": "^2.2.0",
