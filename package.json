@@ -3,6 +3,9 @@
   "version": "2.2.5",
   "description": "ITCSS and BEMIT based framework that is ultra exensible and scales to any project size",
   "main": "index.js",
+  "bin": {
+    "nebula-css": "nebula.js"
+  },
   "scripts": {
     "lint": "stylelint '*/**/*.scss' --syntax scss",
     "sass": "node-sass --output-style compressed --include-path ./nebula-css/ -o demo/dist demo/scss/main.scss",
