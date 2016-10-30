@@ -5,5 +5,10 @@
         display: none !important;
       }
     }
+    @include nb-respond-to('max-#{$bp-key}') {
+      .#{$nb-namespace}u-hidden\@max-#{$bp-key} {
+        display: none !important;
+      }
+    }
   }
 }
