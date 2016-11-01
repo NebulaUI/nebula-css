@@ -61,5 +61,17 @@
         }
       }
     }
+    $max-key: 'max-' + $key;
+    @include nb-respond-to(#{$max-key}) {
+      .#{$nb-namespace}u-#{$action}\@#{$max-key} {
+        #{$property}: 0 !important;
+      }
+
+      @each $direction in $directions {
+        .#{$nb-namespace}u-#{$action}-#{$direction}\@#{$max-key} {
+          #{$property}-#{$direction}: 0 !important;
+        }
+      }
+    }
   }
 }
