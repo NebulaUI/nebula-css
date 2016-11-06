@@ -4,24 +4,24 @@
 
   @if $action == 'push' {
     $property: 'margin';
-    $directions: 'bottom', 'left';
+    $directions: '-bottom', '-left';
   } @else {
     $property: 'padding';
-    $directions: 'top', 'right', 'bottom', 'left';
+    $directions: '-top', '-right', '-bottom', '-left', '';
   }
 
   @each $key, $value in $sizes {
     @each $direction in $directions {
-      .#{$nb-namespace}u-#{$action}-#{$direction}-#{$key} {
-        #{$property}-#{$direction}: $value !important;
+      .#{$nb-namespace}u-#{$action}#{$direction}-#{$key} {
+        #{$property}#{$direction}: $value !important;
       }
     }
 
     @each $bp-key, $bp-value in $nb-breakpoints {
       @include nb-respond-to(#{$bp-key}) {
         @each $direction in $directions {
-          .#{$nb-namespace}u-#{$action}-#{$direction}-#{$key}\@#{$bp-key} {
-            #{$property}-#{$direction}: $value !important;
+          .#{$nb-namespace}u-#{$action}#{$direction}-#{$key}\@#{$bp-key} {
+            #{$property}#{$direction}: $value !important;
           }
         }
       }
@@ -38,14 +38,14 @@
     $property: 'padding';
   }
 
-  $directions: 'top', 'right', 'bottom', 'left';
+  $directions: '-top', '-right', '-bottom', '-left';
   .#{$nb-namespace}u-#{$action} {
     #{$property}: 0 !important;
   }
 
   @each $direction in $directions {
-    .#{$nb-namespace}u-#{$action}-#{$direction} {
-      #{$property}-#{$direction}: 0 !important;
+    .#{$nb-namespace}u-#{$action}#{$direction} {
+      #{$property}#{$direction}: 0 !important;
     }
   }
 
@@ -56,8 +56,8 @@
       }
 
       @each $direction in $directions {
-        .#{$nb-namespace}u-#{$action}-#{$direction}\@#{$key} {
-          #{$property}-#{$direction}: 0 !important;
+        .#{$nb-namespace}u-#{$action}#{$direction}\@#{$key} {
+          #{$property}#{$direction}: 0 !important;
         }
       }
     }
@@ -68,8 +68,8 @@
       }
 
       @each $direction in $directions {
-        .#{$nb-namespace}u-#{$action}-#{$direction}\@#{$max-key} {
-          #{$property}-#{$direction}: 0 !important;
+        .#{$nb-namespace}u-#{$action}#{$direction}\@#{$max-key} {
+          #{$property}#{$direction}: 0 !important;
         }
       }
     }

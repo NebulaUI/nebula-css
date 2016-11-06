@@ -1,6 +1,5 @@
 .#{$nb-namespace}o-inline-list {
-  margin: 0;
-  list-style: none;
+  @include nb-bare-list;
 }
 
 .#{$nb-namespace}o-inline-list__item {

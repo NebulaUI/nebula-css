@@ -424,6 +424,11 @@ ol,
 dd {
   margin-left: 2rem; }
 
+code {
+  padding: 2px 4px;
+  background: #ddd;
+  font-family: courier new; }
+
 .o-site-wrap {
   max-width: 60rem;
   margin: 0 auto; }
@@ -527,6 +532,7 @@ dd {
     padding-left: 1rem; } }
 
 .o-matrix-list {
+  margin: 0;
   list-style: none; }
 
 .o-matrix-list__item {
@@ -790,12 +796,60 @@ dd {
     padding-top: 2rem;
     padding-bottom: 2rem; } }
 
-.demo-card {
+.o-uniformed-list {
+  margin: 0;
+  list-style: none;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  text-align: center; }
+
+.o-uniformed-list > .o-uniformed-list__item {
+  display: table-cell;
+  padding: 0 0.5rem; }
+
+@media (min-width: 720px) {
+  .o-uniformed-list\@sm {
+    margin: 0;
+    list-style: none;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center; }
+  .o-uniformed-list\@sm > .o-uniformed-list__item {
+    display: table-cell;
+    padding: 0 0.5rem; } }
+
+@media (min-width: 960px) {
+  .o-uniformed-list\@md {
+    margin: 0;
+    list-style: none;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center; }
+  .o-uniformed-list\@md > .o-uniformed-list__item {
+    display: table-cell;
+    padding: 0 0.5rem; } }
+
+@media (min-width: 1200px) {
+  .o-uniformed-list\@lg {
+    margin: 0;
+    list-style: none;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    text-align: center; }
+  .o-uniformed-list\@lg > .o-uniformed-list__item {
+    display: table-cell;
+    padding: 0 0.5rem; } }
+
+.c-demo-card {
   padding: 1rem;
   background: #222;
   color: #fff; }
 
-.demo-card-alt {
+.c-demo-card-alt {
   display: inline-block;
   padding: 0;
   background: #fff;
@@ -806,6 +860,18 @@ dd {
   @media (min-width: 720px) {
     .demo-img {
       width: 150px; } }
+
+.c-demo-button {
+  display: inline-block;
+  min-width: 135px;
+  padding: 1rem 2rem;
+  background: #222;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center; }
+  .c-demo-button:hover, .c-demo-button:focus {
+    background: #434343; }
 
 .u-1\/1 {
   width: 100%; }
@@ -2109,6 +2175,9 @@ dd {
 .u-soft-left-md {
   padding-left: 1rem !important; }
 
+.u-soft-md {
+  padding: 1rem !important; }
+
 @media (min-width: 720px) {
   .u-soft-top-md\@sm {
     padding-top: 1rem !important; }
@@ -2117,7 +2186,9 @@ dd {
   .u-soft-bottom-md\@sm {
     padding-bottom: 1rem !important; }
   .u-soft-left-md\@sm {
-    padding-left: 1rem !important; } }
+    padding-left: 1rem !important; }
+  .u-soft-md\@sm {
+    padding: 1rem !important; } }
 
 @media (min-width: 960px) {
   .u-soft-top-md\@md {
@@ -2127,7 +2198,9 @@ dd {
   .u-soft-bottom-md\@md {
     padding-bottom: 1rem !important; }
   .u-soft-left-md\@md {
-    padding-left: 1rem !important; } }
+    padding-left: 1rem !important; }
+  .u-soft-md\@md {
+    padding: 1rem !important; } }
 
 @media (min-width: 1200px) {
   .u-soft-top-md\@lg {
@@ -2137,7 +2210,9 @@ dd {
   .u-soft-bottom-md\@lg {
     padding-bottom: 1rem !important; }
   .u-soft-left-md\@lg {
-    padding-left: 1rem !important; } }
+    padding-left: 1rem !important; }
+  .u-soft-md\@lg {
+    padding: 1rem !important; } }
 
 .u-hard {
   padding: 0 !important; }

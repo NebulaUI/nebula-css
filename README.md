@@ -5,7 +5,7 @@
 
 Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
 
-Ships with 100% zero cosmetic styling.  This allows every project built with Nebula CSS to have a completely bespoke look and feel with Nebula CSS doing the heavy lifting when it comes to layout and architecture.  This means it is totally upto you how you structure your colours, typography and cosmetic components, however you are encouraged to follow the ITCSS structure and BEMIT naming conventions.
+Ships with zero cosmetic styling.  This allows every consuming project to have a completely bespoke UI with Nebula CSS doing the heavy lifting when it comes to layout and architecture.  This means it is totally upto you how you structure your colours, typography and cosmetic components, however you are encouraged to follow the ITCSS structure and BEMIT naming conventions.
 
 At the core sits a highly flexible and and extendible grid system making use of the very powerful [map](https://www.viget.com/articles/sass-maps-are-awesome) feature of Sass.
 Maps are used extensively and allow the following features to be easily extended and in some cases composed:
@@ -17,7 +17,7 @@ Maps are used extensively and allow the following features to be easily extended
 * Section spacing
 * Spacing - margin & padding utilities
 
-Also ships with some common yet useful abstractions such as the Flag Object.
+Nebula CSS also ships with some common yet useful abstractions such as the Flag Object, list variations and an array of useful utilities.
 
 ##Table of contents
 
