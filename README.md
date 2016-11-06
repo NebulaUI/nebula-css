@@ -1,6 +1,6 @@
 # Nebula CSS ![Travis-ci](https://travis-ci.org/rbrtsmith/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css)
 
-* 8kb (gzip) with default settings.
+* 7kb (gzip) with default settings.
 * [View the demo](http://rbrtsmith.com/nebula-css/demo/)
 
 Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
@@ -421,7 +421,7 @@ The following CSS classnames would be generated:
 As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.  
 Also note that the `@` symbol here is escaped, this is because symbols like `@` are not strictly valid CSS selectors so they must be escaped.  However you don't need to do this when defining your classnames in your HTML.
 
-Nebula CSS also provides you with a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a single string argument.  The string should match one of the maps in `nb-breakpoints`.  e.g.
+Nebula CSS also provides you with a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a string argument.  The string should match one of the maps in `nb-breakpoints`.  e.g.
 ```sass
 .o-my-obj {
   @include nb-respond-to('md') {
@@ -438,6 +438,9 @@ Being mobile first the above CSS will respond to viewports larger than the `md` 
 }
 ```
 The above CSS responding to viewports smaller than the `md` breakpoint.
+
+`nb-respond-to` also accepts an optional second argument if you wish to create a second breakpoints map that you don't wish the grid, and other utilities to map over - something more component specific.  By default this parameter points to `$nb-breakpoints`.
+
 ## Grid
 
 [Demo](http://rbrtsmith.com/nebula-css/demo/#grid)
