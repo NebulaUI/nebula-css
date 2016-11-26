@@ -6,7 +6,7 @@
 Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.  
 
 Rather than using 'semantic classnames' that some other frameworks push, the classnames employed in Nebula explicitly describe the underlying architecture.
-This makes it *much* easier to reason about your CSS structure from your HTML and promotes code re-use &mdash; which is severely hindered when your classnames are closely coupled with your content.
+This makes it *much* easier to reason about the CSS structure from your HTML, promotes code re-use and composition; which otherwise would all be severely hindered if classnames were closely coupled with content.
 
 Ships with zero cosmetic styling; this allows every consuming project to have a completely bespoke UI with Nebula CSS doing the heavy lifting when it comes to layout and architecture.  This means it is totally upto you how you structure your colours, typography and cosmetic components, however you are encouraged to follow the ITCSS structure and BEMIT naming conventions.
 
