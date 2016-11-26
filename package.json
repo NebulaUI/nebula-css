@@ -10,7 +10,8 @@
     "build": "npm run lint && npm run sass && npm run autoprefixer && ncp demo/assets/ demo/dist/assets",
     "start": "npm run build && onchange '*/**/*.scss' -- npm run build",
     "serve": "http-server demo",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "deploy": "npm run build && gh-pages -d demo"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
   "homepage": "https://github.com/rbrtsmith/nebula-css#readme",
   "devDependencies": {
     "autoprefixer": "^6.3.5",
+    "gh-pages": "^0.12.0",
     "http-server": "^0.9.0",
     "ncp": "^2.0.0",
     "node-sass": "^3.4.2",
