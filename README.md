@@ -1,7 +1,7 @@
 # Nebula CSS ![Travis-ci](https://travis-ci.org/rbrtsmith/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css)
 
 * 7kb (gzip) with default settings.
-* [View the demo](http://rbrtsmith.com/nebula-css/demo/)
+* [View the demo](http://rbrtsmith.com/nebula-css/)
 
 Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
 
@@ -445,7 +445,7 @@ The above CSS responding to viewports smaller than the `md` breakpoint.
 
 ## Grid
 
-[Demo](http://rbrtsmith.com/nebula-css/demo/#grid)
+[Demo](http://rbrtsmith.com/nebula-css/#grid)
 
 The grid system employed in Nebula CSS uses fractions rather than columns yielding increased flexibility.  Instead of many other popular grid systems Nebula CSS uses inline-block as opposed to floats; this results in many benefits.
 
@@ -533,37 +533,37 @@ Varying guttering depending on the breakpoint
 There are various BEM modifiers that you can add to the grid as shown below:
 
 * Matrix (Vertical guttering that matches horizontal)
-  [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-matrix)
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-matrix)
 
     ```html
     <div class="o-grid o-grid--gutter-sm o-grid--matrix" />
     ```
 * Equal height items
-  [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-equal-height)
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-equal-height)
 
     ```html
     <div class="o-grid o-grid--equal-height" />
     ```
 * Reverse item order
-  [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-reverse)
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-reverse)
 
     ```html
     <div class="o-grid o-grid--reverse" />
     ```
 * Vertically centered items
-  [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-vertically-centered)
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-vertically-centered)
 
     ```html
     <div class="o-grid o-grid--center" />
     ```
 * Bottom aligned items
-  [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-bottom-aligned)
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-bottom-aligned)
 
     ```html
     <div class="o-grid o-grid--bottom" />
   ```
 * Horizontally centered items
-  [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-horizontally-aligned)
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-horizontally-aligned)
 
     ```html
     <div class="o-grid u-text-center" />
@@ -573,7 +573,7 @@ There are various BEM modifiers that you can add to the grid as shown below:
 
 One of most underrated CSS abstractions originally thought up by [Harry Roberts](https://twitter.com/csswizardry) is the flag object.  It allows you to mix up fixed width components with fluid ones, is infinitely composable can be nested inside of the grid, or a grid nested inside of the fluid component it's incredibly versatile.  Oh and it also allows you to vertically align the contents to boot.
 
-[Demo](http://rbrtsmith.com/nebula-css/demo/#flag)
+[Demo](http://rbrtsmith.com/nebula-css/#flag)
 
 ```html
 <div class="o-flag">
@@ -588,7 +588,7 @@ One of most underrated CSS abstractions originally thought up by [Harry Roberts]
 
 ## Site-wrap
 A simple max-width centred container to wrap your content. You can see it applied throughout the demo page. The `--padding` modifier adds horizontal padding to the container.
-[demo](http://rbrtsmith.com/nebula-css/demo/#site-wrap)
+[demo](http://rbrtsmith.com/nebula-css/#site-wrap)
 
 ```html
 <div class="o-site-wrap o-site-wrap--padding">
@@ -598,7 +598,7 @@ A simple max-width centred container to wrap your content. You can see it applie
 
 ## Section
 Adds padding top & bottom.  The `md` suffix in this example maps onto a corresponding key on the `$nb-section-spacing` map that denotes the spacing amount.
-[demo](http://rbrtsmith.com/nebula-css/demo/#section)
+[demo](http://rbrtsmith.com/nebula-css/#section)
 
 Typically used to space sections and sub-sections of content.
 
@@ -610,11 +610,11 @@ Typically used to space sections and sub-sections of content.
 
 ## Lists
 Nebula CSS comes with three types of list: Bare-list, Inline-list and Matrix-list.
-[demo](http://rbrtsmith.com/nebula-css/demo/#lists)
+[demo](http://rbrtsmith.com/nebula-css/#lists)
 
 ### Bare-list
 Strips a list of all default list styling.
-[Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list)
+[Demo](http://rbrtsmith.com/nebula-css/#bare-list)
 ```html
 <ul class="o-bare-list">
   <li>item</li>
@@ -622,7 +622,7 @@ Strips a list of all default list styling.
 </ul>
 ```
 Spaced
-[Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list-spaced)
+[Demo](http://rbrtsmith.com/nebula-css/#bare-list-spaced)
 ```html
 <ul class="o-bare-list o-bare-list--spaced-md">
   <li class="o-bare-list__item">item</li>
@@ -631,7 +631,7 @@ Spaced
 ```
 
 Spaced by breakpoint
-[Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list-spaced-by-breakpoint)
+[Demo](http://rbrtsmith.com/nebula-css/#bare-list-spaced-by-breakpoint)
 ```html
 <ul class="o-bare-list o-bare-list--spaced-md@sm">
   <li class="o-bare-list__item">item</li>
@@ -641,7 +641,7 @@ Spaced by breakpoint
 
 ## Inline list
 Exactly like the bare list but the items are rendered horizontally.
-[Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list)
+[Demo](http://rbrtsmith.com/nebula-css/#inline-list)
 ```html
 <ul class="o-inline-list">
   <li>item</li>
@@ -649,7 +649,7 @@ Exactly like the bare list but the items are rendered horizontally.
 </ul>
 ```
 ```html
-Spaced [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list-spaced)
+Spaced [Demo](http://rbrtsmith.com/nebula-css/#inline-list-spaced)
 <ul class="o-inline-list o-inline-list--spaced-md">
   <li class="o-inline-list__item">item</li>
   <li class="o-inline-list__item">item</li>
@@ -657,7 +657,7 @@ Spaced [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list-spaced)
 ```
 
 Spaced by breakpoint
-[Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list-spaced-by-breakpoint)
+[Demo](http://rbrtsmith.com/nebula-css/#inline-list-spaced-by-breakpoint)
 ```html
 <ul class="o-inline-list o-inline-list--spaced-md@sm">
   <li class="o-inline-list__item">item</li>
@@ -667,7 +667,7 @@ Spaced by breakpoint
 
 ## Matrix list
 Exactly like the inline list but the items vertical spacing matches the horizontal.
-[Demo](http://rbrtsmith.com/nebula-css/demo/#matrix-list)
+[Demo](http://rbrtsmith.com/nebula-css/#matrix-list)
 
 Spaced
 ```html
@@ -687,7 +687,7 @@ Spaced by breakpoint
 
 ## Uniformed list
 Throws the list items into a horizontal alignment, each having a uniformed width.
-[Demo](http://rbrtsmith.com/nebula-css/demo/#uniformed-list)
+[Demo](http://rbrtsmith.com/nebula-css/#uniformed-list)
 
 ```html
 <ul class="o-uniformed-list">
@@ -706,11 +706,11 @@ Uniformed by breakpoint.
 
 ##utilities
 Form the Utilities Layer in ITCSS, each a single responsibility class.  They are intended to be used as overrides.
-[Demo]((http://rbrtsmith.com/nebula-css/demo/#utilities))
+[Demo]((http://rbrtsmith.com/nebula-css/#utilities))
 
 ### Push
 Adds margins.
-[Demo]((http://rbrtsmith.com/nebula-css/demo/#push))
+[Demo]((http://rbrtsmith.com/nebula-css/#push))
 
 Nebula CSS encourages [single direction margin declarations](http://csswizardry.com/2012/06/single-direction-margin-declarations/) to eliminate confusion around collapsing borders
 
@@ -732,7 +732,7 @@ Removes margins
 
 ### Soft
 Adds padding
-[Demo]((http://rbrtsmith.com/nebula-css/demo/#soft))
+[Demo]((http://rbrtsmith.com/nebula-css/#soft))
 
 ```html
 <div class="u-soft-md"></div>
@@ -756,7 +756,7 @@ Removes padding
 
 ### Text-align
 Adds text-alignment.
-[Demo]((http://rbrtsmith.com/nebula-css/demo/#text-align))
+[Demo]((http://rbrtsmith.com/nebula-css/#text-align))
 ```html
 <div class="u-text-left"></div>
 <div class="u-text-center"></div>
@@ -765,7 +765,7 @@ Adds text-alignment.
 
 ### Hidden
 Hides elements, or visually hides (Still accessible.)
-[Demo]((http://rbrtsmith.com/nebula-css/demo/#hidden))
+[Demo]((http://rbrtsmith.com/nebula-css/#hidden))
 
 ```html
 <div class="u-hidden"></div>
