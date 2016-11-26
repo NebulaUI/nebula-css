@@ -7,11 +7,11 @@
     "lint": "stylelint '*/**/*.scss' --syntax scss",
     "sass": "node-sass --output-style compressed --include-path ./nebula-css/ -o demo demo/scss/main.scss",
     "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' 'ie 9-11' -r demo/main.css",
-    "build": "npm run lint && npm run sass && npm run autoprefixer",
+    "build": "npm run sass && npm run autoprefixer",
     "start": "npm run build && onchange '*/**/*.scss' -- npm run build",
     "serve": "http-server demo",
     "test": "npm run lint",
-    "deploy": "gh-pages -d demo"
+    "deploy": "npm run lint && npm run build && gh-pages -d demo"
   },
   "repository": {
     "type": "git",
