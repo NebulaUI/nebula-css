@@ -1,7 +1,0 @@
-.demo-img {
-  width: 80px;
-
-  @include nb-respond-to('sm') {
-    width: 150px;
-  }
-}
