@@ -22,7 +22,7 @@ Maps are used extensively and allow the following features to be easily extended
 
 Nebula CSS also ships with some common yet useful abstractions such as the Flag Object, list variations and an array of useful utilities.
 
-##Table of contents
+## Table of contents
 
 * [Intro to ITCSS](#intro-to-itcss)
 * [Dependencies](#dependencies)
@@ -47,7 +47,7 @@ Nebula CSS also ships with some common yet useful abstractions such as the Flag 
   * [Hidden](#hidden)
 
 
-##Intro to ITCSS
+## Intro to ITCSS
 Nebula CSS is built upon the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture popularised by [Harry
 Roberts](http://csswizardry.com/).
 
@@ -67,36 +67,36 @@ ITCSS is divided up into 7 distinct sections they are:
 6. Components
 7. Utilities
 
-###1. Settings
+### 1. Settings
 Global variables and config.
 
-###2. Tools
+### 2. Tools
 Globally used mixins and functions.
 
-###3. Resets (Generic)
+### 3. Resets (Generic)
 [Normalize.css](https://github.com/necolas/normalize.css/) and any additional
 resets on top of Normalize.
 
-###4. Base
+### 4. Base
 Global baseline styles using element and attribute selectors only (No classes)
 
-###5. Objects
+### 5. Objects
 Cosmetic-free design patters, things like the grid, lists and the flag
 object.  Think of it like the skeleton of the layout, with no visual styling
 applied.
 
-###6. Components
+### 6. Components
 Designed components, chunks of UI.  Think of it like the skin on top of the
 skeleton, so anything with colours, borders, backgrounds etc.  If in doubt
 whether some CSS/Sass code belongs in layout or components then put it within
 components. **Being cosmetic free Nebula CSS does not ship with any components**
 
-###7. Utilities
+### 7. Utilities
 Helpers and overrides. AKA Trumps.
 
 
 
-##dependencies
+## Dependencies
 
 Nebula CSS is composed of [Sass](http://sass-lang.com/) files so you'll need some way to compile to CSS; we'd recommend you use a [Libsass](http://sass-lang.com/libsass) based tool, which will likely be available for your build tool of choice:
 * [Node Sass](https://github.com/sass/node-sass) (NPM Scripts)
@@ -111,7 +111,7 @@ Nebula's source code does not include any vendor prefixes.  This gives you the f
 This can be ran directly in NPM scripts as you can see happening in this projects [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L9).  Alternatively you can run this in your build-tool of choice.
 
 
-##Get Started
+## Get Started
 1. `npm install --save nebula-css`
 2. Setup an ITCSS file structure:
   1. `cd` into the directory where you intend to build out your ITCSS structure.
@@ -235,7 +235,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
   └──_my-utility-2.scss
   ```
 
-##Default settings and config
+## Default settings and config
 
 Some of the settings here make use of [Sass maps](https://www.viget.com/articles/sass-maps-are-awesome) it's recommended you have at least a basic understanding of how they work.
 
@@ -360,7 +360,7 @@ $nb-soft-sizes: (
 ) !default;
 ```
 
-###Overriding settings
+### Overriding settings
 When you install this framework it will live in your `node_modules` directory and you won't want to go in there and change anything as any subsequent `npm install`s will potentially overwrite those changes.
 Thankfully Nebula CSS settings all have the `!default` flag attached which means they can be overridden:
 ```Sass
@@ -707,7 +707,7 @@ Uniformed by breakpoint.
 </ul>
 ```
 
-##utilities
+## Utilities
 Form the Utilities Layer in ITCSS, each a single responsibility class.  They are intended to be used as overrides.
 [Demo]((http://rbrtsmith.com/nebula-css/#utilities))
 
