@@ -117,6 +117,10 @@ This can be ran directly in NPM scripts as you can see happening in this project
   1. `cd` into the directory where you intend to build out your ITCSS structure.
   2. Paste the following snippet into your terminal:  
   *&mdash; Windows users will have to manually create and populate the files.*
+    
+    ```
+    some code
+    ```
 
       ```
       mkdir scss &&
