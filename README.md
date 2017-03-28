@@ -118,8 +118,8 @@ This can be ran directly in NPM scripts as you can see happening in this project
   2. Paste the following snippet into your terminal:  
   *&mdash; Windows users will have to manually create and populate the files.*
 
-
-      mkdir scss &&
+      ```
+      mkdir scss &&
       cd scss &&
       {
         echo "@import 'settings';"
@@ -139,6 +139,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
       echo "@import 'nebula-css/utilities';" > _utilities.scss &&
       touch _components.scss &&
       cd ..
+      ```
   
   The following file structure will be created.
 
