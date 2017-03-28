@@ -168,6 +168,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
     @import 'components';
     @import 'utilities';
     ```
+  
   The files that `main.scss` imports are also populated with `@import` statements
   that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
 
@@ -176,19 +177,19 @@ This can be ran directly in NPM scripts as you can see happening in this project
     @import 'nebula-css/settings';
     ```
  
-    It is worth noting here that to resolve the above path your Sass compiler requires
-    [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
-    If your Sass Compiler does not offer IncludePaths resulting in your build failing
-    you will have to give your imports a relative path:
+  It is worth noting here that to resolve the above path your Sass compiler requires
+  [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
+  If your Sass Compiler does not offer IncludePaths resulting in your build failing
+  you will have to give your imports a relative path:
  
     ```Sass
     /*  _settings.scss */
     @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
     ```
  
-    As you can see this is rather verbose and ugly code but it works!
+   As you can see this is rather verbose and ugly code but it works!
 
-    Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
+   Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
 
     ```json
     "scripts": {
