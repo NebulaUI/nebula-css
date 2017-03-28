@@ -201,14 +201,15 @@ This can be ran directly in NPM scripts as you can see happening in this project
 
         Alternatively here's an example using Gulp.
 
-      ```javascript
+        ```javascript
         gulp.task('build:css', () => {
           const includePaths = ['./node_modules/nebula-css/'];
           return gulp.src('src/scss/**/*.scss')
             .pipe(sass({ includePaths }))
             .pipe(gulp.dest('dist'))
         });
-    ```
+        ```
+
 
   3. Configure your build tool to build your Sass files and run Autoprefixer
 
