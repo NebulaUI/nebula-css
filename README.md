@@ -117,7 +117,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
   1. `cd` into the directory where you intend to build out your ITCSS structure.
   2. Paste the following snippet into your terminal:  
   *&mdash; Windows users will have to manually create and populate the files.*
- 
+
     ```
     mkdir scss &&
     cd scss &&
@@ -157,20 +157,16 @@ This can be ran directly in NPM scripts as you can see happening in this project
     ```
   
   `main.scss` gets populated with the seven ITCSS layers.
-    ```sass
-    hello 
-    ```
-    
-      ```sass
-      /* main.scss */
-      @import 'settings';
-      @import 'tools';
-      @import 'resets';
-      @import 'base';
-      @import 'objects';
-      @import 'components';
-      @import 'utilities';
-      ```
+    ```sass
+    /* main.scss */
+    @import 'settings';
+    @import 'tools';
+    @import 'resets';
+    @import 'base';
+    @import 'objects';
+    @import 'components';
+    @import 'utilities';
+    ```
   
   The files that `main.scss` imports are also populated with `@import` statements
   that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
