@@ -158,22 +158,22 @@ This can be ran directly in NPM scripts as you can see happening in this project
   
   `main.scss` gets populated with the seven ITCSS layers.
 
-    ```Sass
-    /* main.scss */
-    @import 'settings';
-    @import 'tools';
-    @import 'resets';
-    @import 'base';
-    @import 'objects';
-    @import 'components';
-    @import 'utilities';
-    ```
-  
+      ```sass
+      /* main.scss */
+      @import 'settings';
+      @import 'tools';
+      @import 'resets';
+      @import 'base';
+      @import 'objects';
+      @import 'components';
+      @import 'utilities';
+      ```
+  
   The files that `main.scss` imports are also populated with `@import` statements
   that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
 
-    ```Sass
-    /*  _settings.scss */
+    ```sass
+    /* _settings.scss */
     @import 'nebula-css/settings';
     ```
  
@@ -182,7 +182,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
   If your Sass Compiler does not offer IncludePaths resulting in your build failing
   you will have to give your imports a relative path:
  
-    ```Sass
+    ```sass
     /*  _settings.scss */
     @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
     ```
@@ -201,7 +201,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
 
     Alternatively here's an example using Gulp.
 
-    ```JavaScript
+    ```javascript
       gulp.task('build:css', () => {
         const includePaths = ['./node_modules/nebula-css/'];
         return gulp.src('src/scss/**/*.scss')
@@ -293,11 +293,11 @@ $nb-section-spacing: (
 ) !default;
 ```
 The grid system uses inline-blocks.  To remove the whitespace between grid-items it's required that a font-size of zero is set on the wrapping element, then the child elements are reset using `$nb-base-font-size`.  If you are minifying your HTML or using JSX with a framework like React it is safe to turn this off.
-```Sass
+```sass
 $nb-use-grid-zero-font-size: true !default;
 ```
 Gutter sizes for the grid system.  By default we have three sizes, you can add or remove these to suit your projects needs.
-```Sass
+```sass
 $nb-grid-gutter-sizes: (
   sm: ($nb-spacing-unit / 2),
   md: $nb-spacing-unit,
@@ -305,7 +305,7 @@ $nb-grid-gutter-sizes: (
 ) !default;
 ```
 Offsets used for the grid based in fractions whereby `1/2` will yield a width of `50%`.  This Sass map is also used for Push/Pull offsets on the grid. Being a Sass map you are free to add or remove whatever offsets are suitable for your project needs.  Note that the keys are quoted due to a fraction being used.  You can also turn off width/push/pull offsets globally saving you from bloat if any of those features are not being used.
-```Sass
+```sass
 $nb-use-width-offsets: true !default;
 $nb-use-push-offsets: true !default;
 $nb-use-pull-offsets: true !default;
@@ -356,13 +356,13 @@ $nb-offset-fractions: (
 ) !default;
 ```
 Used for the `Push` utility to add margin to a component.
-```Sass
+```sass
 $nb-push-sizes: (
   md: $nb-spacing-unit
 ) !default;
 ```
 Used for the `Soft` utility to add padding to a component.
-```Sass
+```sass
 $nb-soft-sizes: (
   md: $nb-spacing-unit
 ) !default;
@@ -371,13 +371,13 @@ $nb-soft-sizes: (
 ### Overriding settings
 When you install this framework it will live in your `node_modules` directory and you won't want to go in there and change anything as any subsequent `npm install`s will potentially overwrite those changes.
 Thankfully Nebula CSS settings all have the `!default` flag attached which means they can be overridden:
-```Sass
+```sass
 /*_settings.scss*/
 @import 'nebula-css/settings';
 @import 'settings/my-overrides';
 ```
 
-```Sass
+```sass
 /*/settings/_my-overrides.scss*/
 $nb-breakpoints(
   sm: 800px,
@@ -390,7 +390,7 @@ The above code will override the default `$nb-breakpoints` map with your own.
 
 ## Breakpoints
 The breakpoints map shown above (`$nb-breakpoints`) contains all of the breakpoints used in Nebula, you can add remove and edit the breakpoints in the map.  Nebula CSS features such as the lists, section, grid gutters, grid widths, push, flush, hard and soft utilities are all auto generate the CSS based on `$nb-breakpoints`.  The keys used in the map correlate directly to classnames generated.  For example:
-```Sass
+```sass
 $nb-breakpoints: (
     sm: 400px,
     md: 800px,
@@ -419,7 +419,7 @@ $nb-list-spacing: (
 ) !default;
 ```
 The following CSS classnames would be generated:
-```Sass
+```sass
 .o-bare-list {}
 .o-bare-list--spaced-md {}
 .o-bare-list--spaced-md\@sm {}
