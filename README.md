@@ -177,19 +177,19 @@ This can be ran directly in NPM scripts as you can see happening in this project
         @import 'nebula-css/settings';
         ```
  
-      It is worth noting here that to resolve the above path your Sass compiler requires
-      [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
-      If your Sass Compiler does not offer IncludePaths resulting in your build failing
-      you will have to give your imports a relative path:
+        It is worth noting here that to resolve the above path your Sass compiler requires
+        [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
+        If your Sass Compiler does not offer IncludePaths resulting in your build failing
+        you will have to give your imports a relative path:
  
         ```sass
         /*  _settings.scss */
         @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
         ```
  
-      As you can see this is rather verbose and ugly code but it works!
+        As you can see this is rather verbose and ugly code but it works!
 
-      Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
+        Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
 
         ```json
         "scripts": {
@@ -197,9 +197,9 @@ This can be ran directly in NPM scripts as you can see happening in this project
         },
         ```
 
-      See how the NPM scripts [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L8) are configured for the Nebula CSS Demo.
+        See how the NPM scripts [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L8) are configured for the Nebula CSS Demo.
 
-      Alternatively here's an example using Gulp.
+        Alternatively here's an example using Gulp.
 
       ```javascript
         gulp.task('build:css', () => {
