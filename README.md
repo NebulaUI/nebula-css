@@ -140,7 +140,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
         touch _components.scss &&
         cd ..
         ```
-  
+
       The following file structure will be created.
 
         ```
@@ -155,64 +155,64 @@ This can be ran directly in NPM scripts as you can see happening in this project
         ├──_components.scss
         ├──_utilities.scss
         ```
-  
-    `main.scss` gets populated with the seven ITCSS layers.
 
-      ```sass
-      /* main.scss */
-      @import 'settings';
-      @import 'tools';
-      @import 'resets';
-      @import 'base';
-      @import 'objects';
-      @import 'components';
-      @import 'utilities';
-      ```
+      `main.scss` gets populated with the seven ITCSS layers.
+
+        ```sass
+        /* main.scss */
+        @import 'settings';
+        @import 'tools';
+        @import 'resets';
+        @import 'base';
+        @import 'objects';
+        @import 'components';
+        @import 'utilities';
+        ```
   
-  The files that `main.scss` imports are also populated with `@import` statements
-  that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
+      The files that `main.scss` imports are also populated with `@import` statements
+      that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
 
-    ```sass
-    /* _settings.scss */
-    @import 'nebula-css/settings';
-    ```
+        ```sass
+        /* _settings.scss */
+        @import 'nebula-css/settings';
+        ```
  
-  It is worth noting here that to resolve the above path your Sass compiler requires
-  [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
-  If your Sass Compiler does not offer IncludePaths resulting in your build failing
-  you will have to give your imports a relative path:
+      It is worth noting here that to resolve the above path your Sass compiler requires
+      [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
+      If your Sass Compiler does not offer IncludePaths resulting in your build failing
+      you will have to give your imports a relative path:
  
-    ```sass
-    /*  _settings.scss */
-    @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
-    ```
+        ```sass
+        /*  _settings.scss */
+        @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
+        ```
  
-   As you can see this is rather verbose and ugly code but it works!
+      As you can see this is rather verbose and ugly code but it works!
 
-   Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
+      Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
 
-    ```json
-    "scripts": {
-      "sass": "node-sass --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
-    },
+        ```json
+        "scripts": {
+          "sass": "node-sass --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
+        },
+        ```
+
+      See how the NPM scripts [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L8) are configured for the Nebula CSS Demo.
+
+      Alternatively here's an example using Gulp.
+
+      ```javascript
+        gulp.task('build:css', () => {
+          const includePaths = ['./node_modules/nebula-css/'];
+          return gulp.src('src/scss/**/*.scss')
+            .pipe(sass({ includePaths }))
+            .pipe(gulp.dest('dist'))
+        });
     ```
- 
-    See how the NPM scripts [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L8) are configured for the Nebula CSS Demo.
 
-    Alternatively here's an example using Gulp.
+  3. Configure your build tool to build your Sass files and run Autoprefixer
 
-    ```javascript
-      gulp.task('build:css', () => {
-        const includePaths = ['./node_modules/nebula-css/'];
-        return gulp.src('src/scss/**/*.scss')
-          .pipe(sass({ includePaths }))
-          .pipe(gulp.dest('dist'))
-      });
-    ```
-
-3. Configure your build tool to build your Sass files and run Autoprefixer
-
-4. You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
+  4. You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
 
   An example structure might look like this:
 
