@@ -156,7 +156,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
         ├──_utilities.scss
         ```
 
-      `main.scss` gets populated with the seven ITCSS layers.
+        `main.scss` gets populated with the seven ITCSS layers.
 
         ```sass
         /* main.scss */
@@ -169,8 +169,8 @@ This can be ran directly in NPM scripts as you can see happening in this project
         @import 'utilities';
         ```
   
-      The files that `main.scss` imports are also populated with `@import` statements
-      that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
+        The files that `main.scss` imports are also populated with `@import` statements
+        that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
 
         ```sass
         /* _settings.scss */
