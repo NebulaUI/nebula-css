@@ -141,7 +141,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
         cd ..
         ```
 
-      The following file structure will be created.
+        The following file structure will be created.
 
         ```
         scss/
