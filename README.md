@@ -118,7 +118,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
   2. Paste the following snippet into your terminal:  
   *&mdash; Windows users will have to manually create and populate the files.*
 
-    ```
+    
     mkdir scss &&
     cd scss &&
     {
@@ -139,8 +139,9 @@ This can be ran directly in NPM scripts as you can see happening in this project
     echo "@import 'nebula-css/utilities';" > _utilities.scss &&
     touch _components.scss &&
     cd ..
-    ```
-  The following file structure will be created.
+    ```
+  
+  The following file structure will be created.
 
     ```
     scss/
@@ -156,12 +157,12 @@ This can be ran directly in NPM scripts as you can see happening in this project
     ```
   `main.scss` gets populated with the seven ITCSS layers.
 
-    ```scss
+    scss
     /* main.scss */
     @import 'settings';
     @import 'tools';
-    @import 'resets';
-    @import 'base';
+    @import 'resets';
+    @import 'base';
     @import 'objects';
     @import 'components';
     @import 'utilities';
