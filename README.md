@@ -127,7 +127,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
       echo "@import 'resets';"
       echo "@import 'base';"
       echo "@import 'objects';"
-      echo "@import 'components';"
+      echo "@import 'components';"
       echo "@import 'utilities';"
       echo ""
     } > main.scss &&
