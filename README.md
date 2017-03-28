@@ -118,8 +118,8 @@ This can be ran directly in NPM scripts as you can see happening in this project
   2. Paste the following snippet into your terminal:  
   *&mdash; Windows users will have to manually create and populate the files.*
 
-    
-    mkdir scss &&
+    ```
+    mkdir scss &&
     cd scss &&
     {
       echo "@import 'settings';"
@@ -143,8 +143,8 @@ This can be ran directly in NPM scripts as you can see happening in this project
   
   The following file structure will be created.
 
-    ```
-    scss/
+    ```
+    scss/
     |
     ├──main.scss
     ├──_settings.scss
@@ -155,6 +155,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
     ├──_components.scss
     ├──_utilities.scss
     ```
+  
   `main.scss` gets populated with the seven ITCSS layers.
 
     scss
