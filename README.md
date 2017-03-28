@@ -141,7 +141,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
         cd ..
         ```
   
-      The following file structure will be created.
+      The following file structure will be created.
 
         ```
         scss/
@@ -156,17 +156,18 @@ This can be ran directly in NPM scripts as you can see happening in this project
         ├──_utilities.scss
         ```
   
-  `main.scss` gets populated with the seven ITCSS layers.
-    ```sass
-    /* main.scss */
-    @import 'settings';
-    @import 'tools';
-    @import 'resets';
-    @import 'base';
-    @import 'objects';
-    @import 'components';
-    @import 'utilities';
-    ```
+    `main.scss` gets populated with the seven ITCSS layers.
+
+      ```sass
+      /* main.scss */
+      @import 'settings';
+      @import 'tools';
+      @import 'resets';
+      @import 'base';
+      @import 'objects';
+      @import 'components';
+      @import 'utilities';
+      ```
   
   The files that `main.scss` imports are also populated with `@import` statements
   that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
