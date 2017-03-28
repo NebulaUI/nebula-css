@@ -157,7 +157,10 @@ This can be ran directly in NPM scripts as you can see happening in this project
     ```
   
   `main.scss` gets populated with the seven ITCSS layers.
-
+    ```sass
+    hello 
+    ```
+    
       ```sass
       /* main.scss */
       @import 'settings';
