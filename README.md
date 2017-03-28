@@ -143,22 +143,22 @@ This can be ran directly in NPM scripts as you can see happening in this project
   
   The following file structure will be created.
 
-      ```
-      scss/
-      |
-      ├──main.scss
-      ├──_settings.scss
-      ├──_tools.scss
-      ├──_resets.scss
-      ├──_base.scss
-      ├──_objects.scss
-      ├──_components.scss
-      ├──_utilities.scss
-      ```
+    ```
+    scss/
+    |
+    ├──main.scss
+    ├──_settings.scss
+    ├──_tools.scss
+    ├──_resets.scss
+    ├──_base.scss
+    ├──_objects.scss
+    ├──_components.scss
+    ├──_utilities.scss
+    ```
   
   `main.scss` gets populated with the seven ITCSS layers.
 
-    ```scss
+    ```Sass
     /* main.scss */
     @import 'settings';
     @import 'tools';
@@ -171,7 +171,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
   The files that `main.scss` imports are also populated with `@import` statements
   that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
 
-    ```scss
+    ```Sass
     /*  _settings.scss */
     @import 'nebula-css/settings';
     ```
@@ -181,7 +181,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
     If your Sass Compiler does not offer IncludePaths resulting in your build failing
     you will have to give your imports a relative path:
  
-    ```scss
+    ```Sass
     /*  _settings.scss */
     @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
     ```
