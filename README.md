@@ -1,28 +1,145 @@
-   
-    `some code`
+# Nebula CSS ![Travis-ci](https://travis-ci.org/rbrtsmith/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css)
 
-      ```
-      mkdir scss &&
-      cd scss &&
-      {
-        echo "@import 'settings';"
-        echo "@import 'tools';"
-        echo "@import 'resets';"
-        echo "@import 'base';"
-        echo "@import 'objects';"
-        echo "@import 'components';"
-        echo "@import 'utilities';"
-        echo ""
-      } > main.scss &&
-      echo "@import 'nebula-css/settings';" > _settings.scss &&
-      echo "@import 'nebula-css/tools';" > _tools.scss &&
-      echo "@import 'nebula-css/resets';" > _resets.scss &&
-      echo "@import 'nebula-css/base';" > _base.scss &&
-      echo "@import 'nebula-css/objects';" > _objects.scss &&
-      echo "@import 'nebula-css/utilities';" > _utilities.scss &&
-      touch _components.scss &&
-      cd ..
-      ```
+* 7kb (gzip) with default settings.
+* [View the demo](http://rbrtsmith.com/nebula-css/)
+
+Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.  
+
+Rather than using 'semantic classnames' that some other frameworks push, the classnames employed in Nebula explicitly describe the underlying architecture.
+This makes it *much* easier to reason about the CSS structure from your HTML, promotes code re-use and composition; which otherwise would all be severely hindered if classnames were closely coupled with content.
+
+Ships with zero cosmetic styling; this allows every consuming project to have a completely bespoke UI with Nebula CSS doing the heavy lifting when it comes to layout and architecture.  This means it is totally upto you how you structure your colours, typography and cosmetic components, however you are encouraged to follow the ITCSS structure and BEMIT naming conventions.
+
+At the core sits a highly flexible and and extendible grid system making use of the very powerful [map](https://www.viget.com/articles/sass-maps-are-awesome) feature of Sass.
+Maps are used extensively and allow the following features to be easily extended and in some cases composed:
+* Breakpoints
+* Grid fractions
+* Grid offsets
+* Grid guttering
+* List spacing
+* Section spacing
+* Spacing - margin & padding utilities
+
+Nebula CSS also ships with some common yet useful abstractions such as the Flag Object, list variations and an array of useful utilities.
+
+## Table of contents
+
+* [Intro to ITCSS](#intro-to-itcss)
+* [Dependencies](#dependencies)
+* [Get started](#get-started)
+* [Default settings and config](#default-settings-and-config)
+  * [Overriding settings](#overriding-settings)
+* [Breakpoints](#breakpoints)
+* [Grid](#grid)
+* [Flag](#flag)
+* [Site-wrap](#site-wrap)
+* [Section](#section)
+* [Lists](#lists)
+  * [Bare list](#bare-list)
+  * [Inline list](#inline-list)
+  * [Matrix list](#matrix-list)
+  * [Uniformed list](#uniformed-list)
+* [Utilities](#utilities)
+  * [Push](#push)
+  * [Flush](#flush)
+  * [Soft](#soft)
+  * [Hard](#hard)
+  * [Hidden](#hidden)
+
+
+## Intro to ITCSS
+Nebula CSS is built upon the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture popularised by [Harry
+Roberts](http://csswizardry.com/).
+
+ITCSS stands for *Inverted Triangle* architecture for *CSS*
+
+It is a sane, scalable, managed architecture and is more of a school of thought than a framework.
+
+The architecture is based on the *write CSS in specificity order* principle; this eliminates many of the specificity issues that occur as a project scales.
+
+ITCSS is divided up into 7 distinct sections they are:
+
+1. Settings
+2. Tools
+3. Resets
+4. Base
+5. Objects
+6. Components
+7. Utilities
+
+### 1. Settings
+Global variables and config.
+
+### 2. Tools
+Globally used mixins and functions.
+
+### 3. Resets (Generic)
+[Normalize.css](https://github.com/necolas/normalize.css/) and any additional
+resets on top of Normalize.
+
+### 4. Base
+Global baseline styles using element and attribute selectors only (No classes)
+
+### 5. Objects
+Cosmetic-free design patters, things like the grid, lists and the flag
+object.  Think of it like the skeleton of the layout, with no visual styling
+applied.
+
+### 6. Components
+Designed components, chunks of UI.  Think of it like the skin on top of the
+skeleton, so anything with colours, borders, backgrounds etc.  If in doubt
+whether some CSS/Sass code belongs in layout or components then put it within
+components. **Being cosmetic free Nebula CSS does not ship with any components**
+
+### 7. Utilities
+Helpers and overrides. AKA Trumps.
+
+
+
+## Dependencies
+
+Nebula CSS is composed of [Sass](http://sass-lang.com/) files so you'll need some way to compile to CSS; we'd recommend you use a [Libsass](http://sass-lang.com/libsass) based tool, which will likely be available for your build tool of choice:
+* [Node Sass](https://github.com/sass/node-sass) (NPM Scripts)
+* [Webpack Sass Loader](https://github.com/jtangelder/sass-loader) (Webpack)
+* [Gulp Sass](https://github.com/dlmanning/gulp-sass) (Gulp)
+
+Having a deep knowledge of Sass is not required to consume Nebula CSS, but a familiarity will greatly help you get the most out of this architecture.
+
+**This document assumes you have [NodeJS](https://nodejs.org/en/) installed on your machine.**
+
+Nebula's source code does not include any vendor prefixes.  This gives you the freedom to configure [Autoprefixer](https://github.com/postcss/autoprefixer) to the browsers that you intend to support.  
+This can be ran directly in NPM scripts as you can see happening in this projects [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L9).  Alternatively you can run this in your build-tool of choice.
+
+
+## Get Started
+1. `npm install --save nebula-css`
+2. Setup an ITCSS file structure:
+  1. `cd` into the directory where you intend to build out your ITCSS structure.
+  2. Paste the following snippet into your terminal:  
+  *&mdash; Windows users will have to manually create and populate the files.*
+ 
+    ```
+    mkdir scss &&
+    cd scss &&
+    {
+      echo "@import 'settings';"
+      echo "@import 'tools';"
+      echo "@import 'resets';"
+      echo "@import 'base';"
+      echo "@import 'objects';"
+      echo "@import 'components';"
+      echo "@import 'utilities';"
+      echo ""
+    } > main.scss &&
+    echo "@import 'nebula-css/settings';" > _settings.scss &&
+    echo "@import 'nebula-css/tools';" > _tools.scss &&
+    echo "@import 'nebula-css/resets';" > _resets.scss &&
+    echo "@import 'nebula-css/base';" > _base.scss &&
+    echo "@import 'nebula-css/objects';" > _objects.scss &&
+    echo "@import 'nebula-css/utilities';" > _utilities.scss &&
+    touch _components.scss &&
+    cd ..
+    ```
   
   The following file structure will be created.
 
@@ -58,14 +175,17 @@
     /*  _settings.scss */
     @import 'nebula-css/settings';
     ```
+ 
     It is worth noting here that to resolve the above path your Sass compiler requires
     [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
     If your Sass Compiler does not offer IncludePaths resulting in your build failing
     you will have to give your imports a relative path:
+ 
     ```scss
     /*  _settings.scss */
     @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
     ```
+ 
     As you can see this is rather verbose and ugly code but it works!
 
     Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
@@ -75,6 +195,7 @@
       "sass": "node-sass --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
     },
     ```
+ 
     See how the NPM scripts [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L8) are configured for the Nebula CSS Demo.
 
     Alternatively here's an example using Gulp.
@@ -93,6 +214,7 @@
 4. You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
 
   An example structure might look like this:
+
   ```
   scss/
   |
