@@ -119,26 +119,26 @@ This can be ran directly in NPM scripts as you can see happening in this project
   *&mdash; Windows users will have to manually create and populate the files.*
 
     ```
-      mkdir scss &&
-      cd scss &&
-      {
-        echo "@import 'settings';"
-        echo "@import 'tools';"
-        echo "@import 'resets';"
-        echo "@import 'base';"
-        echo "@import 'objects';"
-        echo "@import 'components';"
-        echo "@import 'utilities';"
-        echo ""
-      } > main.scss &&
-      echo "@import 'nebula-css/settings';" > _settings.scss &&
-      echo "@import 'nebula-css/tools';" > _tools.scss &&
-      echo "@import 'nebula-css/resets';" > _resets.scss &&
-      echo "@import 'nebula-css/base';" > _base.scss &&
-      echo "@import 'nebula-css/objects';" > _objects.scss &&
-      echo "@import 'nebula-css/utilities';" > _utilities.scss &&
-      touch _components.scss &&
-      cd ..
+    mkdir scss &&
+    cd scss &&
+    {
+      echo "@import 'settings';"
+      echo "@import 'tools';"
+      echo "@import 'resets';"
+      echo "@import 'base';"
+      echo "@import 'objects';"
+      echo "@import 'components';"
+      echo "@import 'utilities';"
+      echo ""
+    } > main.scss &&
+    echo "@import 'nebula-css/settings';" > _settings.scss &&
+    echo "@import 'nebula-css/tools';" > _tools.scss &&
+    echo "@import 'nebula-css/resets';" > _resets.scss &&
+    echo "@import 'nebula-css/base';" > _base.scss &&
+    echo "@import 'nebula-css/objects';" > _objects.scss &&
+    echo "@import 'nebula-css/utilities';" > _utilities.scss &&
+    touch _components.scss &&
+    cd ..
     ```
   
   The following file structure will be created.
@@ -158,7 +158,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
   
   `main.scss` gets populated with the seven ITCSS layers.
 
-    scss
+    ```scss
     /* main.scss */
     @import 'settings';
     @import 'tools';
