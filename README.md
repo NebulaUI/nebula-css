@@ -119,11 +119,11 @@ This can be ran directly in NPM scripts as you can see happening in this project
   *&mdash; Windows users will have to manually create and populate the files.*
 
     ```Sass
-    $nb-grid-gutter-sizes: (
-      sm: ($nb-spacing-unit / 2),
-      md: $nb-spacing-unit,
-      lg: ($nb-spacing-unit * 2)
-    ) !default;
+      $nb-grid-gutter-sizes: (
+        sm: ($nb-spacing-unit / 2),
+        md: $nb-spacing-unit,
+        lg: ($nb-spacing-unit * 2)
+      ) !default;
     ```
 
     ```
