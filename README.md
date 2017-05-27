@@ -2,6 +2,7 @@
 
 * 7kb (gzip) with default settings.
 * [View the demo](http://rbrtsmith.com/nebula-css/)
+* `yarn add nebula-css`
 
 Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.  
 
@@ -112,7 +113,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
 
 
 ## Get Started
-1. `npm install --save nebula-css`
+1. `yarn add nebula-css` OR `npm i -S nebula-css`
 2. Setup an ITCSS file structure:
     1. `cd` into the directory where you intend to build out your ITCSS structure.
     2. Paste the following snippet into your terminal:  
