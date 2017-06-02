@@ -2,7 +2,7 @@
 
 * 7kb (gzip) with default settings.
 * [View the demo](http://rbrtsmith.com/nebula-css/)
-* `yarn add nebula-css`
+* `yarn add nebula-css` / [Get started](#get-started)
 
 Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.  
 
