@@ -452,6 +452,50 @@
       </div>
     </div>
 
+    <div class="o-section-md">
+      <h3>Nested grid with equal heights, horizontal reversal</h3>
+      <div class="o-grid o-grid--gutter-md o-grid--equal-height o-grid--matrix">
+        <div class="o-grid__item u-3/4@xs">
+          <div class="o-grid o-grid--gutter-md o-grid--matrix">
+            <div class="o-grid__item u-1/2@xs">
+              <div class="c-demo-card">
+                1
+              </div>
+            </div>
+            <div class="o-grid__item u-1/2@xs">
+              <div class="c-demo-card">
+                2
+              </div>
+            </div>
+            <div class="o-grid__item u-1/1@xs">
+              <div class="o-grid o-grid--gutter-md o-grid--equal-height o-grid--matrix o-grid--reverse">
+                <div class="o-grid__item u-1/3@xs">
+                  <div class="c-demo-card">
+                    3
+                  </div>
+                </div>
+                <div class="o-grid__item u-2/3@xs">
+                  <div class="c-demo-card">
+                    4<br>Hello Nebula!<br>I'm<br>Reversed with 3
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="o-grid__item u-1/4@xs">
+          <div class="c-demo-card">
+            5
+          </div>
+        </div>
+        <div class="o-grid__item">
+          <div class="c-demo-card">
+            6
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <section class="o-section-md" id="section">
@@ -559,6 +603,31 @@
         </div>
       </div>
     </div>
+
+    <h3>The flag can even contain a nested grid (or vice versa ) - 🎉Infinite Composition!🎉</h3>
+      <div class="o-flag o-flag--top">
+        <div class="o-flag__body u-soft-right-md">
+          Flag Body
+          <div class="o-grid o-grid--matrix o-grid--gutter-md">
+            <div class="o-grid__item u-3/4">
+              <div class="c-demo-card">
+                1
+              </div>
+            </div>
+            <div class="o-grid__item u-1/4">
+              <div class="c-demo-card">
+                2
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="o-flag__component">
+          Flag Component
+          <div class="c-demo-card" style="width: 200px">
+            3
+          </div>
+        </div>
+      </div>
   </section>
 
   <section class="o-section-md" id="lists">
