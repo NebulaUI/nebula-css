@@ -4,7 +4,7 @@
 * [View the demo](http://rbrtsmith.com/nebula-css/)
 * `yarn add nebula-css` / [Get started](#get-started)
 
-Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.  
+Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEM(IT)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.  
 
 Rather than using 'semantic classnames' that some other frameworks push, the classnames employed in Nebula explicitly describe the underlying architecture.
 This makes it *much* easier to reason about the CSS structure from your HTML, promotes code re-use and composition; which otherwise would all be severely hindered if classnames were closely coupled with content.
