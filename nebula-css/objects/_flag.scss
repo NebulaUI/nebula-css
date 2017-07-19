@@ -22,14 +22,6 @@
   max-width: none;
 }
 
-:not(.#{$nb-namespace}o-flag--reverse) > .#{$nb-namespace}o-flag__component {
-  padding-right: $nb-spacing-unit;
-}
-
-.#{$nb-namespace}o-flag--reverse > .#{$nb-namespace}o-flag__component {
-  padding-left: $nb-spacing-unit;
-}
-
 .#{$nb-namespace}o-flag--top > .#{$nb-namespace}o-flag__component,
 .#{$nb-namespace}o-flag--top > .#{$nb-namespace}o-flag__body {
   vertical-align: top;
