@@ -1,6 +1,6 @@
 # Nebula CSS ![Travis-ci](https://travis-ci.org/rbrtsmith/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css)
 
-* 7kb (gzip) with default settings.
+* 6kb (gzip) with default settings.
 * [View the demo](http://rbrtsmith.com/nebula-css/)
 * `yarn add nebula-css` / [Get started](#get-started)
 * Check out [Nebula-CSS React Starter](https://github.com/rbrtsmith/nebula-css-react-starter) to see how this can be integrated into a ReactJS project.
@@ -178,17 +178,17 @@ This can be ran directly in NPM scripts as you can see happening in this project
         /* _settings.scss */
         @import 'nebula-css/settings';
         ```
- 
+
         It is worth noting here that to resolve the above path your Sass compiler requires
         [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
         If your Sass Compiler does not offer IncludePaths resulting in your build failing
         you will have to give your imports a relative path:
- 
+
         ```sass
         /*  _settings.scss */
         @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
         ```
- 
+
         As you can see this is rather verbose and ugly code but it works!
 
         Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
