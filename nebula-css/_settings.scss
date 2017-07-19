@@ -23,6 +23,10 @@ $nb-section-spacing: (
   md: ($nb-spacing-unit * 2)
 ) !default;
 
+$nb-flag-gutter-sizes: (
+  md: $nb-spacing-unit
+) !default;
+
 $nb-use-grid-zero-font-size: true !default;
 $nb-grid-gutter-sizes: (
   sm: ($nb-spacing-unit / 2),

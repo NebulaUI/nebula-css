@@ -1,11 +1,16 @@
-.#{$nb-namespace}o-flag {
+.#{$nb-namespace}o-flag:not([class^='#{$nb-namespace}o-flag@']) {
   display: table;
   width: 100%;
 }
 
+:not([class^='#{$nb-namespace}o-flag@']) > .#{$nb-namespace}o-flag__component,
+:not([class^='#{$nb-namespace}o-flag@']) > .#{$nb-namespace}o-flag__body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 .#{$nb-namespace}o-flag__component,
 .#{$nb-namespace}o-flag__body {
-  display: table-cell;
   vertical-align: middle;
 }
 
@@ -30,4 +35,50 @@
 .#{$nb-namespace}o-flag--bottom > .#{$nb-namespace}o-flag__component,
 .#{$nb-namespace}o-flag--bottom > .#{$nb-namespace}o-flag__body {
   vertical-align: bottom;
+}
+
+@each $key, $value in $nb-flag-gutter-sizes {
+  :not([class^='#{$nb-namespace}o-flag@']).#{$nb-namespace}o-flag--gutter-#{$key}.#{$nb-namespace}o-flag--reverse > .#{$nb-namespace}o-flag__component {
+    padding-left: $value;
+  }
+
+  :not([class^='#{$nb-namespace}o-flag@']).#{$nb-namespace}o-flag--gutter-#{$key}:not(.#{$nb-namespace}o-flag--reverse) > .#{$nb-namespace}o-flag__component {
+    padding-right: $value;
+  }
+
+  [class^='#{$nb-namespace}o-flag@'].#{$nb-namespace}o-flag--gutter-#{$key} {
+    margin-bottom: -$value;
+  }
+
+  [class^='#{$nb-namespace}o-flag@'].#{$nb-namespace}o-flag--gutter-#{$key} > .#{$nb-namespace}o-flag__body,
+  [class^='#{$nb-namespace}o-flag@'].#{$nb-namespace}o-flag--gutter-#{$key} > .#{$nb-namespace}o-flag__component {
+    padding-bottom: $value;
+  }
+}
+
+@each $bp-key, $bp-value in $nb-breakpoints {
+  @include nb-respond-to(#{$bp-key}) {
+    .#{$nb-namespace}o-flag\@#{$bp-key} {
+      display: table;
+    }
+
+    .#{$nb-namespace}o-flag\@#{$bp-key} > .#{$nb-namespace}o-flag__body,
+    .#{$nb-namespace}o-flag\@#{$bp-key} > .#{$nb-namespace}o-flag__component {
+      display: table-cell;
+    }
+
+
+    @each $key, $value in $nb-flag-gutter-sizes {
+      // deep nesting required
+      /* stylelint-disable max-nesting-depth */
+      .#{$nb-namespace}o-flag\@#{$bp-key}.#{$nb-namespace}o-flag--gutter-#{$key}.#{$nb-namespace}o-flag--reverse > .#{$nb-namespace}o-flag__component {
+        padding-left: $nb-spacing-unit;
+      }
+
+      .#{$nb-namespace}o-flag\@#{$bp-key}.#{$nb-namespace}o-flag--gutter-#{$key}:not(.#{$nb-namespace}o-flag--reverse) > .#{$nb-namespace}o-flag__component {
+        padding-right: $nb-spacing-unit;
+      }
+      /* stylelint-enable */
+    }
+  }
 }
