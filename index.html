@@ -527,7 +527,7 @@
 
     <h3>Component left</h3>
     <div class="c-demo-card u-push-bottom-md">
-      <div class="o-flag">
+      <div class="o-flag o-flag--gutter-md">
         <div class="o-flag__component">
           <img src="assets/nebula.jpg" class="demo-img" alt="">
         </div>
@@ -539,7 +539,7 @@
 
     <h3>Component right</h3>
     <div class="c-demo-card u-push-bottom-md">
-      <div class="o-flag o-flag--reverse">
+      <div class="o-flag o-flag--gutter-md o-flag--reverse">
         <div class="o-flag__body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias nihil esse, corporis accusantium distinctio vero in. Provident, esse obcaecati beatae.
         </div>
@@ -549,9 +549,21 @@
       </div>
     </div>
 
+    <h3>With breakpoint</h3>
+    <div class="c-demo-card u-push-bottom-md">
+      <div class="o-flag@md o-flag--gutter-md">
+        <div class="o-flag__component">
+          <img src="assets/nebula.jpg" class="demo-img" alt="">
+        </div>
+        <div class="o-flag__body">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias nihil esse, corporis accusantium distinctio vero in. Provident, esse obcaecati beatae.
+        </div>
+      </div>
+    </div>
+
     <h3>Text component</h3>
     <div class="c-demo-card u-push-bottom-md">
-      <div class="o-flag">
+      <div class="o-flag o-flag--gutter-md">
         <div class="o-flag__component o-flag__component--nowrap">
           <h2 class="u-flush-bottom">Nebula CSS</h2>
         </div>
@@ -563,7 +575,7 @@
 
     <h3>Top aligned</h3>
     <div class="c-demo-card u-push-bottom-md">
-      <div class="o-flag o-flag--top">
+      <div class="o-flag o-flag--gutter-md o-flag--top">
         <div class="o-flag__component">
           <img src="assets/nebula.jpg" class="demo-img" alt="">
         </div>
@@ -575,7 +587,7 @@
 
     <h3>Bottom aligned</h3>
     <div class="c-demo-card u-push-bottom-md">
-      <div class="o-flag o-flag--reverse o-flag--bottom">
+      <div class="o-flag o-flag--gutter-md o-flag--reverse o-flag--bottom">
         <div class="o-flag__body">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias nihil esse, corporis accusantium distinctio vero in. Provident, esse obcaecati beatae.
         </div>
@@ -587,9 +599,9 @@
 
     <h3>Nested</h3>
     <div class="c-demo-card u-push-bottom-md">
-      <div class="o-flag o-flag--reverse">
+      <div class="o-flag o-flag--gutter-md o-flag--reverse">
         <div class="o-flag__body">
-          <div class="o-flag">
+          <div class="o-flag o-flag--gutter-md">
             <div class="o-flag__component">
               <img src="assets/nebula.jpg" class="demo-img" alt="">
             </div>
@@ -605,8 +617,8 @@
     </div>
 
     <h3>The flag can even contain a nested grid (or vice versa ) - 🎉Infinite Composition!🎉</h3>
-      <div class="o-flag o-flag--reverse o-flag--top">
-        <div class="o-flag__body">
+      <div class="o-flag o-flag--top">
+        <div class="o-flag__body u-soft-right-md">
           Flag Body
           <div class="o-grid o-grid--matrix o-grid--gutter-md">
             <div class="o-grid__item u-3/4">
