@@ -6,7 +6,6 @@
 :not([class^='#{$nb-namespace}o-flag@']) > .#{$nb-namespace}o-flag__component,
 :not([class^='#{$nb-namespace}o-flag@']) > .#{$nb-namespace}o-flag__body {
   display: table-cell;
-  vertical-align: middle;
 }
 
 .#{$nb-namespace}o-flag__component,
