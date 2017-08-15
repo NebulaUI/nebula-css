@@ -266,7 +266,7 @@ Base font-sizing for body copy.
 ```sass
 $nb-base-font-size: 1rem !default;
 ```
-The delimiter to use for responsive variations of classes (default `@`, but could be changed to i.e. `-bp-` to allow `composes:` as that doesn't work with `@` in class names)
+The delimiter to use for responsive variations of classes. Default `@`. (Can be changed to i.e. `-bp-` to allow CSS modules' `composes:` as that doesn't work with `@` in class names)
 ```sass
 $nb-breakpoint-class: '\\@' !default;
 ```
