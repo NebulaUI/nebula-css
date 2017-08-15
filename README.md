@@ -5,7 +5,7 @@
 * `yarn add nebula-css` / [Get started](#get-started)
 * Check out [Nebula-CSS React Starter](https://github.com/rbrtsmith/nebula-css-react-starter) to see how this can be integrated into a ReactJS project.
 
-Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEM(IT)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.  
+Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEM(IT)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
 
 Rather than using 'semantic classnames' that some other frameworks push, the classnames employed in Nebula explicitly describe the underlying architecture.
 This makes it *much* easier to reason about the CSS structure from your HTML, promotes code re-use and composition; which otherwise would all be severely hindered if classnames were closely coupled with content.
@@ -109,7 +109,7 @@ Having a deep knowledge of Sass is not required to consume Nebula CSS, but a fam
 
 **This document assumes you have [NodeJS](https://nodejs.org/en/) installed on your machine.**
 
-Nebula's source code does not include any vendor prefixes.  This gives you the freedom to configure [Autoprefixer](https://github.com/postcss/autoprefixer) to the browsers that you intend to support.  
+Nebula's source code does not include any vendor prefixes.  This gives you the freedom to configure [Autoprefixer](https://github.com/postcss/autoprefixer) to the browsers that you intend to support.
 This can be ran directly in NPM scripts as you can see happening in this projects [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L9).  Alternatively you can run this in your build-tool of choice.
 
 
@@ -117,7 +117,7 @@ This can be ran directly in NPM scripts as you can see happening in this project
 1. `yarn add nebula-css` OR `npm i -S nebula-css`
 2. Setup an ITCSS file structure:
     1. `cd` into the directory where you intend to build out your ITCSS structure.
-    2. Paste the following snippet into your terminal:  
+    2. Paste the following snippet into your terminal:
     *&mdash; Windows users will have to manually create and populate the files.*
 
         ```
@@ -266,6 +266,10 @@ Base font-sizing for body copy.
 ```sass
 $nb-base-font-size: 1rem !default;
 ```
+The delimiter to use for responsive variations of classes. Default `@`. (Can be changed to i.e. `-bp-` to allow CSS modules' `composes:` as that doesn't work with `@` in class names)
+```sass
+$nb-breakpoint-class: '\\@' !default;
+```
 Breakpoints using a Sass Map. the keys `sm`, `md` are used to generate the responsive classnames.  Being a Sass map it is possible to add or remove breakpoints and of course you can change the values.
 ```sass
 $nb-breakpoints: (
@@ -274,7 +278,7 @@ $nb-breakpoints: (
   lg: 1200px
 ) !default;
 ```
-The root font-sizing set as a percentage on the `<html>` element.  
+The root font-sizing set as a percentage on the `<html>` element.
 The key `default` being the initial sizing up until the key matching the `$nb-breakpoints` key.  In this case `sm` So screens larger than 720px will get 100% root-font sizing.  Those smaller will receive 90%.
 ```sass
 $nb-root-sizing: (
@@ -434,7 +438,7 @@ The following CSS classnames would be generated:
 .o-bare-list--spaced-lg\@myKey {}
 ```
 
-As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.  
+As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.
 Also note that the `@` symbol here is escaped, this is because symbols like `@` are not strictly valid CSS selectors so they must be escaped.  However you don't need to do this when defining your classnames in your HTML.
 
 Nebula CSS also provides you with a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a string argument.  The string should match one of the maps in `nb-breakpoints`.  e.g.

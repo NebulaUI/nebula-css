@@ -57,12 +57,12 @@
 
 @each $bp-key, $bp-value in $nb-breakpoints {
   @include nb-respond-to(#{$bp-key}) {
-    .#{$nb-namespace}o-flag\@#{$bp-key} {
+    .#{$nb-namespace}o-flag#{$nb-breakpoint-class}#{$bp-key} {
       display: table;
     }
 
-    .#{$nb-namespace}o-flag\@#{$bp-key} > .#{$nb-namespace}o-flag__body,
-    .#{$nb-namespace}o-flag\@#{$bp-key} > .#{$nb-namespace}o-flag__component {
+    .#{$nb-namespace}o-flag#{$nb-breakpoint-class}#{$bp-key} > .#{$nb-namespace}o-flag__body,
+    .#{$nb-namespace}o-flag#{$nb-breakpoint-class}#{$bp-key} > .#{$nb-namespace}o-flag__component {
       display: table-cell;
     }
 
@@ -70,11 +70,11 @@
     @each $key, $value in $nb-flag-gutter-sizes {
       // deep nesting required
       /* stylelint-disable max-nesting-depth */
-      .#{$nb-namespace}o-flag\@#{$bp-key}.#{$nb-namespace}o-flag--gutter-#{$key}.#{$nb-namespace}o-flag--reverse > .#{$nb-namespace}o-flag__component {
+      .#{$nb-namespace}o-flag#{$nb-breakpoint-class}#{$bp-key}.#{$nb-namespace}o-flag--gutter-#{$key}.#{$nb-namespace}o-flag--reverse > .#{$nb-namespace}o-flag__component {
         padding-left: $nb-spacing-unit;
       }
 
-      .#{$nb-namespace}o-flag\@#{$bp-key}.#{$nb-namespace}o-flag--gutter-#{$key}:not(.#{$nb-namespace}o-flag--reverse) > .#{$nb-namespace}o-flag__component {
+      .#{$nb-namespace}o-flag#{$nb-breakpoint-class}#{$bp-key}.#{$nb-namespace}o-flag--gutter-#{$key}:not(.#{$nb-namespace}o-flag--reverse) > .#{$nb-namespace}o-flag__component {
         padding-right: $nb-spacing-unit;
       }
       /* stylelint-enable */

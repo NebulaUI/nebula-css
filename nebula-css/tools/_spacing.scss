@@ -20,7 +20,7 @@
     @each $bp-key, $bp-value in $nb-breakpoints {
       @include nb-respond-to(#{$bp-key}) {
         @each $direction in $directions {
-          .#{$nb-namespace}u-#{$action}#{$direction}-#{$key}\@#{$bp-key} {
+          .#{$nb-namespace}u-#{$action}#{$direction}-#{$key}#{$nb-breakpoint-class}#{$bp-key} {
             #{$property}#{$direction}: $value !important;
           }
         }
@@ -51,24 +51,24 @@
 
   @each $key, $value in $nb-breakpoints {
     @include nb-respond-to(#{$key}) {
-      .#{$nb-namespace}u-#{$action}\@#{$key} {
+      .#{$nb-namespace}u-#{$action}#{$nb-breakpoint-class}#{$key} {
         #{$property}: 0 !important;
       }
 
       @each $direction in $directions {
-        .#{$nb-namespace}u-#{$action}#{$direction}\@#{$key} {
+        .#{$nb-namespace}u-#{$action}#{$direction}#{$nb-breakpoint-class}#{$key} {
           #{$property}#{$direction}: 0 !important;
         }
       }
     }
     $max-key: 'max-' + $key;
     @include nb-respond-to(#{$max-key}) {
-      .#{$nb-namespace}u-#{$action}\@#{$max-key} {
+      .#{$nb-namespace}u-#{$action}#{$nb-breakpoint-class}#{$max-key} {
         #{$property}: 0 !important;
       }
 
       @each $direction in $directions {
-        .#{$nb-namespace}u-#{$action}#{$direction}\@#{$max-key} {
+        .#{$nb-namespace}u-#{$action}#{$direction}#{$nb-breakpoint-class}#{$max-key} {
           #{$property}#{$direction}: 0 !important;
         }
       }

@@ -6,6 +6,7 @@ $nb-spacing-unit: 1rem !default;
 $nb-spacing-unit-half: ($nb-spacing-unit / 2) !default;
 $nb-spacing-unit-double: ($nb-spacing-unit * 2) !default;
 
+$nb-breakpoint-class: '\\@' !default;
 $nb-breakpoints: (
   xs: 480px,
   sm: 720px,

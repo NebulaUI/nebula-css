@@ -25,7 +25,7 @@
       @each $key, $value in $fractions {
         $modifier: nb-str-replace($key, '/', '\\/');
         $offset-value: (($value * 100) * 1%);
-        .#{$nb-namespace}u-#{$class}#{$modifier}\@#{$bp-key} {
+        .#{$nb-namespace}u-#{$class}#{$modifier}#{$nb-breakpoint-class}#{$bp-key} {
           #{$property}: $offset-value;
         }
       }
