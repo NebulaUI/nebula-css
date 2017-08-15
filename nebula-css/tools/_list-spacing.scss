@@ -17,11 +17,11 @@
 
     @each $bp-key, $bp-value in $nb-breakpoints {
       @include nb-respond-to($bp-key) {
-        .#{$compound-class}\@#{$bp-key} {
+        .#{$compound-class}#{$nb-breakpoint-class}#{$bp-key} {
           margin-#{$side}: -$value;
         }
 
-        .#{$compound-class}\@#{$bp-key} > .#{$nb-namespace}o-#{$class}__item {
+        .#{$compound-class}#{$nb-breakpoint-class}#{$bp-key} > .#{$nb-namespace}o-#{$class}__item {
           padding-#{$side}: $value;
         }
       }

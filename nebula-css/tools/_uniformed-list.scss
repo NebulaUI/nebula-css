@@ -1,7 +1,7 @@
 @mixin uniformed-list-properties($bp: null) {
   $bp-class: '';
   @if $bp {
-    $bp-class: '\\@#{$bp}';
+    $bp-class: '#{$nb-breakpoint-class}#{$bp}';
   }
 
   .#{$nb-namespace}o-uniformed-list#{$bp-class} {
