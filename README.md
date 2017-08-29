@@ -118,30 +118,52 @@ This can be ran directly in NPM scripts as you can see happening in this project
 2. Setup an ITCSS file structure:
     1. `cd` into the directory where you intend to build out your ITCSS structure.
     2. Paste the following snippet into your terminal:
-    *&mdash; Windows users will have to manually create and populate the files.*
+        - Mac / Linux users
+            ```
+            mkdir scss &&
+            cd scss &&
+            {
+              echo "@import 'settings';"
+              echo "@import 'tools';"
+              echo "@import 'resets';"
+              echo "@import 'base';"
+              echo "@import 'objects';"
+              echo "@import 'components';"
+              echo "@import 'utilities';"
+              echo ""
+            } > main.scss &&
+            echo "@import 'nebula-css/settings';" > _settings.scss &&
+            echo "@import 'nebula-css/tools';" > _tools.scss &&
+            echo "@import 'nebula-css/resets';" > _resets.scss &&
+            echo "@import 'nebula-css/base';" > _base.scss &&
+            echo "@import 'nebula-css/objects';" > _objects.scss &&
+            echo "@import 'nebula-css/utilities';" > _utilities.scss &&
+            touch _components.scss &&
+            cd ..
+            ```
+        - Windows users
+            ```
+            mkdir scss
+            cd scss
 
-        ```
-        mkdir scss &&
-        cd scss &&
-        {
-          echo "@import 'settings';"
-          echo "@import 'tools';"
-          echo "@import 'resets';"
-          echo "@import 'base';"
-          echo "@import 'objects';"
-          echo "@import 'components';"
-          echo "@import 'utilities';"
-          echo ""
-        } > main.scss &&
-        echo "@import 'nebula-css/settings';" > _settings.scss &&
-        echo "@import 'nebula-css/tools';" > _tools.scss &&
-        echo "@import 'nebula-css/resets';" > _resets.scss &&
-        echo "@import 'nebula-css/base';" > _base.scss &&
-        echo "@import 'nebula-css/objects';" > _objects.scss &&
-        echo "@import 'nebula-css/utilities';" > _utilities.scss &&
-        touch _components.scss &&
-        cd ..
-        ```
+            echo @import 'settings'; >> main.scss
+            echo @import 'tools'; >> main.scss
+            echo @import 'resets'; >> main.scss
+            echo @import 'base'; >> main.scss
+            echo @import 'objects'; >> main.scss
+            echo @import 'components'; >> main.scss
+            echo @import 'utilities'; >> main.scss
+
+            echo @import 'nebula-css/settings'; > _settings.scss
+            echo @import 'nebula-css/tools'; > _tools.scss
+            echo @import 'nebula-css/resets'; > _resets.scss
+            echo @import 'nebula-css/base'; > _base.scss
+            echo @import 'nebula-css/objects'; > _objects.scss
+            echo @import 'nebula-css/utilities'; > _utilities.scss
+            echo.> _components.scss
+
+            cd ..
+            ```
 
         The following file structure will be created.
 
