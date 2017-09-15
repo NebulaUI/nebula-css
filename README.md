@@ -1,11 +1,16 @@
 # Nebula CSS ![Travis-ci](https://travis-ci.org/rbrtsmith/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css)
 
 * 6kb (gzip) with default settings.
-* [View the demo](http://rbrtsmith.com/nebula-css/demo/)
+* [View the demo](http://rbrtsmith.com/nebula-css/)
+* `yarn add nebula-css` / [Get started](#get-started)
+* Check out [Nebula-CSS React Starter](https://github.com/rbrtsmith/nebula-css-react-starter) to see how this can be integrated into a ReactJS project.
 
-Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
+Super low-level mobile-first Sass framework using the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture and the [BEM(IT)](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) naming convention.
 
-Ships with 100% zero cosmetic styling.  This allows every project built with Nebula CSS to have a completely bespoke look and feel with Nebula CSS doing the heavy lifting when it comes to layout and architecture.  This means it is totally upto you how you structure your colours, typography and cosmetic components, however you are encouraged to follow the ITCSS structure and BEMIT naming conventions.
+Rather than using 'semantic classnames' that some other frameworks push, the classnames employed in Nebula explicitly describe the underlying architecture.
+This makes it *much* easier to reason about the CSS structure from your HTML, promotes code re-use and composition; which otherwise would all be severely hindered if classnames were closely coupled with content.
+
+Ships with zero cosmetic styling; this allows every consuming project to have a completely bespoke UI with Nebula CSS doing the heavy lifting when it comes to layout and architecture.  This means it is totally upto you how you structure your colours, typography and cosmetic components, however you are encouraged to follow the ITCSS structure and BEMIT naming conventions.
 
 At the core sits a highly flexible and and extendible grid system making use of the very powerful [map](https://www.viget.com/articles/sass-maps-are-awesome) feature of Sass.
 Maps are used extensively and allow the following features to be easily extended and in some cases composed:
@@ -17,9 +22,9 @@ Maps are used extensively and allow the following features to be easily extended
 * Section spacing
 * Spacing - margin & padding utilities
 
-Also ships with some common yet useful abstractions such as the Flag Object.
+Nebula CSS also ships with some common yet useful abstractions such as the Flag Object, list variations and an array of useful utilities.
 
-##Table of contents
+## Table of contents
 
 * [Intro to ITCSS](#intro-to-itcss)
 * [Dependencies](#dependencies)
@@ -30,10 +35,12 @@ Also ships with some common yet useful abstractions such as the Flag Object.
 * [Grid](#grid)
 * [Flag](#flag)
 * [Site-wrap](#site-wrap)
+* [Section](#section)
 * [Lists](#lists)
   * [Bare list](#bare-list)
   * [Inline list](#inline-list)
   * [Matrix list](#matrix-list)
+  * [Uniformed list](#uniformed-list)
 * [Utilities](#utilities)
   * [Push](#push)
   * [Flush](#flush)
@@ -42,7 +49,7 @@ Also ships with some common yet useful abstractions such as the Flag Object.
   * [Hidden](#hidden)
 
 
-##Intro to ITCSS
+## Intro to ITCSS
 Nebula CSS is built upon the [ITCSS](https://www.youtube.com/watch?v=1OKZOV-iLj4) architecture popularised by [Harry
 Roberts](http://csswizardry.com/).
 
@@ -50,7 +57,7 @@ ITCSS stands for *Inverted Triangle* architecture for *CSS*
 
 It is a sane, scalable, managed architecture and is more of a school of thought than a framework.
 
-The architecture is based on the *write CSS in specificity order* principle.  This eliminates many of the specificity issues that occur as a project scales.
+The architecture is based on the *write CSS in specificity order* principle; this eliminates many of the specificity issues that occur as a project scales.
 
 ITCSS is divided up into 7 distinct sections they are:
 
@@ -62,36 +69,36 @@ ITCSS is divided up into 7 distinct sections they are:
 6. Components
 7. Utilities
 
-###1. Settings
+### 1. Settings
 Global variables and config.
 
-###2. Tools
+### 2. Tools
 Globally used mixins and functions.
 
-###3. Resets (Generic)
+### 3. Resets (Generic)
 [Normalize.css](https://github.com/necolas/normalize.css/) and any additional
 resets on top of Normalize.
 
-###4. Base
+### 4. Base
 Global baseline styles using element and attribute selectors only (No classes)
 
-###5. Objects
+### 5. Objects
 Cosmetic-free design patters, things like the grid, lists and the flag
 object.  Think of it like the skeleton of the layout, with no visual styling
 applied.
 
-###6. Components
+### 6. Components
 Designed components, chunks of UI.  Think of it like the skin on top of the
 skeleton, so anything with colours, borders, backgrounds etc.  If in doubt
 whether some CSS/Sass code belongs in layout or components then put it within
 components. **Being cosmetic free Nebula CSS does not ship with any components**
 
-###7. Utilities
+### 7. Utilities
 Helpers and overrides. AKA Trumps.
 
 
 
-##dependencies
+## Dependencies
 
 Nebula CSS is composed of [Sass](http://sass-lang.com/) files so you'll need some way to compile to CSS; we'd recommend you use a [Libsass](http://sass-lang.com/libsass) based tool, which will likely be available for your build tool of choice:
 * [Node Sass](https://github.com/sass/node-sass) (NPM Scripts)
@@ -102,135 +109,166 @@ Having a deep knowledge of Sass is not required to consume Nebula CSS, but a fam
 
 **This document assumes you have [NodeJS](https://nodejs.org/en/) installed on your machine.**
 
-Nebula's source code does not include any vendor prefixes.  This gives you the freedom to configure [Autoprefixer](https://github.com/postcss/autoprefixer) to the browsers that you intend to support.  
+Nebula's source code does not include any vendor prefixes.  This gives you the freedom to configure [Autoprefixer](https://github.com/postcss/autoprefixer) to the browsers that you intend to support.
 This can be ran directly in NPM scripts as you can see happening in this projects [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L9).  Alternatively you can run this in your build-tool of choice.
 
 
-##Get Started
-1. `npm install --save nebula-css`
+## Get Started
+1. `yarn add nebula-css` OR `npm i -S nebula-css`
 2. Setup an ITCSS file structure:
-  1. `cd` into the directory where you intend to build out your ITCSS structure.
-  2. Paste the following snippet into your terminal:  
-  *&mdash; Windows users will have to manually create and populate the files.*
+    1. `cd` into the directory where you intend to build out your ITCSS structure.
+    2. Paste the following snippet into your terminal:
+        - Mac / Linux users
+            ```
+            mkdir scss &&
+            cd scss &&
+            {
+              echo "@import 'settings';"
+              echo "@import 'tools';"
+              echo "@import 'resets';"
+              echo "@import 'base';"
+              echo "@import 'objects';"
+              echo "@import 'components';"
+              echo "@import 'utilities';"
+              echo ""
+            } > main.scss &&
+            echo "@import 'nebula-css/settings';" > _settings.scss &&
+            echo "@import 'nebula-css/tools';" > _tools.scss &&
+            echo "@import 'nebula-css/resets';" > _resets.scss &&
+            echo "@import 'nebula-css/base';" > _base.scss &&
+            echo "@import 'nebula-css/objects';" > _objects.scss &&
+            echo "@import 'nebula-css/utilities';" > _utilities.scss &&
+            touch _components.scss &&
+            cd ..
+            ```
+        - Windows users
+            ```
+            mkdir scss
+            cd scss
 
-    ```
-    mkdir scss &&
-    cd scss &&
-    {
-      echo "@import 'settings';"
-      echo "@import 'tools';"
-      echo "@import 'resets';"
-      echo "@import 'base';"
-      echo "@import 'objects';"
-      echo "@import 'components';"
-      echo "@import 'utilities';"
-      echo ""
-    } > main.scss &&
-    echo "@import 'nebula-css/settings';" > _settings.scss &&
-    echo "@import 'nebula-css/tools';" > _tools.scss &&
-    echo "@import 'nebula-css/resets';" > _resets.scss &&
-    echo "@import 'nebula-css/base';" > _base.scss &&
-    echo "@import 'nebula-css/objects';" > _objects.scss &&
-    echo "@import 'nebula-css/utilities';" > _utilities.scss &&
-    touch _components.scss &&
-    cd ..
-    ```
-  The following file structure will be created.
+            echo @import 'settings'; >> main.scss
+            echo @import 'tools'; >> main.scss
+            echo @import 'resets'; >> main.scss
+            echo @import 'base'; >> main.scss
+            echo @import 'objects'; >> main.scss
+            echo @import 'components'; >> main.scss
+            echo @import 'utilities'; >> main.scss
 
-    ```
-    scss/
-    |
-    ├──main.scss
-    ├──_settings.scss
-    ├──_tools.scss
-    ├──_resets.scss
-    ├──_base.scss
-    ├──_objects.scss
-    ├──_components.scss
-    ├──_utilities.scss
-    ```
-  `main.scss` gets populated with the seven ITCSS layers.
+            echo @import 'nebula-css/settings'; > _settings.scss
+            echo @import 'nebula-css/tools'; > _tools.scss
+            echo @import 'nebula-css/resets'; > _resets.scss
+            echo @import 'nebula-css/base'; > _base.scss
+            echo @import 'nebula-css/objects'; > _objects.scss
+            echo @import 'nebula-css/utilities'; > _utilities.scss
+            echo.> _components.scss
 
-    ```scss
-    /* main.scss */
-    @import 'settings';
-    @import 'tools';
-    @import 'resets';
-    @import 'base';
-    @import 'objects';
-    @import 'components';
-    @import 'utilities';
-    ```
-  The files that `main.scss` imports are also populated with `@import` statements
-  that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
+            cd ..
+            ```
 
-    ```scss
-    /*  _settings.scss */
-    @import 'nebula-css/settings';
-    ```
-    It is worth noting here that to resolve the above path your Sass compiler requires
-    [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
-    If your Sass Compiler does not offer IncludePaths resulting in your build failing
-    you will have to give your imports a relative path:
-    ```scss
-    /*  _settings.scss */
-    @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
-    ```
-    As you can see this is rather verbose and ugly code but it works!
+        The following file structure will be created.
 
-    Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
+        ```
+        scss/
+        |
+        ├──main.scss
+        ├──_settings.scss
+        ├──_tools.scss
+        ├──_resets.scss
+        ├──_base.scss
+        ├──_objects.scss
+        ├──_components.scss
+        ├──_utilities.scss
+        ```
 
-    ```json
-    "scripts": {
-      "sass": "node-sass --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
-    },
-    ```
-    See how the NPM scripts [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L8) are configured for the Nebula CSS Demo.
+        `main.scss` gets populated with the seven ITCSS layers.
 
-    Alternatively here's an example using Gulp.
+        ```sass
+        /* main.scss */
+        @import 'settings';
+        @import 'tools';
+        @import 'resets';
+        @import 'base';
+        @import 'objects';
+        @import 'components';
+        @import 'utilities';
+        ```
 
-    ```JavaScript
-      gulp.task('build:css', () => {
-        const includePaths = ['./node_modules/nebula-css/'];
-        return gulp.src('src/scss/**/*.scss')
-          .pipe(sass({ includePaths }))
-          .pipe(gulp.dest('dist'))
-      });
-    ```
+        The files that `main.scss` imports are also populated with `@import` statements
+        that are pulling in the corresponding ITCSS layer from Nebula CSS. E.g.
 
-3. Configure your build tool to build your Sass files and run Autoprefixer
+        ```sass
+        /* _settings.scss */
+        @import 'nebula-css/settings';
+        ```
 
-4. You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
+        It is worth noting here that to resolve the above path your Sass compiler requires
+        [Node-sass IncludePaths](https://github.com/sass/node-sass#includepaths)
+        If your Sass Compiler does not offer IncludePaths resulting in your build failing
+        you will have to give your imports a relative path:
 
-  An example structure might look like this:
-  ```
-  scss/
-  |
-  ├──main.scss
-  ├──_settings.scss
-  ├──_tools.scss
-  ├──_resets.scss
-  ├──_base.scss
-  ├──_objects.scss
-  ├──_components.scss
-  ├──_utilities.scss
-  ├──settings/
-  |  └──_nebula-overrides.scss
-  |  └──_my-settings.scss
-  ├──base/
-  |  └──_my-base-styles.scss
-  ├──objects
-  |  ├──_my-object-1.scss
-  |  └──_my-object-2.scss
-  ├──components/
-  |  ├──_my-component-1.scss
-  |  └──_my-component-2.scss
-  └──utilities/
-  ├──_my-utility-1.scss
-  └──_my-utility-2.scss
-  ```
+        ```sass
+        /*  _settings.scss */
+        @import '[path-to-node-modules]/nebula-css/nebula-css/settings';
+        ```
 
-##Default settings and config
+        As you can see this is rather verbose and ugly code but it works!
+
+        Below is an example of an NPM script configured to compile Sass and making use of `includePaths` pointing to the directory to be resolved `./node-modules/nebula-css/`
+
+        ```json
+        "scripts": {
+          "sass": "node-sass --include-path ./node_modules/nebula-css/ -o dist src/scss/main.scss",
+        },
+        ```
+
+        See how the NPM scripts [package.json](https://github.com/rbrtsmith/nebula-css/blob/master/package.json#L8) are configured for the Nebula CSS Demo.
+
+        Alternatively here's an example using Gulp.
+
+        ```javascript
+        gulp.task('build:css', () => {
+          const includePaths = ['./node_modules/nebula-css/'];
+          return gulp.src('src/scss/**/*.scss')
+            .pipe(sass({ includePaths }))
+            .pipe(gulp.dest('dist'))
+        });
+        ```
+
+
+  3. Configure your build tool to build your Sass files and run Autoprefixer
+
+  4. You can now start extending Nebula with your own styling.  Following with the ITCSS structure it's recommended that you create the folders for the layers that you are extending and `@import` those files.
+
+      An example structure might look like this:
+
+      ```
+      scss/
+      |
+      ├──main.scss
+      ├──_settings.scss
+      ├──_tools.scss
+      ├──_resets.scss
+      ├──_base.scss
+      ├──_objects.scss
+      ├──_components.scss
+      ├──_utilities.scss
+      ├──settings/
+      |  └──_nebula-overrides.scss
+      |  └──_my-settings.scss
+      ├──base/
+      |  └──_my-base-styles.scss
+      ├──objects
+      |  ├──_my-object-1.scss
+      |  └──_my-object-2.scss
+      ├──components/
+      |  ├──_my-component-1.scss
+      |  └──_my-component-2.scss
+      └──utilities/
+      ├──_my-utility-1.scss
+      └──_my-utility-2.scss
+      ```
+
+## Default settings and config
 
 Some of the settings here make use of [Sass maps](https://www.viget.com/articles/sass-maps-are-awesome) it's recommended you have at least a basic understanding of how they work.
 
@@ -250,6 +288,10 @@ Base font-sizing for body copy.
 ```sass
 $nb-base-font-size: 1rem !default;
 ```
+The delimiter to use for responsive variations of classes. Default `@`. (Can be changed to i.e. `-bp-` to allow CSS modules' `composes:` as that doesn't work with `@` in class names)
+```sass
+$nb-breakpoint-class: '\\@' !default;
+```
 Breakpoints using a Sass Map. the keys `sm`, `md` are used to generate the responsive classnames.  Being a Sass map it is possible to add or remove breakpoints and of course you can change the values.
 ```sass
 $nb-breakpoints: (
@@ -258,7 +300,7 @@ $nb-breakpoints: (
   lg: 1200px
 ) !default;
 ```
-The root font-sizing set as a percentage on the `<html>` element.  
+The root font-sizing set as a percentage on the `<html>` element.
 The key `default` being the initial sizing up until the key matching the `$nb-breakpoints` key.  In this case `sm` So screens larger than 720px will get 100% root-font sizing.  Those smaller will receive 90%.
 ```sass
 $nb-root-sizing: (
@@ -280,11 +322,11 @@ $nb-section-spacing: (
 ) !default;
 ```
 The grid system uses inline-blocks.  To remove the whitespace between grid-items it's required that a font-size of zero is set on the wrapping element, then the child elements are reset using `$nb-base-font-size`.  If you are minifying your HTML or using JSX with a framework like React it is safe to turn this off.
-```Sass
+```sass
 $nb-use-grid-zero-font-size: true !default;
 ```
 Gutter sizes for the grid system.  By default we have three sizes, you can add or remove these to suit your projects needs.
-```Sass
+```sass
 $nb-grid-gutter-sizes: (
   sm: ($nb-spacing-unit / 2),
   md: $nb-spacing-unit,
@@ -292,7 +334,7 @@ $nb-grid-gutter-sizes: (
 ) !default;
 ```
 Offsets used for the grid based in fractions whereby `1/2` will yield a width of `50%`.  This Sass map is also used for Push/Pull offsets on the grid. Being a Sass map you are free to add or remove whatever offsets are suitable for your project needs.  Note that the keys are quoted due to a fraction being used.  You can also turn off width/push/pull offsets globally saving you from bloat if any of those features are not being used.
-```Sass
+```sass
 $nb-use-width-offsets: true !default;
 $nb-use-push-offsets: true !default;
 $nb-use-pull-offsets: true !default;
@@ -343,28 +385,28 @@ $nb-offset-fractions: (
 ) !default;
 ```
 Used for the `Push` utility to add margin to a component.
-```Sass
+```sass
 $nb-push-sizes: (
   md: $nb-spacing-unit
 ) !default;
 ```
 Used for the `Soft` utility to add padding to a component.
-```Sass
+```sass
 $nb-soft-sizes: (
   md: $nb-spacing-unit
 ) !default;
 ```
 
-###Overriding settings
+### Overriding settings
 When you install this framework it will live in your `node_modules` directory and you won't want to go in there and change anything as any subsequent `npm install`s will potentially overwrite those changes.
 Thankfully Nebula CSS settings all have the `!default` flag attached which means they can be overridden:
-```Sass
+```sass
 /*_settings.scss*/
 @import 'nebula-css/settings';
 @import 'settings/my-overrides';
 ```
 
-```Sass
+```sass
 /*/settings/_my-overrides.scss*/
 $nb-breakpoints(
   sm: 800px,
@@ -377,7 +419,7 @@ The above code will override the default `$nb-breakpoints` map with your own.
 
 ## Breakpoints
 The breakpoints map shown above (`$nb-breakpoints`) contains all of the breakpoints used in Nebula, you can add remove and edit the breakpoints in the map.  Nebula CSS features such as the lists, section, grid gutters, grid widths, push, flush, hard and soft utilities are all auto generate the CSS based on `$nb-breakpoints`.  The keys used in the map correlate directly to classnames generated.  For example:
-```Sass
+```sass
 $nb-breakpoints: (
     sm: 400px,
     md: 800px,
@@ -406,7 +448,7 @@ $nb-list-spacing: (
 ) !default;
 ```
 The following CSS classnames would be generated:
-```Sass
+```sass
 .o-bare-list {}
 .o-bare-list--spaced-md {}
 .o-bare-list--spaced-md\@sm {}
@@ -418,10 +460,10 @@ The following CSS classnames would be generated:
 .o-bare-list--spaced-lg\@myKey {}
 ```
 
-As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.  
+As we can see in these examples the `@` symbol denotes that this class applies to a particular breakpoint, the chars after should map directly to a key in `$nb-breakpoints`.
 Also note that the `@` symbol here is escaped, this is because symbols like `@` are not strictly valid CSS selectors so they must be escaped.  However you don't need to do this when defining your classnames in your HTML.
 
-Nebula CSS also provides you with a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a single string argument.  The string should match one of the maps in `nb-breakpoints`.  e.g.
+Nebula CSS also provides you with a mixin that can be use to interface with the defined breakpoints: `nb-respond-to()`  This mixin accepts a string argument.  The string should match one of the maps in `nb-breakpoints`.  e.g.
 ```sass
 .o-my-obj {
   @include nb-respond-to('md') {
@@ -438,9 +480,12 @@ Being mobile first the above CSS will respond to viewports larger than the `md` 
 }
 ```
 The above CSS responding to viewports smaller than the `md` breakpoint.
+
+`nb-respond-to` also accepts an optional second argument if you wish to create a second breakpoints map that you don't wish the grid, and other utilities to map over - something more component specific.  By default this parameter points to `$nb-breakpoints`.
+
 ## Grid
 
-[Demo](http://rbrtsmith.com/nebula-css/demo/#grid)
+[Demo](http://rbrtsmith.com/nebula-css/#grid)
 
 The grid system employed in Nebula CSS uses fractions rather than columns yielding increased flexibility.  Instead of many other popular grid systems Nebula CSS uses inline-block as opposed to floats; this results in many benefits.
 
@@ -527,32 +572,38 @@ Varying guttering depending on the breakpoint
 
 There are various BEM modifiers that you can add to the grid as shown below:
 
-* Matrix (Vertical guttering that matches horizontal) [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-matrix)
+* Matrix (Vertical guttering that matches horizontal)
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-matrix)
 
     ```html
     <div class="o-grid o-grid--gutter-sm o-grid--matrix" />
     ```
-* Equal height items [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-equal-height)
+* Equal height items
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-equal-height)
 
     ```html
     <div class="o-grid o-grid--equal-height" />
     ```
-* Reverse item order [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-reverse)
+* Reverse item order
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-reverse)
 
     ```html
     <div class="o-grid o-grid--reverse" />
     ```
-* Vertically centered items [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-vertically-centered)
+* Vertically centered items
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-vertically-centered)
 
     ```html
     <div class="o-grid o-grid--center" />
     ```
-* Bottom aligned items [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-bottom-aligned)
+* Bottom aligned items
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-bottom-aligned)
 
     ```html
     <div class="o-grid o-grid--bottom" />
   ```
-* Horizontally centered items [Demo](http://rbrtsmith.com/nebula-css/demo/#grid-horizontally-aligned)
+* Horizontally centered items
+  [Demo](http://rbrtsmith.com/nebula-css/#grid-horizontally-aligned)
 
     ```html
     <div class="o-grid u-text-center" />
@@ -560,9 +611,9 @@ There are various BEM modifiers that you can add to the grid as shown below:
 
 ## Flag
 
-[Demo](http://rbrtsmith.com/nebula-css/demo/#flag)
-
 One of most underrated CSS abstractions originally thought up by [Harry Roberts](https://twitter.com/csswizardry) is the flag object.  It allows you to mix up fixed width components with fluid ones, is infinitely composable can be nested inside of the grid, or a grid nested inside of the fluid component it's incredibly versatile.  Oh and it also allows you to vertically align the contents to boot.
+
+[Demo](http://rbrtsmith.com/nebula-css/#flag)
 
 ```html
 <div class="o-flag">
@@ -576,7 +627,8 @@ One of most underrated CSS abstractions originally thought up by [Harry Roberts]
 ```
 
 ## Site-wrap
-A simple max-width centered container to wrap your content. You can see it applied throughout the demo page. The `--padding` modifier adds horizontal padding to the container.
+A simple max-width centred container to wrap your content. You can see it applied throughout the demo page. The `--padding` modifier adds horizontal padding to the container.
+[demo](http://rbrtsmith.com/nebula-css/#site-wrap)
 
 ```html
 <div class="o-site-wrap o-site-wrap--padding">
@@ -584,19 +636,33 @@ A simple max-width centered container to wrap your content. You can see it appli
 </div>
 ```
 
-## Lists
+## Section
+Adds padding top & bottom.  The `md` suffix in this example maps onto a corresponding key on the `$nb-section-spacing` map that denotes the spacing amount.
+[demo](http://rbrtsmith.com/nebula-css/#section)
 
+Typically used to space sections and sub-sections of content.
+
+```html
+<div class="o-section-md">
+  Main content.
+</div>
+```
+
+## Lists
 Nebula CSS comes with three types of list: Bare-list, Inline-list and Matrix-list.
+[demo](http://rbrtsmith.com/nebula-css/#lists)
 
 ### Bare-list
-Strips a list of all default list styling. [Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list)
+Strips a list of all default list styling.
+[Demo](http://rbrtsmith.com/nebula-css/#bare-list)
 ```html
 <ul class="o-bare-list">
   <li>item</li>
   <li>item</li>
 </ul>
 ```
-Spaced [Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list-spaced)
+Spaced
+[Demo](http://rbrtsmith.com/nebula-css/#bare-list-spaced)
 ```html
 <ul class="o-bare-list o-bare-list--spaced-md">
   <li class="o-bare-list__item">item</li>
@@ -604,7 +670,8 @@ Spaced [Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list-spaced)
 </ul>
 ```
 
-Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list-spaced-by-breakpoint)
+Spaced by breakpoint
+[Demo](http://rbrtsmith.com/nebula-css/#bare-list-spaced-by-breakpoint)
 ```html
 <ul class="o-bare-list o-bare-list--spaced-md@sm">
   <li class="o-bare-list__item">item</li>
@@ -613,22 +680,24 @@ Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#bare-list-spac
 ```
 
 ## Inline list
-Exactly like the bare list but the items are rendered horizontally. [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list)
+Exactly like the bare list but the items are rendered horizontally.
+[Demo](http://rbrtsmith.com/nebula-css/#inline-list)
 ```html
 <ul class="o-inline-list">
   <li>item</li>
   <li>item</li>
 </ul>
 ```
-Spaced [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list-spaced)
 ```html
+Spaced [Demo](http://rbrtsmith.com/nebula-css/#inline-list-spaced)
 <ul class="o-inline-list o-inline-list--spaced-md">
   <li class="o-inline-list__item">item</li>
   <li class="o-inline-list__item">item</li>
 </ul>
 ```
 
-Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list-spaced-by-breakpoint)
+Spaced by breakpoint
+[Demo](http://rbrtsmith.com/nebula-css/#inline-list-spaced-by-breakpoint)
 ```html
 <ul class="o-inline-list o-inline-list--spaced-md@sm">
   <li class="o-inline-list__item">item</li>
@@ -638,6 +707,7 @@ Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#inline-list-sp
 
 ## Matrix list
 Exactly like the inline list but the items vertical spacing matches the horizontal.
+[Demo](http://rbrtsmith.com/nebula-css/#matrix-list)
 
 Spaced
 ```html
@@ -647,20 +717,42 @@ Spaced
 </ul>
 ```
 
-Spaced by breakpoint [Demo](http://rbrtsmith.com/nebula-css/demo/#matrix-list)
+Spaced by breakpoint
 ```html
 <ul class="o-matrix-list o-matrix-list--spaced-md@sm">
   <li class="o-matrix-list__item">item</li>
   <li class="o-matrix-list__item">item</li>
 </ul>
 ```
-##utilities
 
+## Uniformed list
+Throws the list items into a horizontal alignment, each having a uniformed width.
+[Demo](http://rbrtsmith.com/nebula-css/#uniformed-list)
+
+```html
+<ul class="o-uniformed-list">
+  <li class="o-uniformed-list__item">item</li>
+  <li class="o-uniformed-list__item">item</li>
+</ul>
+```
+
+Uniformed by breakpoint.
+```html
+<ul class="o-uniformed-list@lg">
+  <li class="o-uniformed-list__item">item</li>
+  <li class="o-uniformed-list__item">item</li>
+</ul>
+```
+
+## Utilities
 Form the Utilities Layer in ITCSS, each a single responsibility class.  They are intended to be used as overrides.
+[Demo]((http://rbrtsmith.com/nebula-css/#utilities))
 
 ### Push
+Adds margins.
+[Demo]((http://rbrtsmith.com/nebula-css/#push))
 
-Adds margins, Nebula CSS encourages [single direction margin declarations](http://csswizardry.com/2012/06/single-direction-margin-declarations/) to eliminate confusion around collapsing borders
+Nebula CSS encourages [single direction margin declarations](http://csswizardry.com/2012/06/single-direction-margin-declarations/) to eliminate confusion around collapsing borders
 
 ```html
 <div class="u-push-left-md"></div>
@@ -680,6 +772,8 @@ Removes margins
 
 ### Soft
 Adds padding
+[Demo]((http://rbrtsmith.com/nebula-css/#soft))
+
 ```html
 <div class="u-soft-md"></div>
 <div class="u-soft-top-md"></div>
@@ -702,6 +796,7 @@ Removes padding
 
 ### Text-align
 Adds text-alignment.
+[Demo]((http://rbrtsmith.com/nebula-css/#text-align))
 ```html
 <div class="u-text-left"></div>
 <div class="u-text-center"></div>
@@ -709,8 +804,9 @@ Adds text-alignment.
 ```
 
 ### Hidden
-
 Hides elements, or visually hides (Still accessible.)
+[Demo]((http://rbrtsmith.com/nebula-css/#hidden))
+
 ```html
 <div class="u-hidden"></div>
 <div class="u-visually-hidden"></div>

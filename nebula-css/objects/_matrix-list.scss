@@ -1,5 +1,5 @@
 .#{$nb-namespace}o-matrix-list {
-  list-style: none;
+  @include nb-bare-list;
 }
 
 .#{$nb-namespace}o-matrix-list__item {

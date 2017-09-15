@@ -4,24 +4,24 @@
 
   @if $action == 'push' {
     $property: 'margin';
-    $directions: 'bottom', 'left';
+    $directions: '-bottom', '-left';
   } @else {
     $property: 'padding';
-    $directions: 'top', 'right', 'bottom', 'left';
+    $directions: '-top', '-right', '-bottom', '-left', '';
   }
 
   @each $key, $value in $sizes {
     @each $direction in $directions {
-      .#{$nb-namespace}u-#{$action}-#{$direction}-#{$key} {
-        #{$property}-#{$direction}: $value !important;
+      .#{$nb-namespace}u-#{$action}#{$direction}-#{$key} {
+        #{$property}#{$direction}: $value !important;
       }
     }
 
     @each $bp-key, $bp-value in $nb-breakpoints {
       @include nb-respond-to(#{$bp-key}) {
         @each $direction in $directions {
-          .#{$nb-namespace}u-#{$action}-#{$direction}-#{$key}\@#{$bp-key} {
-            #{$property}-#{$direction}: $value !important;
+          .#{$nb-namespace}u-#{$action}#{$direction}-#{$key}#{$nb-breakpoint-class}#{$bp-key} {
+            #{$property}#{$direction}: $value !important;
           }
         }
       }
@@ -38,26 +38,38 @@
     $property: 'padding';
   }
 
-  $directions: 'top', 'right', 'bottom', 'left';
+  $directions: '-top', '-right', '-bottom', '-left';
   .#{$nb-namespace}u-#{$action} {
     #{$property}: 0 !important;
   }
 
   @each $direction in $directions {
-    .#{$nb-namespace}u-#{$action}-#{$direction} {
-      #{$property}-#{$direction}: 0 !important;
+    .#{$nb-namespace}u-#{$action}#{$direction} {
+      #{$property}#{$direction}: 0 !important;
     }
   }
 
   @each $key, $value in $nb-breakpoints {
     @include nb-respond-to(#{$key}) {
-      .#{$nb-namespace}u-#{$action}\@#{$key} {
+      .#{$nb-namespace}u-#{$action}#{$nb-breakpoint-class}#{$key} {
         #{$property}: 0 !important;
       }
 
       @each $direction in $directions {
-        .#{$nb-namespace}u-#{$action}-#{$direction}\@#{$key} {
-          #{$property}-#{$direction}: 0 !important;
+        .#{$nb-namespace}u-#{$action}#{$direction}#{$nb-breakpoint-class}#{$key} {
+          #{$property}#{$direction}: 0 !important;
+        }
+      }
+    }
+    $max-key: 'max-' + $key;
+    @include nb-respond-to(#{$max-key}) {
+      .#{$nb-namespace}u-#{$action}#{$nb-breakpoint-class}#{$max-key} {
+        #{$property}: 0 !important;
+      }
+
+      @each $direction in $directions {
+        .#{$nb-namespace}u-#{$action}#{$direction}#{$nb-breakpoint-class}#{$max-key} {
+          #{$property}#{$direction}: 0 !important;
         }
       }
     }

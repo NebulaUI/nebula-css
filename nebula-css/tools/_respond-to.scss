@@ -1,6 +1,6 @@
-@mixin nb-respond-to($bp) {
-  @if map-has-key($nb-breakpoints, $bp) {
-    @media (min-width: #{map-get($nb-breakpoints, $bp)}) {
+@mixin nb-respond-to($bp, $breakpoints: $nb-breakpoints) {
+  @if map-has-key($breakpoints, $bp) {
+    @media (min-width: #{map-get($breakpoints, $bp)}) {
       @content;
     }
   }
@@ -9,8 +9,8 @@
     @if (str-index($bp, 'max-')) {
       $max-bp: nb-str-replace($bp, 'max-', '');
 
-      @if map-has-key($nb-breakpoints, $max-bp) {
-        @media (max-width: #{(map-get($nb-breakpoints, $max-bp)-1)}) {
+      @if map-has-key($breakpoints, $max-bp) {
+        @media (max-width: #{(map-get($breakpoints, $max-bp)-1)}) {
           @content;
         }
       }
@@ -19,8 +19,8 @@
     @elseif (str-index($bp, 'min-')) {
       $min-bp: nb-str-replace($bp, 'min-', '');
 
-      @if map-has-key($nb-breakpoints, $min-bp) {
-        @media (min-width: #{map-get($nb-breakpoints, $min-bp)}) {
+      @if map-has-key($breakpoints, $min-bp) {
+        @media (min-width: #{map-get($breakpoints, $min-bp)}) {
           @content;
         }
       }
@@ -28,7 +28,7 @@
 
     @else {
       @warn 'Unfortunately, no value could be retrieved from `#{$bp}`. '
-        + 'Please make sure it is defined in `$nb-breakpoints` map.';
+        + 'Please make sure it is defined in `$breakpoints` map.';
     }
   }
 }

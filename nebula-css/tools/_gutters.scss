@@ -20,14 +20,22 @@
     padding-#{$side}: $size-value;
   }
 
+  .#{$nb-namespace}o-grid__item > #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key} {
+    width: calc(100% + #{$size-value});
+  }
+
   @each $bp-key, $bp-value in $nb-breakpoints {
     @include nb-respond-to($bp-key) {
-      #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} {
+      #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}#{$nb-breakpoint-class}#{$bp-key} {
         margin-#{$side}: -$size-value;
       }
 
-      #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}\@#{$bp-key} > .#{$nb-namespace}o-grid__item {
+      #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}#{$nb-breakpoint-class}#{$bp-key} > .#{$nb-namespace}o-grid__item {
         padding-#{$side}: $size-value;
+      }
+
+      .#{$nb-namespace}o-grid__item > #{$matrix-class}.#{$nb-namespace}o-grid--gutter#{$size-key}#{$nb-breakpoint-class}#{$bp-key} {
+        width: calc(100% + #{$size-value});
       }
     }
   }

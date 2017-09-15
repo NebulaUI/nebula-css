@@ -1,7 +1,12 @@
 @mixin nb-hidden() {
   @each $bp-key, $bp-value in $nb-breakpoints {
     @include nb-respond-to($bp-key) {
-      .#{$nb-namespace}u-hidden\@#{$bp-key} {
+      .#{$nb-namespace}u-hidden#{$nb-breakpoint-class}#{$bp-key} {
+        display: none !important;
+      }
+    }
+    @include nb-respond-to('max-#{$bp-key}') {
+      .#{$nb-namespace}u-hidden#{$nb-breakpoint-class}max-#{$bp-key} {
         display: none !important;
       }
     }

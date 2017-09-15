@@ -1,17 +1,25 @@
 $nb-namespace: '' !default;
-$nb-site-wrap-width: 60rem !default;
-$nb-spacing-unit: 1rem !default;
+$nb-site-wrap-width: 70rem !default;
 $nb-base-font-size: 1rem !default;
 
+$nb-spacing-unit: 1rem !default;
+$nb-spacing-unit-half: ($nb-spacing-unit / 2) !default;
+$nb-spacing-unit-double: ($nb-spacing-unit * 2) !default;
+
+$nb-breakpoint-class: '\\@' !default;
 $nb-breakpoints: (
+  xs: 480px,
   sm: 720px,
   md: 960px,
   lg: 1200px
 ) !default;
 
 $nb-root-sizing: (
-  default: 90%,
-  sm: 100%
+  default: 75%,
+  xs: 80%,
+  sm: 85%,
+  md: 90%,
+  lg: 100%
 ) !default;
 
 $nb-list-spacing: (
@@ -19,14 +27,19 @@ $nb-list-spacing: (
 ) !default;
 
 $nb-section-spacing: (
-  md: ($nb-spacing-unit * 2)
+  sm: $nb-spacing-unit,
+  md: $nb-spacing-unit-double
+) !default;
+
+$nb-flag-gutter-sizes: (
+  md: $nb-spacing-unit
 ) !default;
 
 $nb-use-grid-zero-font-size: true !default;
 $nb-grid-gutter-sizes: (
-  sm: ($nb-spacing-unit / 2),
+  sm: $nb-spacing-unit-half,
   md: $nb-spacing-unit,
-  lg: ($nb-spacing-unit * 2)
+  lg: $nb-spacing-unit-double
 ) !default;
 
 $nb-use-width-offsets: true !default;

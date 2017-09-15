@@ -1,6 +1,5 @@
 .#{$nb-namespace}o-bare-list {
-  margin: 0;
-  list-style: none;
+  @include nb-bare-list;
 }
 
 @include nb-list-spacing('bare-list', 'bottom');
