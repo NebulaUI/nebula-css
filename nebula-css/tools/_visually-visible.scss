@@ -1,0 +1,17 @@
+@mixin nb-visually-visible($important: false) {
+  $important-str: '';
+
+  @if ($important) {
+    $important-str: '!important';
+  }
+
+  position: static #{$important-str};
+  overflow: initial #{$important-str};
+  width: initial #{$important-str};
+  height: initial #{$important-str};
+  padding: initial #{$important-str};
+  border: initial;
+  white-space: initial #{$important-str};
+	clip: auto #{$important-str};
+	clip-path: initial #{$important-str};
+}
