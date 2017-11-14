@@ -1,7 +1,7 @@
 # Nebula CSS ![Travis-ci](https://travis-ci.org/NebulaUI/nebula-css.svg?branch=master) [![npm version](https://badge.fury.io/js/nebula-css.svg)](https://badge.fury.io/js/nebula-css)
 
 * 6kb (gzip) with default settings.
-* [View the demo](http://rbrtsmith.com/nebula-css/)
+* [View the demo](http://rbrtsmith.com/nebula)
 * `yarn add nebula-css` / [Get started](#get-started)
 * Check out [Nebula-CSS React Starter](https://github.com/rbrtsmith/nebula-css-react-starter) to see how this can be integrated into a ReactJS project.
 
