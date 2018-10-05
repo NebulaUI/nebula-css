@@ -408,7 +408,7 @@ Thankfully Nebula CSS settings all have the `!default` flag attached which means
 
 ```sass
 /*/settings/_my-overrides.scss*/
-$nb-breakpoints(
+$nb-breakpoints: (
   sm: 800px,
   md: 900px,
   lg: 1000px,
